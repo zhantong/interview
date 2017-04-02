@@ -590,6 +590,123 @@ Map里实现了Serializable接口，而在Bundle实现了Parcelable的接口。
 
   - 帧动画（Frame animation）：帧动画是一系列图片按照一定的顺序展示的过程，和放电影的机制相似，它的原理是在一定的时间段内切换多张有细微差异的图片从而达到动画的效果。由于是一帧一帧加载，所以需要较多的图片。从而增大 APK 的大小，不过 Frame 动画可以实现一些比较难的效果，例如：等待的环形进度。
 
+## ANR和FC的区别
+
+- ANR（Application Not Responding）：主线程阻塞。
+- FC（Forced Close）：内存耗尽，堆栈溢出，运行时错误等。
+
+## Android中的菜单
+
+### 选项菜单（Options menu）
+
+在选项菜单中，您应当包括与当前Activity上下文相关的操作和其他选项，如"搜索"、"撰写电子邮件"和"设置"。
+
+- 要为Activity指定选项菜单，请重写`onCreateOptionsMenu()`。
+- 此外，您还可以使用`add()`添加菜单项，并使用`findItem()`检索项目，以便使用MenuItem API修改其属性。
+- 系统将在启动Activity时调用`onCreateOptionsMenu()`，以便向应用栏显示项目。
+- 用户从选项菜单中选择项目时，系统将调用Activity的`onOptionsItemSelected()`方法。此方法将传递所选的MenuItem。您可以通过调用`getItemId()`方法来识别项目，该方法将返回菜单项的唯一ID。
+- 系统调用`onCreateOptionsMenu()`后，将保留您填充的Menu实例。除非菜单由于某些原因而失效，否则不会再次调用`onCreateOptionsMenu()`。
+- 如需根据在Activity生命周期中发生的事件修改选项菜单，则可通过`onPrepareOptionsMenu()`方法执行此操作。此方法向您传递Menu对象（因为该对象目前存在），以便您能够对其进行修改，如添加、移除或禁用项目。
+- 当菜单项显示在应用栏中时，选项菜单被视为始终处于打开状态。 发生事件时，如果您要执行菜单更新，则必须调用`invalidateOptionsMenu()`来请求系统调用`onPrepareOptionsMenu()`。
+
+### 上下文菜单（Contextual Menus）
+
+#### 浮动上下文菜单（floating context menu）
+
+用户长按（按住）一个声明支持上下文菜单的视图时，菜单显示为菜单项的浮动列表（类似于对话框）。
+
+- 通过调用`registerForContextMenu()`，注册应与上下文菜单关联的View并将其传递给View。
+- 在Activity或Fragment中实现`onCreateContextMenu()`方法。
+- 实现`onContextItemSelected()`。
+
+  #### 上下文操作模式（contextual action mode）
+
+  上下文操作模式是 ActionMode 的一种系统实现，它将用户交互的重点转到执行上下文操作上。用户通过选择项目启用此模式时，屏幕顶部将出现一个"上下文操作栏"，显示用户可对当前所选项执行的操作。 启用此模式后，用户可以选择多个项目（若您允许）、取消选择项目以及继续在 Activity 内导航（在您允许的最大范围内）。
+
+- 实现ActionMode.Callback接口。在其回调方法中，您既可以为上下文操作栏指定操作，又可以响应操作项目的点击事件，还可以处理操作模式的其他生命周期事件。
+
+- 当需要显示操作栏时（例如，用户长按视图），请调用`startActionMode()`。
+
+### 弹出菜单（Popup Menu）
+
+PopupMenu 是锚定到 View 的模态菜单。如果空间足够，它将显示在定位视图下方，否则显示在其上方。
+
+- 实例化PopupMenu及其构造函数，该函数将提取当前应用的Context以及菜单应锚定到的View。
+- 使用MenuInflater将菜单资源扩充到`PopupMenu.getMenu()`返回的Menu对象中。
+- 调用`PopupMenu.show()`。
+
+## BaseAdapter中需要重载的方法
+
+最基本的：
+
+- `int getCount ()`：How many items are in the data set represented by this Adapter.
+- `Object getItem (int position)`：Get the data item associated with the specified position in the data set.
+- `long getItemId (int position)`：Get the row id associated with the specified position in the list.
+- `View getView (int position, View convertView, ViewGroup parent)`：Get a View that displays the data at the specified position in the data set.
+
+如果有多种View：
+
+- `int getItemViewType (int position)`：Get the type of View that will be created by getView(int, View, ViewGroup) for the specified item.
+- `int getViewTypeCount ()`：Returns the number of types of Views that will be created by getView(int, View, ViewGroup).
+
+## Android数字签名要点
+
+- 所有的应用程序都必须有数字证书，Android系统不会安装一个没有数字证书的应用程序。
+- Android程序包使用的数字证书可以是自签名的，不需要一个权威的数字证书机构签名认证。
+- 如果要正式发布一个Android应用，必须使用一个合适的私钥生成的数字证书来给程序签名，而不能使调试证书来发布。
+- 数字证书都是有有效期的，Android只是在应用程序安装的时候才会检查证书的有效期。如果程序已经安装在系统中，即使证书过期也不会影响程序的正常功能。
+
+## 使用相同数字签名的原因
+
+- 应用升级：当系统安装应用的更新时，它会比较新版本和现有版本中的证书。如果证书匹配，则系统允许更新。如果您使用不同的证书签署新版本，则必须为应用分配另一个软件包名称----在此情况下，用户将新版本作为全新应用安装。
+- 应用模块化：Android允许通过相同证书签署的多个APK在同一个进程中运行（如果应用请求这样），以便系统将它们视为单个应用。通过此方式，您可以在模块中部署您的应用，且用户可以独立更新每个模块。
+- 通过权限共享代码/数据：Android提供基于签名的权限执行，以便应用可以将功能展示给使用指定证书签署的另一应用。通过使用同一个证书签署多个APK并使用基于签名的权限检查功能，您的应用可采用安全的方式共享代码和数据。
+
+## Theme和Sytle
+
+### Style
+
+样式是指为View或窗口指定外观和格式的属性集合。样式可以指定高度、填充、字体颜色、字号、背景色等许多属性。 样式是在与指定布局的XML不同的XML资源中进行定义。
+
+- 要创建一组样式，请在您的项目的`res/values/`目录中保存一个XML文件。
+- 该XML文件的根节点必须是`<resources>`。
+- 对于您想创建的每个样式，向该文件添加一个`<style>`元素，该元素带有对样式进行唯一标识的`name`属性（该属性为必需属性）。
+- 然后为该样式的每个属性添加一个`<item>`元素，该元素带有声明样式属性以及属性值的`name`（该属性为必需属性）。
+- 根据样式属性，`<item>`的值可以是关键字字符串、十六进制颜色值、对另一资源类型的引用或其他值。
+- 您可以通过`<style>`元素中的`parent`属性指定应作为您的样式所继承属性来源的样式。
+- 当您对布局中的单个View应用样式时，该样式定义的属性只应用于该View。如果对ViewGroup应用样式，子View元素将不会继承样式属性----只有被您直接应用样式的元素才会应用其属性。
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CodeFont" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#00FF00</item>
+        <item name="android:typeface">monospace</item>
+    </style>
+</resources>
+```
+
+```xml
+<TextView
+    style="@style/CodeFont"
+    android:text="@string/hello" />
+```
+
+### Theme
+
+主题是指对整个Activity或应用而不是对单个View（如上例所示）应用的样式。以主题形式应用样式时，Activity或应用中的每个视图都将应用其支持的每个样式属性。例如，您可以Activity主题形式应用同一CodeFont样式，之后该Activity内的所有文本都将具有绿色固定宽度字体。
+
+- 在XML中定义您想用作Activity或应用主题的样式与定义视图样式的方法完全相同。
+- Activity或应用内的每个View都将应用其支持的每个属性。例如，如果您对某个Activity应用前面示例中的CodeFont样式，则所有支持这些文本样式属性的View元素也会应用这些属性。任何不支持这些属性的View都会忽略这些属性。如果某个View仅支持部分属性，将只应用这些属性。
+
+```xml
+<application android:theme="@style/CustomTheme">
+
+<activity android:theme="@android:style/Theme.Dialog">
+```
+
 [activity_fragment_lifecycle]: images/activity_fragment_lifecycle.png
 [activity_lifecycle]: images/activity_lifecycle.png
 [android draw view chain]: images/android_draw_view_chain.png
