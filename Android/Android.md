@@ -707,6 +707,37 @@ PopupMenu 是锚定到 View 的模态菜单。如果空间足够，它将显示�
 <activity android:theme="@android:style/Theme.Dialog">
 ```
 
+## Toast的时长设置
+
+Toast的显示时长仅有两种：`LENGTH_SHORT`和`LENGTH_LONG`。
+
+`Toast makeText (Context context, CharSequence text, int duration)`：duration `int`: How long to display the message. Either `LENGTH_SHORT` or `LENGTH_LONG`。
+
+## 触发ANR的情况
+
+- KeyDispatchTimeout(5 seconds)：按键或触摸事件在特定时间内无响应；
+- BroadcastTimeout(10 seconds)：BroadcastReceiver在特定时间内无法处理完成；
+- ServiceTimeout(20 seconds)：Service在特定的时间内无法处理完成
+
+## ServiceConnection的`onServiceConnected()`触发条件
+
+- `bindService()`方法执行成功；
+- `onBind()`方法返回非空IBinder对象。
+
+## Android虚拟设备不支持的功能
+
+- WLAN
+- 蓝牙
+- NFC
+- SD 卡插入/弹出
+- 连接到设备的耳机
+- USB
+
+## RemoteView的应用
+
+- AppWidget
+- Notification
+
 [activity_fragment_lifecycle]: images/activity_fragment_lifecycle.png
 [activity_lifecycle]: images/activity_lifecycle.png
 [android draw view chain]: images/android_draw_view_chain.png
