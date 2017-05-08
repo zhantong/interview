@@ -676,3 +676,9 @@ JAVA反射机制是在运行时，对于任意一个类，都能够知道这个�
 - 软引用（SoftReference）：用来描述一些还有用但非必须的对象。对于软引用关联着的对象，在系统将要发生内存溢出异常时，将会把这些对象列入回收范围之中进行第二次回收。如果这次回收还没有足够的内存，才会抛出内存溢出异常。在JDK 1.2之后，提供了SoftReference类来实习软引用。
 - 弱引用（WeakReference）：也是用来描述非必须对象的，但是它的强度比软引用更弱一些，被弱引用关联的对象只能生存到了下一次GC发生之前。当GC工作时，无论当时内存是否足够，都会回收只被弱引用关联的对象。在JDK 1.2之后，提供了WeakReference类来实现弱引用。
 - 虚引用（PhantomReference）：虚引用也称幽灵引用或者幻影引用，它是最弱的一种引用关系。一个对象是否有虚引用的存在，完全不会对其生存时间构成影响，也无法通过虚引用来取得一个对象实例。为一个对象设置虚引用的唯一目的就是在这个对象被GC回收是收到一个系统通知。在JDK 1.2之后提供了PhantomReference类来实现虚引用。 �在JDK 1.2之后提供了PhantomReference类来实现虚引用。
+
+## String, StringBuffer, SrtingBuilder的区别
+
+- String类对象为不可变对象，一旦你修改了String对象的值，隐形重新创建了一个新的对象，释放原String对象，StringBuffer、StringBuilder类对象为可修改对象，可以通过append()方法来修改值。
+- String类对象的性能元不如StringBuffer类和StringBuilder类。
+- StringBuffer是线程安全的可变字符序列，而StringBuilder是线程不安全的可变字符序列，但是在单线程中使用效率很高。
