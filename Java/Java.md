@@ -676,3 +676,67 @@ JAVA反射机制是在运行时，对于任意一个类，都能够知道这个�
 - 软引用（SoftReference）：用来描述一些还有用但非必须的对象。对于软引用关联着的对象，在系统将要发生内存溢出异常时，将会把这些对象列入回收范围之中进行第二次回收。如果这次回收还没有足够的内存，才会抛出内存溢出异常。在JDK 1.2之后，提供了SoftReference类来实习软引用。
 - 弱引用（WeakReference）：也是用来描述非必须对象的，但是它的强度比软引用更弱一些，被弱引用关联的对象只能生存到了下一次GC发生之前。当GC工作时，无论当时内存是否足够，都会回收只被弱引用关联的对象。在JDK 1.2之后，提供了WeakReference类来实现弱引用。
 - 虚引用（PhantomReference）：虚引用也称幽灵引用或者幻影引用，它是最弱的一种引用关系。一个对象是否有虚引用的存在，完全不会对其生存时间构成影响，也无法通过虚引用来取得一个对象实例。为一个对象设置虚引用的唯一目的就是在这个对象被GC回收是收到一个系统通知。在JDK 1.2之后提供了PhantomReference类来实现虚引用。 �在JDK 1.2之后提供了PhantomReference类来实现虚引用。
+
+## ==与`equals()`的区别？
+
+- ==判断两个对象的地址是否相等（对于基本类型判断值是否相等）。
+- `equals()`会寻找自身或最近的父类实现，调用其`equals()`。
+- 若无任何父类实现`equals()`，则会调用Object的`equals()`，其与==相同。
+
+## `equals()`与`hashCode()`的区别？
+
+- `equals()`仅在显示调用`equals()`时使用，而`hashCode()`在如散列表中会自动调用，以判断是否为同一对象。
+- 重写`equals()`时必须重写`hashCode()`，否则会造成不可预料的后果。
+
+## Java集合框架示意图
+
+### 集合框架概览
+
+Collection class | Allow duplicate | Ordered | Sorted | Thread-safe
+:--------------: | :-------------: | :-----: | :----: | :---------:
+   ArrayList     |       Yes       |   Yes   |   No   |     No
+   LinkedList    |       Yes       |   Yes   |   No   |     No
+     Vector      |       Yes       |   Yes   |   No   |     Yes
+    HashSet      |       No        |   No    |   No   |     No
+ LinkedHashSet   |       No        |   Yes   |   No   |     No
+    TreeSet      |       No        |   Yes   |  Yes   |     No
+    HashMap      |       No        |   No    |   No   |     No
+ LinkedHashMap   |       No        |   Yes   |   No   |     No
+   Hashtable     |       No        |   No    |   No   |     Yes
+    TreeMap      |       No        |   Yes   |  Yes   |     No
+
+![collections framework overview][collections_framework_overview]
+
+### List
+
+![List API class diagram][list_api_class_diagram]
+
+### Set
+
+![Set API class diagram][set_api_class_diagram]
+
+### Map
+
+![Map API class diagram][map_api_class_diagram]
+
+### Queue
+
+![Queue API class diagram][queue_api_class_diagram]
+
+## Error和Exception的区别
+
+Error类和Exception类的父类都是throwable类，他们的区别是：
+
+- Error类一般是指与虚拟机相关的问题，如系统崩溃，虚拟机错误，内存空间不足，方法调用栈溢等。对于这类错误的导致的应用程序中断，仅靠程序本身无法恢复和和预防，遇到这样的错误，建议让程序终止。
+- Exception类表示程序可以处理的异常，可以捕获且可能恢复。遇到这类异常，应该尽可能处理异常，使程序恢复运行，而不应该随意终止异常。
+
+## 线程的状态转换关系
+
+![Thread Life Cycle][thread_life_cycle]
+
+[collections_framework_overview]: collections_framework_overview.png
+[list_api_class_diagram]: List_API_class_diagram.png
+[map_api_class_diagram]: Map_API_class_diagram.png
+[queue_api_class_diagram]: Queue_API_class_diagram.png
+[set_api_class_diagram]: Set_API_class_diagram.png
+[thread_life_cycle]: thread_life_cycle.png
