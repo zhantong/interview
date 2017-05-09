@@ -826,6 +826,43 @@ volatile重排序规则表：
 
 确保Store1的数据在被Load2和后续的Load指令读取之前对其他处理器可见。StoreLoad屏障可以防止一个后续的load指令 不正确的使用了Store1的数据，而不是另一个处理器在相同内存位置写入一个新数据。
 
+## Java中的BIO，NIO，AIO分别是什么?
+
+### BIO（synchronous Blocking IO，同步阻塞IO）
+
+如Apache，Tomcat。服务器实现模式为一个连接一个线程，即客户端有连接请求时服务器端就需要启动一个线程进行处理，如果这个连接不做任何事情会造成不必要的线程开销，当然可以通过线程池机制改善。
+
+BIO方式适用于连接数目比较小且固定的架构，这种方式对服务器资源要求比较高，并发局限于应用中，JDK1.4以前的唯一选择，但程序直观简单易理解。
+
+### NIO（synchronous Non blocking IO，同步非阻塞IO）
+
+如Nginx，Netty。服务器实现模式为一个请求一个线程，即客户端发送的连接请求都会注册到多路复用器上，多路复用器轮询到连接有I/O请求时才启动一个线程进行处理。
+
+NIO方式适用于连接数目多且连接比较短（轻操作）的架构，比如聊天服务器，并发局限于应用中，编程比较复杂，JDK1.4开始支持。
+
+### AIO（Asynchronous non blocking IO，异步非阻塞IO）
+
+还不是特别成熟。服务器实现模式为一个有效请求一个线程，客户端的I/O请求都是由OS先完成了再通知服务器应用去启动线程进行处理，
+
+AIO方式使用于连接数目多且连接比较长（重操作）的架构，比如相册服务器，充分调用OS参与并发操作，编程比较复杂，JDK7开始支持。
+
+## Serializable接口和序列化与反序列化
+
+- Serializable接口没有任何方法
+- 一个类只要实现了Serializable接口，即可被序列化
+- 实现Serializable接口的类，在序列化时不能有不可被序列化的成员变量
+- 通过ObjectOutputStream和ObjectInputStream对对象进行序列化及反序列化
+- 虚拟机是否允许反序列化，不仅取决于类路径和功能代码是否一致，一个非常重要的一点是两个类的序列化 ID 是否一致（即`private static final long serialVersionUID`）
+- transient关键字的作用是控制变量的序列化，在变量声明前加上该关键字，可以阻止该变量被序列化到文件中；在被反序列化后，transient变量的值被设为初始值。
+- 在序列化过程中，如果被序列化的类中定义了`writeObject()`和`readObject()`方法，虚拟机就会试图调用对象类里的`writeObject()`和`readObject()`方法，进行用户自定义的序列化和反序列化。如果没有这样的方法，则默认调用是ObjectOutputStream的`defaultWriteObject()`方法以及ObjectInputStream的`defaultReadObject()`方法。
+
+序列化算法一般会按步骤做如下事情：
+
+- 将对象实例相关的类元数据输出。
+- 递归地输出类的超类描述直到不再有超类。
+- 类元数据完了以后，开始从最顶层的超类开始输出对象实例的实际数据值。
+- 从上至下递归输出实例的数据。
+
 [cache_consistency]: cache_consistency.jpeg
 [collections_framework_overview]: collections_framework_overview.png
 [list_api_class_diagram]: List_API_class_diagram.png
