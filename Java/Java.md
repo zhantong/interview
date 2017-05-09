@@ -78,6 +78,12 @@ Overload是重载的意思，Override是覆盖的意思，也就是重写。
 
 构造器Constructor不能被继承，因此不能重写Override，但可以被重载Overload。
 
+## Java抽象类（abstract class）和类（class）的区别？
+
+- 抽象类不能实例化；
+- 抽象类允许有abstract方法；
+- 抽象类的非抽象子类必须实现abstract方法。
+
 ## java接口与抽象类如何合作?
 
 - 接口可以继承接口。抽象类可以实现（implements）接口，抽象类是可继承实体类，但前提是实体类必须有明确的构造函数。
@@ -734,6 +740,93 @@ Error类和Exception类的父类都是throwable类，他们的区别是：
 
 ![Thread Life Cycle][thread_life_cycle]
 
+## 用户线程（User Thread）与守护线程（Daemon Thread）
+
+- JVM中存在两种线程：用户线程和守护线程
+- 当线程中只剩下守护线程时JVM就会退出，反之还有任意一个用户线程在，JVM都不会退出。
+- `thread.setDaemon(true)`必须在`thread.start()`之前设置，否则会抛出IllegalThreadStateException异常。
+- 在守护线程中产生的线程也是守护线程。
+
+## 如何理解volatile以及Java内存模型？
+
+当程序在运行过程中，会将运算需要的数据从主存复制一份到CPU的高速缓存当中，那么CPU进行计算时就可以直接从它的高速缓存读取数据和向其中写入数据，当运算结束之后，再将高速缓存中的数据刷新到主存当中。由此会出现缓存一致性问题，如下图所示。 ![Cache Consistency][cache_consistency]
+
+以就出现了缓存一致性协议。最出名的就是Intel 的MESI协议，MESI协议保证了每个缓存中使用的共享变量的副本是一致的。它核心的思想是：当CPU写数据时，如果发现操作的变量是共享变量，即在其他CPU中也存在该变量的副本，会发出信号通知其他CPU将该变量的缓存行置为无效状态，因此当其他CPU需要读取这个变量时，发现自己缓存中缓存该变量的缓存行是无效的，那么它就会从内存重新读取。
+
+如在单例模式中使用双重检验加锁的方法就易出现问题
+
+```java
+public class Singleton {
+    private volatile static Singleton instance;
+
+    private Singleton() {}
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+}
+```
+
+因`instance = new Singleton();`并不是一个原子操作，其可以分解为：
+
+1. 为对象分配内存；
+2. 调用对应的构造做对象的初始化操作；
+3. 将引用INSTANCE指向新分配的空间。
+
+在Java内存模型中，在不改变程序运行结果的前提下，为尽可能地提高并行度，允许编译器和处理器对指令进行重排序，虽然重排序过程不会影响到单线程程序的执行，但却会影响到多线程并发执行的正确性。例如此处2依赖于1，3依赖于1。第二步与第三步是独立无依赖的，是可以被优化重排序的。这样在多线程环境下就会出现问题。
+
+由此引入volatile关键字：
+
+- 保证了不同线程对这个变量进行操作时的可见性，即一个线程修改了某个变量的值，这新值对其他线程来说是立即可见的。
+- 禁止进行指令重排序。
+
+volatile重排序规则表：
+
+  是否能重排序   | 后普通读／写 | 后volatile读 | 后volatile写
+:--------: | :----: | :--------: | :--------:
+  先普通读／写   |  Yes   |    Yes     |     No
+先volatile读 |   No   |     No     |     No
+先volatile写 |  Yes   |     No     |     No
+
+为了实现volatile的内存语义，编译器在生成字节码时，会在指令序列中插入内存屏障来禁止特定类型的处理器重排序。对于编译器来说，发现一个最优布置来最小化插入屏障的总数几乎不可能，为此，JMM采取保守策略。下面是基于保守策略的JMM内存屏障插入策略：
+
+- 在每个volatile写操作的前面插入一个StoreStore屏障。
+- 在每个volatile写操作的后面插入一个StoreLoad屏障。
+- 在每个volatile读操作的后面插入一个LoadLoad屏障。
+- 在每个volatile读操作的后面插入一个LoadStore屏障。
+
+**LoadLoad屏障**
+
+序列：Load1, LoadLoad, Load2
+
+确保Load1所要读入的数据能够在被Load2和后续的load指令访问前读入。通常能执行预加载指令或/和支持乱序处理的处理器中需要显式声明Loadload屏障，因为在这些处理器中正在等待的加载指令能够绕过正在等待存储的指令。 而对于总是能保证处理顺序的处理器上，设置该屏障相当于无操作。
+
+**StoreStore屏障**
+
+序列：Store1, StoreStore, Store2
+
+确保Store1的数据在Store2以及后续Store指令操作相关数据之前对其它处理器可见（例如向主存刷新数据）。通常情况下，如果处理器不能保证从写缓冲或/和缓存向其它处理器和主存中按顺序刷新数据，那么它需要使用StoreStore屏障。
+
+**LoadStore屏障**
+
+序列： Load1, LoadStore, Store2
+
+确保Load1的数据在Store2和后续Store指令被刷新之前读取。在等待Store指令可以越过loads指令的乱序处理器上需要使用LoadStore屏障。
+
+**StoreLoad屏障**
+
+序列: Store1, StoreLoad, Load2
+
+确保Store1的数据在被Load2和后续的Load指令读取之前对其他处理器可见。StoreLoad屏障可以防止一个后续的load指令 不正确的使用了Store1的数据，而不是另一个处理器在相同内存位置写入一个新数据。
+
+[cache_consistency]: cache_consistency.jpeg
 [collections_framework_overview]: collections_framework_overview.png
 [list_api_class_diagram]: List_API_class_diagram.png
 [map_api_class_diagram]: Map_API_class_diagram.png
