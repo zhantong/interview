@@ -329,11 +329,11 @@ Android平台的基础是Linux内核。例如，Android Runtime（ART）依靠Li
 
 ## Android事件分发
 
-```
-事件相关方法          | 方法功能 | Activity | ViewGroup | View
-```
-
-:---------------------: | :--: | :------: | :-------: | :--: `dispatchTouchEvent` | 事件分发 | Yes | Yes | Yes `onInterceptTouchEvent` | 事件拦截 | No | Yes | No `onTouchEvent` | 事件消费 | Yes | Yes | Yes
+|          事件相关方法         | 方法功能 | Activity | ViewGroup | View |
+| :---------------------: | :--: | :------: | :-------: | :--: |
+|   `dispatchTouchEvent`  | 事件分发 |    Yes   |    Yes    |  Yes |
+| `onInterceptTouchEvent` | 事件拦截 |    No    |    Yes    |  No  |
+|      `onTouchEvent`     | 事件消费 |    Yes   |    Yes    |  Yes |
 
 ### public boolean dispatchTouchEvent(MotionEvent ev)
 
@@ -739,18 +739,33 @@ Toast的显示时长仅有两种：`LENGTH_SHORT`和`LENGTH_LONG`。
 - Notification
 
 [activity_fragment_lifecycle]: images/activity_fragment_lifecycle.png
+
 [activity_lifecycle]: images/activity_lifecycle.png
+
 [android draw view chain]: images/android_draw_view_chain.png
+
 [android draw view flow]: images/android_draw_view_flow.png
+
 [android layout绘制]: http://vincgao.com/2016/02/android-layout/
+
 [android view事件分发机制源码分析]: https://github.com/Mr-YangCheng/ForAndroidInterview/blob/master/android/Android%20View%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91%E6%9C%BA%E5%88%B6%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md
+
 [android 应用程序启动过程分析]: http://androidzhibinw.github.io/android/app/startup/activity/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/%E5%90%AF%E5%8A%A8/%E5%88%86%E6%9E%90/2015/09/21/android-app-startup-process/
+
 [android_boot_process]: images/android_boot_process.png
+
 [android_platform]: images/android_platform.png
+
 [binder_architecture]: images/binder_architecture.jpg
+
 [fragment_lifecycle]: images/fragment_lifecycle.png
+
 [how do dp, dip, dpi, ppi, pixels and inches relate?]: http://stackoverflow.com/questions/8478882/how-do-dp-dip-dpi-ppi-pixels-and-inches-relate
+
 [service_binding_tree_lifecycle]: images/service_binding_tree_lifecycle.png
+
 [service_lifecycle]: images/service_lifecycle.png
+
 [touch_eventbus]: images/touch_eventbus.gif
+
 [viewdrawflow]: https://github.com/android-cn/android-open-project-analysis/tree/master/tech/viewdrawflow

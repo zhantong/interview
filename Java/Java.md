@@ -667,14 +667,14 @@ JAVA反射机制是在运行时，对于任意一个类，都能够知道这个�
 
 ## 成员变量、局部变量、静态变量的区别
 
- 属性  |  成员变量   |     局部变量      |   静态变量
-:--: | :-----: | :-----------: | :-------:
-定义位置 | 在类中，方法外 | 方法中，或者方法的形式参数 |  在类中，方法外
-初始化值 | 有默认初始化值 | 无，先定义，赋值后才能使用 |  有默认初始化值
-调用方式 |  对象调用   |      ---      | 对象调用，类名调用
-存储位置 |   堆中    |      栈中       |    方法区
-生命周期 | 与对象共存亡  |    与方法共存亡     |   与类共存亡
- 别名  |  实例变量   |      ---      |    类变量
+|  属性  |   成员变量  |      局部变量     |    静态变量   |
+| :--: | :-----: | :-----------: | :-------: |
+| 定义位置 | 在类中，方法外 | 方法中，或者方法的形式参数 |  在类中，方法外  |
+| 初始化值 | 有默认初始化值 | 无，先定义，赋值后才能使用 |  有默认初始化值  |
+| 调用方式 |   对象调用  |      ---      | 对象调用，类名调用 |
+| 存储位置 |    堆中   |       栈中      |    方法区    |
+| 生命周期 |  与对象共存亡 |     与方法共存亡    |   与类共存亡   |
+|  别名  |   实例变量  |      ---      |    类变量    |
 
 ## 谈谈你对StrongReference、WeakReference和SoftReference的认识
 
@@ -698,18 +698,18 @@ JAVA反射机制是在运行时，对于任意一个类，都能够知道这个�
 
 ### 集合框架概览
 
-Collection class | Allow duplicate | Ordered | Sorted | Thread-safe
-:--------------: | :-------------: | :-----: | :----: | :---------:
-   ArrayList     |       Yes       |   Yes   |   No   |     No
-   LinkedList    |       Yes       |   Yes   |   No   |     No
-     Vector      |       Yes       |   Yes   |   No   |     Yes
-    HashSet      |       No        |   No    |   No   |     No
- LinkedHashSet   |       No        |   Yes   |   No   |     No
-    TreeSet      |       No        |   Yes   |  Yes   |     No
-    HashMap      |       No        |   No    |   No   |     No
- LinkedHashMap   |       No        |   Yes   |   No   |     No
-   Hashtable     |       No        |   No    |   No   |     Yes
-    TreeMap      |       No        |   Yes   |  Yes   |     No
+| Collection class | Allow duplicate | Ordered | Sorted | Thread-safe |
+| :--------------: | :-------------: | :-----: | :----: | :---------: |
+|     ArrayList    |       Yes       |   Yes   |   No   |      No     |
+|    LinkedList    |       Yes       |   Yes   |   No   |      No     |
+|      Vector      |       Yes       |   Yes   |   No   |     Yes     |
+|      HashSet     |        No       |    No   |   No   |      No     |
+|   LinkedHashSet  |        No       |   Yes   |   No   |      No     |
+|      TreeSet     |        No       |   Yes   |   Yes  |      No     |
+|      HashMap     |        No       |    No   |   No   |      No     |
+|   LinkedHashMap  |        No       |   Yes   |   No   |      No     |
+|     Hashtable    |        No       |    No   |   No   |     Yes     |
+|      TreeMap     |        No       |   Yes   |   Yes  |      No     |
 
 ![collections framework overview][collections_framework_overview]
 
@@ -789,11 +789,11 @@ public class Singleton {
 
 volatile重排序规则表：
 
-  是否能重排序   | 后普通读／写 | 后volatile读 | 后volatile写
-:--------: | :----: | :--------: | :--------:
-  先普通读／写   |  Yes   |    Yes     |     No
-先volatile读 |   No   |     No     |     No
-先volatile写 |  Yes   |     No     |     No
+|   是否能重排序   | 后普通读／写 | 后volatile读 | 后volatile写 |
+| :--------: | :----: | :--------: | :--------: |
+|   先普通读／写   |   Yes  |     Yes    |     No     |
+| 先volatile读 |   No   |     No     |     No     |
+| 先volatile写 |   Yes  |     No     |     No     |
 
 为了实现volatile的内存语义，编译器在生成字节码时，会在指令序列中插入内存屏障来禁止特定类型的处理器重排序。对于编译器来说，发现一个最优布置来最小化插入屏障的总数几乎不可能，为此，JMM采取保守策略。下面是基于保守策略的JMM内存屏障插入策略：
 
@@ -864,9 +864,15 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
 - 从上至下递归输出实例的数据。
 
 [cache_consistency]: cache_consistency.jpeg
+
 [collections_framework_overview]: collections_framework_overview.png
+
 [list_api_class_diagram]: List_API_class_diagram.png
+
 [map_api_class_diagram]: Map_API_class_diagram.png
+
 [queue_api_class_diagram]: Queue_API_class_diagram.png
+
 [set_api_class_diagram]: Set_API_class_diagram.png
+
 [thread_life_cycle]: thread_life_cycle.png
