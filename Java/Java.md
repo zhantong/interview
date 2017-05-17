@@ -863,6 +863,56 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
 - 类元数据完了以后，开始从最顶层的超类开始输出对象实例的实际数据值。
 - 从上至下递归输出实例的数据。
 
+## ArrayList的`subList()`方法注意事项
+
+`subList()`方法接口为
+
+```java
+List<E> subList(int fromIndex, int toIndex);
+```
+
+其返回的是原List从\[fromIndex,toIndex)之间的一部分的视图（如ArrayList的内部类SubList），实际依赖于原List，且对subList的修改也会作用到原List中。
+
+ArrayList的`subList()`结果不可以强制转换为ArrayList（否则会抛出ClassCastException异常）。
+
+```java
+SubList(AbstractList<E> parent, int offset, int fromIndex, int toIndex) {
+    this.parent = parent;
+    this.parentOffset = fromIndex;
+    this.offset = offset + fromIndex;
+    this.size = toIndex - fromIndex;
+    this.modCount = ArrayList.this.modCount;
+}
+```
+
+## Arrays的`asList()`方法注意事项
+
+`Arrays.asList()`可将数组转换为集合，但转换得到的集合不能使用如`add()`、`remove()`和`clear()`等方法（否则会抛出UnsupportedOperationException异常）。
+
+原因是`asList()`返回的是Arrays的内部类ArrayList，使用到的是适配器模式，并未实现集合的某些修改方法。
+
+```java
+public static <T> List<T> asList(T... a) {
+    return new ArrayList<>(a);
+}
+```
+
+```java
+ArrayList(E[] array) {
+    if (array==null)
+        throw new NullPointerException();
+    a = array;
+}
+```
+
+## Comparator注意事项
+
+Comparator要满足自反性、传递性和对称性，否则会抛出IllegalArgumentException。
+
+- 自反性：x，y的比较结果和y，x的比较结果相反。
+- 传递性：x > y，y > z，则x > z。
+- 对称性：x = y，则x，z的比较结果和y，z比较结果相同。
+
 [cache_consistency]: cache_consistency.jpeg
 
 [collections_framework_overview]: collections_framework_overview.png
