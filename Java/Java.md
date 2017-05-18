@@ -936,6 +936,20 @@ Segment 类继承于 ReentrantLock 类，从而使得 Segment 对象能充当锁
 |      TreeMap      |     No     |      Yes     | AbstractMap | 线程不安全 |
 |      HashMap      |     Yes    |      Yes     | AbstractMap | 线程不安全 |
 
+## SimpleDataFormat线程安全吗？
+
+SimpleDataFormat线程不安全，一般不要定义为static变量，如果定义为static则必须加锁，或者使用DataUtils工具类。
+
+## Timer可以用来并行处理定时任务吗？
+
+一个Timer对象仅有一个线程，如果向Timer提交多个TimerTask，且某个TimerTask很耗时，则其他TimerTask即使到了执行时间，也仍会等待之前的task执行完毕；甚至，如果某个TimerTask抛出异常导致线程终止，则其后的TimerTask将不会执行。
+
+## 可以在多线程下使用Random吗？
+
+Random是线程安全的（由AtomicLong实现），但在多线程时可能遇到效率问题。Random的seed是AtomicLong类型，其使用CAS（compare-and-set）操作来更新；CAS在资源高度竞争时表现会变得很糟糕。
+
+ThreadLocalRandom克服了如上Random的缺陷。
+
 [cache_consistency]: cache_consistency.jpeg
 
 [collections_framework_overview]: collections_framework_overview.png
