@@ -913,6 +913,29 @@ Comparator要满足自反性、传递性和对称性，否则会抛出IllegalArg
 - 传递性：x > y，y > z，则x > z。
 - 对称性：x = y，则x，z的比较结果和y，z比较结果相同。
 
+## HashMap多线程下死循环问题
+
+多线程`put()`时触发`resize()`，进而导致新建Entry数组，并将之前数组中每个链表都重新hash到新的数组中；由于多线程下Entry数组私有，但Entry链表中的元素共享，且由于采用头插法hash到新的链表数组中，导致链表出现环。
+
+而当`get()`到此环，而`get()`的hash值又与此环的任何元素都不相等时，则出现死循环。
+
+[疫苗：Java HashMap的死循环 | | 酷 壳 - CoolShell][hashmap coolshell]
+
+## 什么是ConcurrentHashMap
+
+ConcurrentHashMap 类中包含两个静态内部类 HashEntry 和 Segment。HashEntry 用来封装映射表的键 / 值对；Segment 用来充当锁的角色，每个 Segment 对象守护整个散列映射表的若干个桶。每个桶是由若干个 HashEntry 对象链接起来的链表。一个 ConcurrentHashMap 实例中包含由若干个 Segment 对象组成的数组。
+
+Segment 类继承于 ReentrantLock 类，从而使得 Segment 对象能充当锁的角色。每个 Segment 对象用来守护其（成员对象 table 中）包含的若干个桶。
+
+## Map类集合k／V能否存储null值的情况
+
+|        集合类        | Key允许为null | Value允许为null |    Super    |   说明  |
+| :---------------: | :--------: | :----------: | :---------: | :---: |
+|     Hashtable     |     No     |      No      |  Dictionary |  线程安全 |
+| ConcurrentHashMap |     No     |      No      | AbstractMap | 分段锁技术 |
+|      TreeMap      |     No     |      Yes     | AbstractMap | 线程不安全 |
+|      HashMap      |     Yes    |      Yes     | AbstractMap | 线程不安全 |
+
 [cache_consistency]: cache_consistency.jpeg
 
 [collections_framework_overview]: collections_framework_overview.png
@@ -926,3 +949,5 @@ Comparator要满足自反性、传递性和对称性，否则会抛出IllegalArg
 [set_api_class_diagram]: Set_API_class_diagram.png
 
 [thread_life_cycle]: thread_life_cycle.png
+
+[hashmap coolshell]: http://coolshell.cn/articles/9606.html
