@@ -1026,6 +1026,45 @@ ThreadLocalRandom克服了如上Random的缺陷。
 - 加载类的ClassLoader已经被回收；
 - 类对象的Class对象没有被引用（即没有通过反射引用该类的地方）。
 
+## Java是值传递还是引用传递？
+
+Java中方法参数传递方式是按值传递。
+
+- 如果参数是基本类型，传递的是基本类型的字面量值的拷贝。
+- 如果参数是引用类型，传递的是该参量所引用的对象在堆中地址值的拷贝。
+
+## 线程同步的方法
+
+- 同步方法：synchronized关键字修饰的方法。
+- 同步代码块：synchronized关键字修饰的语句块。
+- volatile关键字。
+- 可重入锁： ReentrantLock类是可重入、互斥、实现了Lock接口的锁。
+- ThreadLocal。
+
+## Java创建线程的方式
+
+### 继承Thread类创建线程类
+
+1. 定义Thread类的子类，并重写该类的`run()`方法，该`run()`方法的方法体就代表了线程要完成的任务。因此把`run()`方法称为执行体。
+2. 创建Thread子类的实例，即创建了线程对象。
+3. 调用线程对象的`start()`方法来启动该线程。
+
+### 通过Runnable接口创建线程类
+
+1. 定义runnable接口的实现类，并重写该接口的`run()`方法，该`run()`方法的方法体同样是该线程的线程执行体。
+2. 创建Runnable实现类的实例，并依此实例作为Thread的target来创建Thread对象，该Thread对象才是真正的线程对象。
+3. 调用线程对象的`start()`方法来启动该线程。
+
+### 通过Callable和Future创建线程
+
+1. 创建Callable接口的实现类，并实现`call()`方法，该`call()`方法将作为线程执行体，并且有返回值。
+
+2. 创建Callable实现类的实例，使用FutureTask类来包装Callable对象，该FutureTask对象封装了该Callable对象的`call()`方法的返回值。
+
+3. 使用FutureTask对象作为Thread对象的target创建并启动新线程。
+
+4. 调用FutureTask对象的`get()`方法来获得子线程执行结束后的返回值。
+
 [cache_consistency]: cache_consistency.jpeg
 
 [collections_framework_overview]: collections_framework_overview.png

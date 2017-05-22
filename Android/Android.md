@@ -738,6 +738,16 @@ Toast的显示时长仅有两种：`LENGTH_SHORT`和`LENGTH_LONG`。
 - AppWidget
 - Notification
 
+## Android对HashMap做了优化后推出的新的容器类是什么？
+
+### SparseArray
+
+SparseArray比HashMap更省内存，在某些条件下性能更好，主要是因为它避免了对key的自动装箱（int转为Integer类型），它内部则是通过两个数组来进行数据存储的，一个存储key，另外一个存储value，为了优化性能，它内部对数据还采取了压缩的方式来表示稀疏数组的数据，从而节约内存空间。
+
+### ArrayMap
+
+ArrayMap是一个&lt;key,value>映射的数据结构，它设计上更多的是考虑内存的优化，内部是使用两个数组进行数据存储，一个数组记录key的hash值，另外一个数组记录Value值，它和SparseArray一样，也会对key使用二分法进行从小到大排序，在添加、删除、查找数据的时候都是先使用二分查找法得到相应的index，然后通过index来进行添加、查找、删除等操作。
+
 [activity_fragment_lifecycle]: images/activity_fragment_lifecycle.png
 
 [activity_lifecycle]: images/activity_lifecycle.png
