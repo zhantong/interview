@@ -1333,6 +1333,10 @@ public class MyClassLoader extends ClassLoader {
 - 符号引用（Symbolic References）：符号引用以一组符号来描述所引用的目标，符号可以是任意形式的字面量，只要使用时能无歧义地定位到目标即可。符号饮用与虚拟机实现的内存布局无关，引用的目标并不一定已经加载到内存中。
 - 直接引用（Direct References）：直接引用可以时直接指向目标的指针、相对偏移量或是一个能间接定位到目标的句柄。直接引用是和虚拟机实现内存布局相关的，同一个符号引用在不同虚拟机实例上翻译出来的直接引用一般不会相同。
 
+## 如何理解平台无关性
+
+虚拟机和字节码存储格式是实现语言无关性的基础。Java虚拟机不和包括Java在内的任何语言绑定，它只与“Class文件”这种特定的二进制文件格式所关联，Class文件中包含了Java虚拟机指令集和符号表以及若干其它辅助信息。任何一门功能性语言都可以表示为一个能被Java虚拟机所接受的有效的Class文件。
+
 [cache_consistency]: cache_consistency.jpeg
 
 [collections_framework_overview]: collections_framework_overview.png
