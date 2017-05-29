@@ -1337,6 +1337,47 @@ public class MyClassLoader extends ClassLoader {
 
 虚拟机和字节码存储格式是实现语言无关性的基础。Java虚拟机不和包括Java在内的任何语言绑定，它只与“Class文件”这种特定的二进制文件格式所关联，Class文件中包含了Java虚拟机指令集和符号表以及若干其它辅助信息。任何一门功能性语言都可以表示为一个能被Java虚拟机所接受的有效的Class文件。
 
+## 运行时数据区域
+
+Java虚拟机在执行Java程序过程中会把内存区域划分为若干个不同的数据区域，这些区域各有各自的用途、创建和销毁时间。有的区域随着虚拟机进程的启动而存在，有些区域则依赖用户线程的启动和结束而建立和销毁。
+
+![Java Runtime Data Areas][java_runtime_data_areas]
+
+### 程序计数器（Program Counter Register）
+
+程序计数器占用较小的内存空间，可以看做是当前线程所执行的字节码的行号指示器，由于Java虚拟机的多线程是通过线程轮流切换并分配处理器执行时间的方式来实现的，在任何一个确定的时刻，一个处理器（对于多核处理器来说就是一个内核）都只会执行一条线程中的指令。因此，为了线程切换后能够恢复到正确的执行位置，每条线程都需要有一个独立的程序计数器。
+
+如果线程正在执行Java方法，则计数器记录的是正在执行的虚拟机字节码指令的地址；如果正在执行的是Native方法，则这个计数器则为空。
+
+### Java虚拟机栈（Java Virtual Machine Stacks）
+
+虚拟机栈也是线程私有，而且生命周期与线程相同，每个Java方法在执行的时候都会创建一个栈帧（Stack Frame）用于存储局部变量表、操作数栈、动态链接、方法出口等信息。
+
+Java虚拟机规范中，对该区域规定了两种异常情况：
+
+- 如果线程请求的栈深度大于虚拟机所允许的深度，讲抛出StackOverflowError异常；
+- 虚拟机栈可以动态拓展，当扩展时无法申请到足够的内存，就会抛出OutOfMemoryError异常。
+
+### 本地方法栈（Native Method Stack）
+
+本地方法栈的作用与虚拟机栈作用是非常类似的。虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，而本地方法栈则为虚拟机使用到的Native方法服务。
+
+### Java堆（Java Heap）
+
+对大多数应用来说，Java堆（Heap）是Java虚拟机所管理的内存中最大的一块，Java堆是被所有线程共享的一块内存区域，在虚拟机启动时创建。该内存区域唯一的目的就是存放对象实例，Java对象实例以及数组都在堆上分配（随着JIT编译器发展等技术成熟，所有对象分配在堆上也渐渐不是那么“绝对”了）。
+
+根据Java虚拟机规范的规定，Java堆可以处于物理上不连续的内存空间中，只要逻辑上是连续的即可，就像我们的磁盘空间一样（或者说，像链表一样虽然内存上不一定连续，但逻辑上是连续）。
+
+### 方法区（Method Area）
+
+方法区与Java堆一样，是各个线程共享的内存区域，用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。
+
+### 运行时常量池（Runtime Constant Pool）
+
+运行时常量池是方法区的一部分。Class文件中除了有关类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池，用于存放编译期生成的各种字面量和符号引用，这部分内容将在类加载后进入方法区的运行时常量池中存放。
+
+运行时常量池相对于Class文件常量池的另一个重要特征是具备动态性，Java语言并非不要求常量一定只有编译期才能产生，也就是并非预置入Class文件中常量池的内容才能进入方法区运行时常量池，运行期间也可以将新的常量池放入池中。
+
 [cache_consistency]: cache_consistency.jpeg
 
 [collections_framework_overview]: collections_framework_overview.png
@@ -1354,3 +1395,5 @@ public class MyClassLoader extends ClassLoader {
 [hashmap coolshell]: http://coolshell.cn/articles/9606.html
 
 [parents_delegation_model]: parents_delegation_model.png
+
+[java_runtime_data_areas]: java_runtime_data_areas.png
