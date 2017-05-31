@@ -736,10 +736,6 @@ Error类和Exception类的父类都是throwable类，他们的区别是：
 - Error类一般是指与虚拟机相关的问题，如系统崩溃，虚拟机错误，内存空间不足，方法调用栈溢等。对于这类错误的导致的应用程序中断，仅靠程序本身无法恢复和和预防，遇到这样的错误，建议让程序终止。
 - Exception类表示程序可以处理的异常，可以捕获且可能恢复。遇到这类异常，应该尽可能处理异常，使程序恢复运行，而不应该随意终止异常。
 
-## 线程的状态转换关系
-
-![Thread Life Cycle][thread_life_cycle]
-
 ## 用户线程（User Thread）与守护线程（Daemon Thread）
 
 - JVM中存在两种线程：用户线程和守护线程
@@ -1567,6 +1563,46 @@ Java虚拟机的即时编译器与C/C++的静态优化编译器相比，可能�
 
 Java语言的这些性能上的劣势都是为了换取开发效率上的优势而付出的代价，动态安全、动态扩展、垃圾回收这些“拖后腿”的特性都为Java语言的开发效率作出了很大的贡献。Java编译器的另外一个红利时由它的动态性所带来的，由于C/C++编译器的所有优化都在编译期完成，以运行期性能监控为基础的优化措施它都无法进行，如调用频率预测（Call Frequency Prediction）、分支频率预测（Branch Frequency Prediction）、裁剪未被选择的分支（Untaken Branch Pruning）等，这些都会成为Java语言独有的性能优势。
 
+## Java线程的实现
+
+操作系统实现线程主要有3种方式：
+
+- 使用内核线程实现（一对一线程模型）
+- 使用用户线程实现（一对多线程模型）
+- 使用用户线程加轻量级进程混合实现（多对多线程模型）
+
+Java线程在JDK 1.2之前，是基于称为“绿色线程”（Green Threads）的用户线程实现的；而在JDK 1.2种，线程模型替换为基于操作系统原生线程模型来实现。对于Sun JDK来说，它的Windows版与Linux版都是使用一对一的线程模型实现的，一条Java线程就映射到一条轻量级进程之中，因为Windwos和Linux系统提供的线程模型就是一对一的。
+
+线程调度主要有两种方式：
+
+- 协同式线程调度（Cooperative Threads-Scheduling）
+- 抢占式线程调度（Preemptive Threads-Scheduling）
+
+Java使用的线程调度方式是抢占式调度，由操作系统自动完成。
+
+## 线程的状态和转换关系
+
+Java定义了5种线程状态，在任意一个时间点，一个线程只能有且只有其中一种状态：
+
+- 新建（New）：创建了但未启动
+- 运行（Runable）：包括了操作系统线程状态中的Running和Ready。处于此状态的线程有可能正在执行，也有可能正在等待着CPU为它分配执行时间。
+- 无限期等待（Waiting）：处于这种状态的线程不会被分配CPU执行时间，它们要等待被其他线程显式地唤醒。以下方法会触发该状态：
+  - 没有设置Timeout参数的`Object.wait()`方法。
+  - 没有设置Timeout参数的`Thread.join()`方法。
+  - `LockSupport.park()`方法。
+- 限期等待（Timed Waiting）：处于这种状态的线程也不会被分配CPU执行时间，但系统在一定时间后会自动唤醒它。以下方法会触发该状态：
+  - `Thread.sleep()`方法。
+  - 设置Timeout参数的`Object.wait()`方法。
+  - 设置Timeout参数的`Thread.join()`方法。
+  - `LockSupport.parkNanos()`方法。
+  - `LockSupport.parkUntil()`方法。
+- 阻塞（Blocked）：阻塞状态下是在等待着获取一个排他锁，这个事件将在另外一个线程放弃这个锁的时候发生；在程序等待进入同步区域的时候，线程将进入这个状态。
+- 结束（Terminated）：线程已经结束执行。
+
+![Thread State Transition][thread_state_transition]
+
+![Thread Life Cycle][thread_life_cycle]
+
 [cache_consistency]: cache_consistency.jpeg
 
 [collections_framework_overview]: collections_framework_overview.png
@@ -1590,3 +1626,5 @@ Java语言的这些性能上的劣势都是为了换取开发效率上的优势�
 [stack_frame]: stack_frame.png
 
 [javac_compiler]: javac_compiler.jpg
+
+[thread_state_transition]: thread_state_transition.png
