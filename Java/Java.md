@@ -1603,6 +1603,17 @@ Java定义了5种线程状态，在任意一个时间点，一个线程只能有
 
 ![Thread Life Cycle][thread_life_cycle]
 
+## 对象的访问定位
+
+目前主流的访问对象方式有两种：
+
+- 使用句柄：Java堆划分出一块内存作为句柄池，reference种存储的是对象的句柄地址；而句柄中包含了对象实例数据和类型数据各自的地址。其优点是对象被移动（垃圾手机时移动对象是非常普遍的行为）时只会改变句柄中实例数据的地址，而reference本身不需要修改。
+- 直接指针：reference中存储的直接就是对象实例数据的地址，而对象实例数据中需要有这个对象类型数据的地址。其优点是节省了一次指针定位的时间开销，速度更快。
+
+![Handler Access][handler_access]
+
+![Direct Pointer Access][direct_pointer_access]
+
 [cache_consistency]: cache_consistency.jpeg
 
 [collections_framework_overview]: collections_framework_overview.png
@@ -1628,3 +1639,7 @@ Java定义了5种线程状态，在任意一个时间点，一个线程只能有
 [javac_compiler]: javac_compiler.jpg
 
 [thread_state_transition]: thread_state_transition.png
+
+[handler_access]: handler_access.png
+
+[direct_pointer_access]: direct_pointer_access.png
