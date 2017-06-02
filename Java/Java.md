@@ -1662,6 +1662,47 @@ Java定义了5种线程状态，在任意一个时间点，一个线程只能有
 - 自动装箱、拆箱与遍历循环
 - 条件编译
 
+## Java线程安全的实现
+
+### 互斥同步（Mutual Exclusion & Synchronization）
+
+同步是指在多个线程并发访问共享数据时，保证共享数据在同一个时刻只被一个（或一些）线程使用。而互斥是实现同步的一种手段，临界区（Critical Section）、互斥量（Mutex）和信号量（Semaphore）都是主要的互斥实现方式。互斥是因，同步是果；互斥是方法，同步是目的。
+
+最基本的互斥同步手段时synchronized关键字，synchronized关键字在编译后，会在同步块的前后分别形成monitorenter和monitorexit这两个字节码指令，这两个字节码都需要一个reference类型参数来指明要锁定和解锁的对象；如果没有指明，那就根据synchronized修饰的是实例方法还是类方法，去取对象的实例或Class对象来作为锁对象。
+
+在执行monitorenter指令时，首先要尝试获取对象的锁。如果这个对象没被锁定，或者当前线程已经拥有了那个对象锁，则把锁的计数器加1；相应地，在monitorexit时，锁的计数器减1，当计数器减到0时，锁就被释放了。如果获取对象锁失败，则当前线程就要阻塞等待，直到对象锁被另一线程释放。
+
+synchronized同步块对于同一条线程来说是可重入的，不会出现自己把自己锁死的情况；同步块在已进入的线程执行完前，会阻塞后面其他线程的进入。如果要阻塞或唤醒一个线程，都需要操作系统来帮忙完成，这就需要从用户态转换到和心态，因此状态转换需要耗费很多时间。
+
+除synchronized外，还可以使用java.util.concurrent包中的重入锁（ReentrantLock）来实现同步。ReentrantLock表现为API层面的互斥锁（look()和unlock()方法），synchronized表现为原生语法层面的互斥锁。ReentrantLock还增加了以下高级功能：
+
+- 等待可中断。当持有锁的线程长期不释放时，正在等待的线程可以选择放弃等待。
+- 公平锁。多个线程在等待同一个锁时，必须按照申请锁的时间顺序来依次获得锁；而非公平锁则在锁被释放时，任何一个等待锁的线程都有机会获得锁。synchronized中的锁是非公平的，ReentrantLock默认是非公平的，但可通过设置使用公平锁。
+- 锁可绑定多个条件。ReentrantLock对象可以同时绑定多个Condition对象。在synchronized中，锁对象的wait()和notify()或notifyAll()方法可以实现一个隐含的条件，如果要和多个条件关联，就需要添加额外的锁；而ReentrantLock则只需要多次调用newCondition()方法即可。
+
+### 非阻塞同步（Non-Blocking Synchronization）
+
+通俗地说，就是先进行操作，如果没有其他线程争用共享数据，那操作就成功了；如果共享数据有争用，产生了冲突，那就再采取其他的补偿措施（最常见的补偿措施就是不断重试，直到成功为止）。
+
+非阻塞同步需要硬件指令的支持，常用的有：
+
+- 测试并设置（Test-and-Set）
+- 获取并增加（Fetch-and-Increment）
+- 交换（Swap）
+- 比较和交换（Compare-and-Swap, CAS）
+- 加载链接／条件存储（Load-Linked/Store-Conditional, LL/SC）
+
+CAS指令需要3个操作数，分别是内存位置（V）、旧的预期值（A）和新值（B）。CAS指令执行时，当且仅当V符合旧预期值A时，处理器用新值B更新V的值，否则它就不更新。
+
+CAS操作由sun.misc.Unsafe类中的compareAndSwapInt()和compareAndSwapLong()等几个方法包装提供，虚拟机即时编译出来的结果就是一条平台相关的处理器CAS指令。由于Unsafe类不是提供给用户程序调用的类，我们只能通过其他的API来间接使用；如java.util.concurrent中的AtomicInteger类，其中的compareAndSet()和getAndIncrement()等方法都使用了Unsafe类的CAS操作。
+
+### 无同步方案
+
+如果一个方法本来就不涉及共享数据，那自然就无须任何同步措施去保证正确性。
+
+- 可重入代码（Reentrant Code）：可以在代码执行的任何时刻中断它，转而去执行另外一段代码，而在控制权返回后，原来的程序不会出现任何错误。
+- 线程本地存储（Thread Local Storage）：如果共享数据的可见范围限制在同一个线程之内，这样就无须同步也能保证线程之间不会出现数据争用的问题。
+
 [cache_consistency]: cache_consistency.jpeg
 
 [collections_framework_overview]: collections_framework_overview.png
