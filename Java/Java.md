@@ -1480,6 +1480,54 @@ HotSpot虚拟机的对象头（Object Header）分为两部分信息：第一部
 
 当有另外一个线程去尝试获取这个锁时，偏向模式就宣告结束。根据锁对象目前是否处于被锁定的状态，撤销偏向（Revoke Bias）后恢复到未锁定（标志位为“01”）或轻量级锁定（标志位为“00”）的状态，后续的同步操作如轻量级锁那样执行。
 
+## 如何理解java是一门静态多分派且动态单分派的语言？
+
+代码：
+
+```java
+class Fruit {
+}
+
+class Apple extends Fruit {
+}
+
+class People {
+    void eat(Fruit fruit) {
+        System.out.println("People eat Fruit");
+    }
+
+    void eat(Apple apple) {
+        System.out.println("People eat Apple");
+    }
+}
+
+class Boy extends People {
+    @Override
+    void eat(Fruit fruit) {
+        System.out.println("Boy eats Fruit");
+    }
+
+    @Override
+    void eat(Apple apple) {
+        System.out.println("Boy eats Apple");
+    }
+}
+```
+
+运行：
+
+```java
+People boy = new Boy();
+Fruit apple = new Apple();
+boy.eat(apple);
+```
+
+结果：
+
+```text
+Boy eats Fruit
+```
+
 [cache_consistency]: cache_consistency.jpeg
 
 [collections_framework_overview]: collections_framework_overview.png
