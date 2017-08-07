@@ -3,10 +3,10 @@
 <!-- TOC -->
 
 - [1. Android四大组件](#1-android四大组件)
-    - [1.1. Activity](#11-activity)
-    - [1.2. 服务](#12-服务)
-    - [1.3. 内容提供程序](#13-内容提供程序)
-    - [1.4. 广播接收器](#14-广播接收器)
+  - [1.1. Activity](#11-activity)
+  - [1.2. 服务](#12-服务)
+  - [1.3. 内容提供程序](#13-内容提供程序)
+  - [1.4. 广播接收器](#14-广播接收器)
 - [2. 四大组件的启动方式](#2-四大组件的启动方式)
 - [3. 画出Activity的生命周期图](#3-画出activity的生命周期图)
 - [4. 介绍下不同场景下Activity生命周期的变化过程](#4-介绍下不同场景下activity生命周期的变化过程)
@@ -20,9 +20,9 @@
 - [12. Fragment的好处：](#12-fragment的好处)
 - [13. Intent的原理，作用，可以传递哪些类型的参数？](#13-intent的原理作用可以传递哪些类型的参数)
 - [14. Intent的主要使用方法](#14-intent的主要使用方法)
-    - [14.1. 启动 Activity](#141-启动-activity)
-    - [14.2. 启动服务](#142-启动服务)
-    - [14.3. 传递广播](#143-传递广播)
+  - [14.1. 启动 Activity](#141-启动-activity)
+  - [14.2. 启动服务](#142-启动服务)
+  - [14.3. 传递广播](#143-传递广播)
 - [15. Intent包含哪些信息](#15-intent包含哪些信息)
 - [16. 什么是Intent过滤器](#16-什么是intent过滤器)
 - [17. Service的启动方式](#17-service的启动方式)
@@ -31,19 +31,19 @@
 - [20. 允许绑定的已启动服务的生命周期](#20-允许绑定的已启动服务的生命周期)
 - [21. Service中可以弹Toast吗？](#21-service中可以弹toast吗)
 - [22. 进程的优先级](#22-进程的优先级)
-    - [22.1. 前台进程](#221-前台进程)
-    - [22.2. 可视进程](#222-可视进程)
-    - [22.3. 服务进程](#223-服务进程)
-    - [22.4. 后台进程](#224-后台进程)
-    - [22.5. 空进程](#225-空进程)
+  - [22.1. 前台进程](#221-前台进程)
+  - [22.2. 可视进程](#222-可视进程)
+  - [22.3. 服务进程](#223-服务进程)
+  - [22.4. 后台进程](#224-后台进程)
+  - [22.5. 空进程](#225-空进程)
 - [23. IntentService如何工作？](#23-intentservice如何工作)
 - [24. IntentService与Service的区别？](#24-intentservice与service的区别)
 - [25. Android Service与Activity之间的通信方式？](#25-android-service与activity之间的通信方式)
 - [26. BroadcastReceiver简介](#26-broadcastreceiver简介)
-    - [26.1. 用途](#261-用途)
-    - [26.2. 使用场景](#262-使用场景)
-    - [26.3. 实现原理](#263-实现原理)
-    - [26.4. 注册方式](#264-注册方式)
+  - [26.1. 用途](#261-用途)
+  - [26.2. 使用场景](#262-使用场景)
+  - [26.3. 实现原理](#263-实现原理)
+  - [26.4. 注册方式](#264-注册方式)
 - [27. 为什么要用ContentProvider？它和SQL的实现上有什么差别？](#27-为什么要用contentprovider它和sql的实现上有什么差别)
 - [28. ContentProvider怎么实现数据共享？](#28-contentprovider怎么实现数据共享)
 - [29. Android如何访问自定义ContentProvider](#29-android如何访问自定义contentprovider)
@@ -52,46 +52,46 @@
 - [32. Android中常用的布局都有哪些？](#32-android中常用的布局都有哪些)
 - [33. `android:layout_gravity`和`android:gravity`的区别？](#33-androidlayout_gravity和androidgravity的区别)
 - [34. Android平台架构](#34-android平台架构)
-    - [34.1. 系统应用](#341-系统应用)
-    - [34.2. Java API框架](#342-java-api框架)
-    - [34.3. 原生C/C++库](#343-原生cc库)
-    - [34.4. Android Runtime](#344-android-runtime)
-    - [34.5. 硬件抽象层（HAL）](#345-硬件抽象层hal)
-    - [34.6. Linux 内核](#346-linux-内核)
+  - [34.1. 系统应用](#341-系统应用)
+  - [34.2. Java API框架](#342-java-api框架)
+  - [34.3. 原生C/C++库](#343-原生cc库)
+  - [34.4. Android Runtime](#344-android-runtime)
+  - [34.5. 硬件抽象层（HAL）](#345-硬件抽象层hal)
+  - [34.6. Linux 内核](#346-linux-内核)
 - [35. Fragment生命周期](#35-fragment生命周期)
 - [36. Activity生命周期对片段生命周期的影响](#36-activity生命周期对片段生命周期的影响)
 - [37. Android事件分发](#37-android事件分发)
-    - [37.1. public boolean dispatchTouchEvent(MotionEvent ev)](#371-public-boolean-dispatchtoucheventmotionevent-ev)
-    - [37.2. `public boolean onInterceptTouchEvent(MotionEvent ev)`](#372-public-boolean-onintercepttoucheventmotionevent-ev)
-    - [37.3. `public boolean onTouchEvent(MotionEvent ev)`](#373-public-boolean-ontoucheventmotionevent-ev)
+  - [37.1. public boolean dispatchTouchEvent(MotionEvent ev)](#371-public-boolean-dispatchtoucheventmotionevent-ev)
+  - [37.2. `public boolean onInterceptTouchEvent(MotionEvent ev)`](#372-public-boolean-onintercepttoucheventmotionevent-ev)
+  - [37.3. `public boolean onTouchEvent(MotionEvent ev)`](#373-public-boolean-ontoucheventmotionevent-ev)
 - [38. Android系统启动过程](#38-android系统启动过程)
-    - [38.1. Boot ROM](#381-boot-rom)
-    - [38.2. Boot Loader](#382-boot-loader)
-    - [38.3. Kernel](#383-kernel)
-    - [38.4. init](#384-init)
-        - [38.4.1. 本地服务](#3841-本地服务)
-        - [38.4.2. Android服务](#3842-android服务)
-    - [38.5. Zygote and Dalvik（ART）](#385-zygote-and-dalvikart)
-    - [38.6. System Server](#386-system-server)
-    - [38.7. Boot completed](#387-boot-completed)
+  - [38.1. Boot ROM](#381-boot-rom)
+  - [38.2. Boot Loader](#382-boot-loader)
+  - [38.3. Kernel](#383-kernel)
+  - [38.4. init](#384-init)
+    - [38.4.1. 本地服务](#3841-本地服务)
+    - [38.4.2. Android服务](#3842-android服务)
+  - [38.5. Zygote and Dalvik（ART）](#385-zygote-and-dalvikart)
+  - [38.6. System Server](#386-system-server)
+  - [38.7. Boot completed](#387-boot-completed)
 - [39. Android应用启动过程](#39-android应用启动过程)
 - [40. dp，dip，dpi，ppi区别](#40-dpdipdpippi区别)
 - [41. 长度和字体的推荐单位](#41-长度和字体的推荐单位)
 - [42. Android View绘制流程](#42-android-view绘制流程)
 - [43. ListView优化](#43-listview优化)
-    - [43.1. 复用convertView](#431-复用convertview)
-    - [43.2. 使用View Holder模式](#432-使用view-holder模式)
-    - [43.3. 分批加载与分页加载相结合](#433-分批加载与分页加载相结合)
-    - [43.4. 使用异步线程加载图片](#434-使用异步线程加载图片)
-    - [43.5. 在快速滑动时不要加载图片](#435-在快速滑动时不要加载图片)
-    - [43.6. 使用RecyclerView](#436-使用recyclerview)
+  - [43.1. 复用convertView](#431-复用convertview)
+  - [43.2. 使用View Holder模式](#432-使用view-holder模式)
+  - [43.3. 分批加载与分页加载相结合](#433-分批加载与分页加载相结合)
+  - [43.4. 使用异步线程加载图片](#434-使用异步线程加载图片)
+  - [43.5. 在快速滑动时不要加载图片](#435-在快速滑动时不要加载图片)
+  - [43.6. 使用RecyclerView](#436-使用recyclerview)
 - [44. Android Binder机制](#44-android-binder机制)
 - [45. Binder机制优点](#45-binder机制优点)
 - [46. AsyncTask简介](#46-asynctask简介)
 - [47. 为什了Handler需要声明为static？](#47-为什了handler需要声明为static)
 - [48. 广播注册后不解除注册会有什么问题？](#48-广播注册后不解除注册会有什么问题)
 - [49. 自定义View](#49-自定义view)
-    - [49.1. 实现步骤](#491-实现步骤)
+  - [49.1. 实现步骤](#491-实现步骤)
 - [50. 需要被重写的方法](#50-需要被重写的方法)
 - [51. Parcelable和Serializable的区别](#51-parcelable和serializable的区别)
 - [52. Android中的内存泄漏](#52-android中的内存泄漏)
@@ -102,25 +102,30 @@
 - [57. Android动画类型](#57-android动画类型)
 - [58. ANR和FC的区别](#58-anr和fc的区别)
 - [59. Android中的菜单](#59-android中的菜单)
-    - [59.1. 选项菜单（Options menu）](#591-选项菜单options-menu)
-    - [59.2. 上下文菜单（Contextual Menus）](#592-上下文菜单contextual-menus)
-        - [59.2.1. 浮动上下文菜单（floating context menu）](#5921-浮动上下文菜单floating-context-menu)
-    - [59.3. 弹出菜单（Popup Menu）](#593-弹出菜单popup-menu)
+  - [59.1. 选项菜单（Options menu）](#591-选项菜单options-menu)
+  - [59.2. 上下文菜单（Contextual Menus）](#592-上下文菜单contextual-menus)
+    - [59.2.1. 浮动上下文菜单（floating context menu）](#5921-浮动上下文菜单floating-context-menu)
+  - [59.3. 弹出菜单（Popup Menu）](#593-弹出菜单popup-menu)
 - [60. BaseAdapter中需要重载的方法](#60-baseadapter中需要重载的方法)
 - [61. Android数字签名要点](#61-android数字签名要点)
 - [62. 使用相同数字签名的原因](#62-使用相同数字签名的原因)
 - [63. Theme和Sytle](#63-theme和sytle)
-    - [63.1. Style](#631-style)
-    - [63.2. Theme](#632-theme)
+  - [63.1. Style](#631-style)
+  - [63.2. Theme](#632-theme)
 - [64. Toast的时长设置](#64-toast的时长设置)
 - [65. 触发ANR的情况](#65-触发anr的情况)
 - [66. ServiceConnection的`onServiceConnected()`触发条件](#66-serviceconnection的onserviceconnected触发条件)
 - [67. Android虚拟设备不支持的功能](#67-android虚拟设备不支持的功能)
 - [68. RemoteView的应用](#68-remoteview的应用)
 - [69. Android对HashMap做了优化后推出的新的容器类是什么？](#69-android对hashmap做了优化后推出的新的容器类是什么)
-    - [69.1. SparseArray](#691-sparsearray)
-    - [69.2. ArrayMap](#692-arraymap)
+  - [69.1. SparseArray](#691-sparsearray)
+  - [69.2. ArrayMap](#692-arraymap)
 - [70. Android安全沙盒](#70-android安全沙盒)
+- [71. `onStartCommand()`有哪些返回值](#71-onstartcommand有哪些返回值)
+- [72. 如何创建绑定服务](#72-如何创建绑定服务)
+  - [72.1. 扩展Binder类](#721-扩展binder类)
+  - [72.2. 使用Messenger](#722-使用messenger)
+- [73. 如何绑定到服务](#73-如何绑定到服务)
 
 <!-- /TOC -->
 
@@ -277,6 +282,10 @@ Service是一个不使用用户界面而在后台执行操作的组件。通过�
 - 在Activity中可以通过`startService()`和`bindService()`方法启动Service。一般情况下如果想获取Service的服务对象那么肯定需要通过`bindService()`方法，比如音乐播放器，第三方支付等。如果仅仅只是为了开启一个后台任务那么可以使用`startService()`方法。
 
 ## 20. 允许绑定的已启动服务的生命周期
+
+当服务与所有客户端之间的绑定全部取消时，Android系统便会销毁服务。不过，如果您选择实现`onStartCommand()`回调方法，则您必须显式停止服务，因为系统现在已将服务视为已启动。在此情况下，服务将一直运行到其通过`stopSelf()`自行停止，或其他组件调用`stopService()`为止，无论其是否绑定到任何客户端。
+
+此外，如果您的服务已启动并接受绑定，则当系统调用您的`onUnbind()`方法时，如果您想在客户端下一次绑定到服务时接收`onRebind()`调用，则可选择返回true。`onRebind()`返回空值，但客户端仍在其`onServiceConnected()`回调中接收IBinder。
 
 ![service binding tree lifecycle][service_binding_tree_lifecycle]
 
@@ -927,6 +936,55 @@ ArrayMap是一个&lt;key,value>映射的数据结构，它设计上更多的是�
 - 默认情况下，系统会为每个应用分配一个唯一的Linux用户ID（该ID仅由系统使用，应用并不知晓）。系统为应用中的所有文件设置权限，使得只有分配给该应用的用户ID才能访问这些文件；
 - 每个进程都具有自己的虚拟机 (VM)，因此应用代码是在与其他应用隔离的环境中运行；
 - 默认情况下，每个应用都在其自己的Linux进程内运行。Android会在需要执行任何应用组件时启动该进程，然后在不再需要该进程或系统必须为其他应用恢复内存时关闭该进程。
+
+## 71. `onStartCommand()`有哪些返回值
+
+`onStartCommand()`的返回值用于描述系统应该如何在服务终止的情况下继续运行服务。其值可以为
+
+- `START_NOT_STICKY`：如果系统在`onStartCommand()`返回后终止服务，则除非有挂起Intent要传递，否则系统不会重建服务。这是最安全的选项，可以避免在不必要时以及应用能够轻松重启所有未完成的作业时运行服务。
+- `START_STICKY`：如果系统在`onStartCommand()`返回后终止服务，则会重建服务并调用`onStartCommand()`，但不会重新传递最后一个Intent。相反，除非有挂起Intent要启动服务（在这种情况下，将传递这些Intent），否则系统会通过空Intent调用`onStartCommand()`。这适用于不执行命令、但无限期运行并等待作业的媒体播放器（或类似服务）。
+- `START_REDELIVER_INTENT`：如果系统在`onStartCommand()`返回后终止服务，则会重建服务，并通过传递给服务的最后一个Intent调用`onStartCommand()`。任何挂起Intent均依次传递。这适用于主动执行应该立即恢复的作业（例如下载文件）的服务。
+
+## 72. 如何创建绑定服务
+
+建提供绑定的服务时，您必须提供IBinder，用以提供客户端用来与服务进行交互的编程接口。
+
+### 72.1. 扩展Binder类
+
+如果服务是供您的自有应用专用，并且在与客户端相同的进程中运行（常见情况），则应通过扩展Binder类并从`onBind()`返回它的一个实例来创建接口。客户端收到Binder后，可利用它直接访问Binder实现中乃至Service中可用的公共方法。
+
+1. 在您的服务中，创建一个可满足下列任一要求的Binder实例：
+
+- 包含客户端可调用的公共方法
+- 返回当前Service实例，其中包含客户端可调用的公共方法
+- 或返回由服务承载的其他类的实例，其中包含客户端可调用的公共方法
+
+2. 从`onBind()`回调方法返回此Binder实例。
+3. 在客户端中，从`onServiceConnected()`回调方法接收Binder，并使用提供的方法调用绑定服务。
+
+### 72.2. 使用Messenger
+
+1. 服务实现一个Handler，由其接收来自客户端的每个调用的回调
+2. Handler用于创建Messenger对象（对Handler的引用）
+3. Messenger创建一个IBinder，服务通过`onBind()`使其返回客户端
+4. 客户端使用IBinder将Messenger（引用服务的Handler）实例化，然后使用后者将Message对象发送给服务
+5. 服务在其Handler中（具体地讲，是在`handleMessage()`方法中）接收每个 Message。
+
+这样，客户端并没有调用服务的“方法”。而客户端传递的“消息”（Message对象）是服务在其Handler中接收的。
+
+## 73. 如何绑定到服务
+
+应用组件（客户端）可通过调用`bindService()`绑定到服务。Android系统随后调用服务的onBind()方法，该方法返回用于与服务交互的IBinder。
+
+绑定是异步的。`bindService()`会立即返回，“不会”使IBinder返回客户端。要接收IBinder，客户端必须创建一个ServiceConnection实例，并将其传递给`bindService()`。ServiceConnection包括一个回调方法，系统通过调用它来传递IBinder。
+
+1. 实现ServiceConnection。您的实现必须重写两个回调方法：`onServiceConnected()`：系统会调用该方法以传递服务的onBind()方法返回的IBinder。`onServiceDisconnected()`：Android 系统会在与服务的连接意外中断时（例如当服务崩溃或被终止时）调用该方法。当客户端取消绑定时，系统“不会”调用该方法。
+
+2. 调用`bindService()`，传递ServiceConnection实现。
+
+3. 当系统调用您的`onServiceConnected()`回调方法时，您可以使用接口定义的方法开始调用服务。
+
+4. 要断开与服务的连接，请调用`unbindService()`。如果应用在客户端仍绑定到服务时销毁客户端，则销毁会导致客户端取消绑定。更好的做法是在客户端与服务交互完成后立即取消绑定客户端。
 
 [activity_fragment_lifecycle]: images/activity_fragment_lifecycle.png
 
