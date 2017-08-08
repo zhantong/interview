@@ -129,6 +129,9 @@
 - [74. Android支持的屏幕密度](#74-android支持的屏幕密度)
 - [75. 如何支持多种屏幕](#75-如何支持多种屏幕)
 - [76. 什么是资源ID](#76-什么是资源id)
+- [77. 如何处理运行时变更](#77-如何处理运行时变更)
+  - [77.1. 在配置变更期间保留对象](#771-在配置变更期间保留对象)
+  - [77.2. 自行处理配置变更](#772-自行处理配置变更)
 
 <!-- /TOC -->
 
@@ -1014,6 +1017,23 @@ ArrayMap是一个&lt;key,value>映射的数据结构，它设计上更多的是�
 
 - 资源类型：每个资源都被分到一个“类型”组中，例如string、drawable和layout。
 - 资源名称：它是不包括扩展名的文件名；或是XML android:name属性中的值，如果资源是简单值的话（例如字符串）。
+
+## 77. 如何处理运行时变更
+
+有些设备配置可能会在运行时发生变化（例如屏幕方向、键盘可用性及语言）。发生这种变化时，Android会重启正在运行的Activity（先后调用`onDestroy()`和`onCreate()`）。
+
+### 77.1. 在配置变更期间保留对象
+
+如果Activity因配置变更而重启，则可通过保留Fragment来减轻重新初始化Activity的负担。此片段可能包含对您要保留的有状态对象的引用。
+
+1. 扩展Fragment类并声明对有状态对象的引用。
+2. 在创建片段后调用`setRetainInstance(boolean)`。
+3. 将片段添加到Activity。
+4. 重启Activity后，使用FragmentManager检索片段。
+
+### 77.2. 自行处理配置变更
+
+要声明由Activity处理配置变更，请在清单文件中编辑相应的`<activity>`元素，以包含android:configChanges属性以及代表要处理的配置的值。android:configChanges属性的文档中列出了该属性的可能值（最常用的值包括"orientation"和"keyboardHidden"，分别用于避免因屏幕方向和可用键盘改变而导致重启）。
 
 [activity_fragment_lifecycle]: images/activity_fragment_lifecycle.png
 
