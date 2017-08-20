@@ -3,10 +3,10 @@
 <!-- TOC -->
 
 - [1. Android四大组件](#1-android四大组件)
-    - [1.1. Activity](#11-activity)
-    - [1.2. 服务](#12-服务)
-    - [1.3. 内容提供程序](#13-内容提供程序)
-    - [1.4. 广播接收器](#14-广播接收器)
+  - [1.1. Activity](#11-activity)
+  - [1.2. 服务](#12-服务)
+  - [1.3. 内容提供程序](#13-内容提供程序)
+  - [1.4. 广播接收器](#14-广播接收器)
 - [2. 四大组件的启动方式](#2-四大组件的启动方式)
 - [3. 画出Activity的生命周期图](#3-画出activity的生命周期图)
 - [4. 介绍下不同场景下Activity生命周期的变化过程](#4-介绍下不同场景下activity生命周期的变化过程)
@@ -20,9 +20,9 @@
 - [12. Fragment的好处：](#12-fragment的好处)
 - [13. Intent的原理，作用，可以传递哪些类型的参数？](#13-intent的原理作用可以传递哪些类型的参数)
 - [14. Intent的主要使用方法](#14-intent的主要使用方法)
-    - [14.1. 启动 Activity](#141-启动-activity)
-    - [14.2. 启动服务](#142-启动服务)
-    - [14.3. 传递广播](#143-传递广播)
+  - [14.1. 启动 Activity](#141-启动-activity)
+  - [14.2. 启动服务](#142-启动服务)
+  - [14.3. 传递广播](#143-传递广播)
 - [15. Intent包含哪些信息](#15-intent包含哪些信息)
 - [16. 什么是Intent过滤器](#16-什么是intent过滤器)
 - [17. Service的启动方式](#17-service的启动方式)
@@ -31,19 +31,19 @@
 - [20. 允许绑定的已启动服务的生命周期](#20-允许绑定的已启动服务的生命周期)
 - [21. Service中可以弹Toast吗？](#21-service中可以弹toast吗)
 - [22. 进程的优先级](#22-进程的优先级)
-    - [22.1. 前台进程](#221-前台进程)
-    - [22.2. 可视进程](#222-可视进程)
-    - [22.3. 服务进程](#223-服务进程)
-    - [22.4. 后台进程](#224-后台进程)
-    - [22.5. 空进程](#225-空进程)
+  - [22.1. 前台进程](#221-前台进程)
+  - [22.2. 可视进程](#222-可视进程)
+  - [22.3. 服务进程](#223-服务进程)
+  - [22.4. 后台进程](#224-后台进程)
+  - [22.5. 空进程](#225-空进程)
 - [23. IntentService如何工作？](#23-intentservice如何工作)
 - [24. IntentService与Service的区别？](#24-intentservice与service的区别)
 - [25. Android Service与Activity之间的通信方式？](#25-android-service与activity之间的通信方式)
 - [26. BroadcastReceiver简介](#26-broadcastreceiver简介)
-    - [26.1. 用途](#261-用途)
-    - [26.2. 使用场景](#262-使用场景)
-    - [26.3. 实现原理](#263-实现原理)
-    - [26.4. 注册方式](#264-注册方式)
+  - [26.1. 用途](#261-用途)
+  - [26.2. 使用场景](#262-使用场景)
+  - [26.3. 实现原理](#263-实现原理)
+  - [26.4. 注册方式](#264-注册方式)
 - [27. 为什么要用ContentProvider？它和SQL的实现上有什么差别？](#27-为什么要用contentprovider它和sql的实现上有什么差别)
 - [28. ContentProvider怎么实现数据共享？](#28-contentprovider怎么实现数据共享)
 - [29. Android如何访问自定义ContentProvider](#29-android如何访问自定义contentprovider)
@@ -52,46 +52,46 @@
 - [32. Android中常用的布局都有哪些？](#32-android中常用的布局都有哪些)
 - [33. `android:layout_gravity`和`android:gravity`的区别？](#33-androidlayout_gravity和androidgravity的区别)
 - [34. Android平台架构](#34-android平台架构)
-    - [34.1. 系统应用](#341-系统应用)
-    - [34.2. Java API框架](#342-java-api框架)
-    - [34.3. 原生C/C++库](#343-原生cc库)
-    - [34.4. Android Runtime](#344-android-runtime)
-    - [34.5. 硬件抽象层（HAL）](#345-硬件抽象层hal)
-    - [34.6. Linux 内核](#346-linux-内核)
+  - [34.1. 系统应用](#341-系统应用)
+  - [34.2. Java API框架](#342-java-api框架)
+  - [34.3. 原生C/C++库](#343-原生cc库)
+  - [34.4. Android Runtime](#344-android-runtime)
+  - [34.5. 硬件抽象层（HAL）](#345-硬件抽象层hal)
+  - [34.6. Linux 内核](#346-linux-内核)
 - [35. Fragment生命周期](#35-fragment生命周期)
 - [36. Activity生命周期对片段生命周期的影响](#36-activity生命周期对片段生命周期的影响)
 - [37. Android事件分发](#37-android事件分发)
-    - [37.1. public boolean dispatchTouchEvent(MotionEvent ev)](#371-public-boolean-dispatchtoucheventmotionevent-ev)
-    - [37.2. `public boolean onInterceptTouchEvent(MotionEvent ev)`](#372-public-boolean-onintercepttoucheventmotionevent-ev)
-    - [37.3. `public boolean onTouchEvent(MotionEvent ev)`](#373-public-boolean-ontoucheventmotionevent-ev)
+  - [37.1. public boolean dispatchTouchEvent(MotionEvent ev)](#371-public-boolean-dispatchtoucheventmotionevent-ev)
+  - [37.2. `public boolean onInterceptTouchEvent(MotionEvent ev)`](#372-public-boolean-onintercepttoucheventmotionevent-ev)
+  - [37.3. `public boolean onTouchEvent(MotionEvent ev)`](#373-public-boolean-ontoucheventmotionevent-ev)
 - [38. Android系统启动过程](#38-android系统启动过程)
-    - [38.1. Boot ROM](#381-boot-rom)
-    - [38.2. Boot Loader](#382-boot-loader)
-    - [38.3. Kernel](#383-kernel)
-    - [38.4. init](#384-init)
-        - [38.4.1. 本地服务](#3841-本地服务)
-        - [38.4.2. Android服务](#3842-android服务)
-    - [38.5. Zygote and Dalvik（ART）](#385-zygote-and-dalvikart)
-    - [38.6. System Server](#386-system-server)
-    - [38.7. Boot completed](#387-boot-completed)
+  - [38.1. Boot ROM](#381-boot-rom)
+  - [38.2. Boot Loader](#382-boot-loader)
+  - [38.3. Kernel](#383-kernel)
+  - [38.4. init](#384-init)
+    - [38.4.1. 本地服务](#3841-本地服务)
+    - [38.4.2. Android服务](#3842-android服务)
+  - [38.5. Zygote and Dalvik（ART）](#385-zygote-and-dalvikart)
+  - [38.6. System Server](#386-system-server)
+  - [38.7. Boot completed](#387-boot-completed)
 - [39. Android应用启动过程](#39-android应用启动过程)
 - [40. dp，dip，dpi，ppi区别](#40-dpdipdpippi区别)
 - [41. 长度和字体的推荐单位](#41-长度和字体的推荐单位)
 - [42. Android View绘制流程](#42-android-view绘制流程)
 - [43. ListView优化](#43-listview优化)
-    - [43.1. 复用convertView](#431-复用convertview)
-    - [43.2. 使用View Holder模式](#432-使用view-holder模式)
-    - [43.3. 分批加载与分页加载相结合](#433-分批加载与分页加载相结合)
-    - [43.4. 使用异步线程加载图片](#434-使用异步线程加载图片)
-    - [43.5. 在快速滑动时不要加载图片](#435-在快速滑动时不要加载图片)
-    - [43.6. 使用RecyclerView](#436-使用recyclerview)
+  - [43.1. 复用convertView](#431-复用convertview)
+  - [43.2. 使用View Holder模式](#432-使用view-holder模式)
+  - [43.3. 分批加载与分页加载相结合](#433-分批加载与分页加载相结合)
+  - [43.4. 使用异步线程加载图片](#434-使用异步线程加载图片)
+  - [43.5. 在快速滑动时不要加载图片](#435-在快速滑动时不要加载图片)
+  - [43.6. 使用RecyclerView](#436-使用recyclerview)
 - [44. Android Binder机制](#44-android-binder机制)
 - [45. Binder机制优点](#45-binder机制优点)
 - [46. AsyncTask简介](#46-asynctask简介)
 - [47. 为什了Handler需要声明为static？](#47-为什了handler需要声明为static)
 - [48. 广播注册后不解除注册会有什么问题？](#48-广播注册后不解除注册会有什么问题)
 - [49. 自定义View](#49-自定义view)
-    - [49.1. 实现步骤](#491-实现步骤)
+  - [49.1. 实现步骤](#491-实现步骤)
 - [50. 需要被重写的方法](#50-需要被重写的方法)
 - [51. Parcelable和Serializable的区别](#51-parcelable和serializable的区别)
 - [52. Android中的内存泄漏](#52-android中的内存泄漏)
@@ -102,36 +102,36 @@
 - [57. Android动画类型](#57-android动画类型)
 - [58. ANR和FC的区别](#58-anr和fc的区别)
 - [59. Android中的菜单](#59-android中的菜单)
-    - [59.1. 选项菜单（Options menu）](#591-选项菜单options-menu)
-    - [59.2. 上下文菜单（Contextual Menus）](#592-上下文菜单contextual-menus)
-        - [59.2.1. 浮动上下文菜单（floating context menu）](#5921-浮动上下文菜单floating-context-menu)
-    - [59.3. 弹出菜单（Popup Menu）](#593-弹出菜单popup-menu)
+  - [59.1. 选项菜单（Options menu）](#591-选项菜单options-menu)
+  - [59.2. 上下文菜单（Contextual Menus）](#592-上下文菜单contextual-menus)
+    - [59.2.1. 浮动上下文菜单（floating context menu）](#5921-浮动上下文菜单floating-context-menu)
+  - [59.3. 弹出菜单（Popup Menu）](#593-弹出菜单popup-menu)
 - [60. BaseAdapter中需要重载的方法](#60-baseadapter中需要重载的方法)
 - [61. Android数字签名要点](#61-android数字签名要点)
 - [62. 使用相同数字签名的原因](#62-使用相同数字签名的原因)
 - [63. Theme和Sytle](#63-theme和sytle)
-    - [63.1. Style](#631-style)
-    - [63.2. Theme](#632-theme)
+  - [63.1. Style](#631-style)
+  - [63.2. Theme](#632-theme)
 - [64. Toast的时长设置](#64-toast的时长设置)
 - [65. 触发ANR的情况](#65-触发anr的情况)
 - [66. ServiceConnection的`onServiceConnected()`触发条件](#66-serviceconnection的onserviceconnected触发条件)
 - [67. Android虚拟设备不支持的功能](#67-android虚拟设备不支持的功能)
 - [68. RemoteView的应用](#68-remoteview的应用)
 - [69. Android对HashMap做了优化后推出的新的容器类是什么？](#69-android对hashmap做了优化后推出的新的容器类是什么)
-    - [69.1. SparseArray](#691-sparsearray)
-    - [69.2. ArrayMap](#692-arraymap)
+  - [69.1. SparseArray](#691-sparsearray)
+  - [69.2. ArrayMap](#692-arraymap)
 - [70. Android安全沙盒](#70-android安全沙盒)
 - [71. `onStartCommand()`有哪些返回值](#71-onstartcommand有哪些返回值)
 - [72. 如何创建绑定服务](#72-如何创建绑定服务)
-    - [72.1. 扩展Binder类](#721-扩展binder类)
-    - [72.2. 使用Messenger](#722-使用messenger)
+  - [72.1. 扩展Binder类](#721-扩展binder类)
+  - [72.2. 使用Messenger](#722-使用messenger)
 - [73. 如何绑定到服务](#73-如何绑定到服务)
 - [74. Android支持的屏幕密度](#74-android支持的屏幕密度)
 - [75. 如何支持多种屏幕](#75-如何支持多种屏幕)
 - [76. 什么是资源ID](#76-什么是资源id)
 - [77. 如何处理运行时变更](#77-如何处理运行时变更)
-    - [77.1. 在配置变更期间保留对象](#771-在配置变更期间保留对象)
-    - [77.2. 自行处理配置变更](#772-自行处理配置变更)
+  - [77.1. 在配置变更期间保留对象](#771-在配置变更期间保留对象)
+  - [77.2. 自行处理配置变更](#772-自行处理配置变更)
 - [78. AndroidManifest.xml包括哪些内容？](#78-androidmanifestxml包括哪些内容)
 - [79. 用户界面如何构成？](#79-用户界面如何构成)
 - [80. 为什么要回收Bitmap的内存](#80-为什么要回收bitmap的内存)
@@ -139,15 +139,21 @@
 - [82. 如何在新进程中创建Activity／Service](#82-如何在新进程中创建activity／service)
 - [83. `onActivityResult()`什么时候会失效？](#83-onactivityresult什么时候会失效)
 - [84. Android崩溃捕获](#84-android崩溃捕获)
-    - [84.1. Java崩溃捕获](#841-java崩溃捕获)
-    - [84.2. Native崩溃捕获](#842-native崩溃捕获)
+  - [84.1. Java崩溃捕获](#841-java崩溃捕获)
+  - [84.2. Native崩溃捕获](#842-native崩溃捕获)
 - [85. Android APP构建流程](#85-android-app构建流程)
 - [86. class文件与.dex文件的区别](#86-class文件与dex文件的区别)
 - [87. 65535问题](#87-65535问题)
-    - [87.1. 原因](#871-原因)
-    - [87.2. 解决方法](#872-解决方法)
+  - [87.1. 原因](#871-原因)
+  - [87.2. 解决方法](#872-解决方法)
 - [88. Dalvik与JVM的区别](#88-dalvik与jvm的区别)
 - [89. ART相对Dalvik的优化](#89-art相对dalvik的优化)
+- [90. Android中的ClassLoader](#90-android中的classloader)
+- [91. ClassLoader方式实现热修复](#91-classloader方式实现热修复)
+- [92. AsyncTask需要在主线程中实例化吗？](#92-asynctask需要在主线程中实例化吗)
+  - [92.1. API 16之前](#921-api-16之前)
+  - [92.2. API 16及之后，API 22之前](#922-api-16及之后api-22之前)
+  - [92.3. API 22及之后](#923-api-22及之后)
 
 <!-- /TOC -->
 
@@ -1153,6 +1159,45 @@ build.gradle中配置`multiDexEnabled true`，将dex分包。
 
 参考：[ART and Dalvik | Android Open Source Project][art_vs_dalvik]
 
+## 90. Android中的ClassLoader
+
+![ClassLoader][classloader]
+
+- 在Android中，App安装到手机后，apk里面的class.dex中的class均是通过PathClassLoader来加载的。
+- DexClassLoader可以用来加载SD卡上加载包含class.dex的.jar和.apk文件。
+- DexClassLoader和PathClassLoader的基类BaseDexClassLoader查找class是通过其内部的`DexPathList pathList`来查找的。
+- DexPathList内部有一个`Element[] dexElements`数组，其`findClass()`方法的实现就是遍历该数组，查找class，一旦找到需要的类，就直接返回，停止遍历。
+
+## 91. ClassLoader方式实现热修复
+
+![ClassLoader Hot Patch][classloader_hotpatch]
+
+主要步骤：
+
+1. 假设MainActivity中有一个方法`showMsg()`需要修复。
+2. 修复`showMsg()`方法，制作补丁包patch.jar，该patch.jar文件中就包含已经修复了的dex文件。
+3. 在Application的`onCreate()`方法中检测是否已经下载好补丁包，如果存在补丁包，就通过DexClassLoader加载patch.jar，然后通过反射拿到DexClassLoader中的 DexPathList对象，进而拿到`Element[] dexElements`数组，这里标记该Element数组为`newDexElements`。
+4. 还是通过反射，拿到App默认的ClassLoader即PathClassLoader的DexPathList对象，进而拿到Element数组，这里标记下该数组为`baseDexElements`。
+5. 将`newDexElements`和`baseDexElements`合成一个新的数组`allDexElements`，且保证`newDexElements`中的值在`allDexElements`数组的最前面。
+6. 然后还是通过通过反射，将合成的Element数组设置给PathClassLoader的DexPathList对象。
+7. 在Application完成初始化之后，会开始加载MainActivity，加载过程就是通过DexPathList对象的`findClass()`方法来完成的，会从头开始遍历其Element数组，会优先查找到之前插入的补丁包中的dexFile，而原apk中的则不会查找到，因此就实现了热修复的目的。
+
+参考：[热修复实现：ClassLoader 方式的实现][classloader_hotpatch_url]
+
+## 92. AsyncTask需要在主线程中实例化吗？
+
+### 92.1. API 16之前
+
+AsyncTask的静态Handler创建和初始化时默认采用的是当前现场的Looper。若子线程无Looper，则会出错；若有Looper则会导致处理消息时无法在主线程执行，出错。所以AsyncTask必须在主线程实例化。
+
+### 92.2. API 16及之后，API 22之前
+
+在ActivityThread的`main()`中直接调用了`AsyncTask.init()`，保证Handler在主线程实例化。所以AsyncTask不需要在主线程实例化。
+
+### 92.3. API 22及之后
+
+不再在ActivityThread的`main()`中调用。AsyncTask通过`getMainLooper()`获得主线程Looper。所以AsyncTask不需要在主线程实例化。
+
 [activity_fragment_lifecycle]: images/activity_fragment_lifecycle.png
 
 [activity_lifecycle]: images/activity_lifecycle.png
@@ -1189,10 +1234,16 @@ build.gradle中配置`multiDexEnabled true`，将dex分包。
 
 [viewgroup]: images/viewgroup.png
 
-[build_process]: build_process.png
+[build_process]: images/build_process.png
 
-[build_process_2]: build_process_2.png
+[build_process_2]: images/build_process_2.png
 
-[class_vs_dex]: class_vs_dex.png
+[class_vs_dex]: images/class_vs_dex.png
 
 [art_vs_dalvik]: https://source.android.com/devices/tech/dalvik/
+
+[classloader]: images/classloader.png
+
+[classloader_hotpatch]: images/classloader_hotpatch.jpg
+
+[classloader_hotpatch_url]: http://jaeger.itscoder.com/android/2016/09/20/nuva-source-code-analysis.html
