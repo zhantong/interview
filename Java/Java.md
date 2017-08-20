@@ -151,6 +151,19 @@
     - [77.3. Java 6](#773-java-6)
     - [77.4. Java 5](#774-java-5)
 - [78. ThreadLocal原理](#78-threadlocal原理)
+- [79. HashMap（Java 7）](#79-hashmapjava-7)
+    - [79.1. 构造函数](#791-构造函数)
+    - [79.2. 确定索引位置](#792-确定索引位置)
+    - [79.3. `put()`](#793-put)
+        - [79.3.1. `inflateTable()`](#7931-inflatetable)
+        - [79.3.2. `putForNullKey()`](#7932-putfornullkey)
+        - [79.3.3. `addEntry()`](#7933-addentry)
+    - [79.4. 扩容机制](#794-扩容机制)
+    - [79.5. `get()`](#795-get)
+- [80. Java 8对HashMap的改进](#80-java-8对hashmap的改进)
+    - [80.1. `hash()`](#801-hash)
+    - [80.2. 红黑树](#802-红黑树)
+    - [80.3. `resize()`](#803-resize)
 
 <!-- /TOC -->
 
@@ -1600,6 +1613,226 @@ void createMap(Thread t, T firstValue) {
     t.threadLocals = new ThreadLocalMap(this, firstValue);
 }
 ```
+
+## 79. HashMap（Java 7）
+
+### 79.1. 构造函数
+
+主要是对如下几个变量的初始化：
+
+```java
+int threshold;             // 所能容纳的key-value对极限 
+final float loadFactor;    // 负载因子
+int modCount;  
+int size;
+```
+
+- `loadFactor`：Load factor为负载因子(默认值是0.75)。
+- `threshold`：`Entry`数组初始化长度`length`默认值为16，`threshold`是HashMap所能容纳的最大数据量的`Entry`(键值对)个数。`threshold = length * Load factor`。
+- `size`：HashMap中实际存在的键值对数量。
+- `modCount`：主要用来记录HashMap内部结构发生变化的次数，主要用于迭代的快速失败。内部结构发生变化指的是结构发生变化，例如`put()`新键值对，但是某个key对应的value值被覆盖不属于结构变化。
+
+### 79.2. 确定索引位置
+
+HashMap定位数组索引位置，直接决定了`hash()`方法的离散性能。Hash算法本质上就是三步：取key的hashCode值、高位运算、取模运算。
+
+```java
+int hash(Object k) {
+    int h = k.hashCode();
+    h ^= (h >>> 20) ^ (h >>> 12);
+    return h ^ (h >>> 7) ^ (h >>> 4);
+}
+```
+
+```java
+int indexFor(int h, int length) {
+    return h & (length-1);
+}
+```
+
+`hash()`主要是用来“扰动”，`indexFor()`直接取hash的低位作为数组索引，所以扰动的目的就是混合`hashCode()`的高位和低位，以此来加大低位的随机性。
+
+### 79.3. `put()`
+
+```java
+public V put(K key, V value) {
+    // 1. table为空则创建
+    if (table == EMPTY_TABLE) {
+        inflateTable(threshold);
+    }
+    // 2. key为null则单独处理
+    if (key == null)
+        return putForNullKey(value);
+    // 3. 计算hash并得到数组索引
+    int hash = hash(key);
+    int i = indexFor(hash, table.length);
+    // 4. key存在则直接覆盖value
+    for (Entry<K,V> e = table[i]; e != null; e = e.next) {
+        Object k;
+        if (e.hash == hash && ((k = e.key) == key || key.equals(k))) {
+            V oldValue = e.value;
+            e.value = value;
+            e.recordAccess(this);
+            return oldValue;
+        }
+    }
+
+    modCount++;
+    // 5. key不存在则添加
+    addEntry(hash, key, value, i);
+    return null;
+}
+```
+
+#### 79.3.1. `inflateTable()`
+
+```java
+private void inflateTable(int toSize) {
+    int capacity = roundUpToPowerOf2(toSize);
+
+    threshold = (int) Math.min(capacity * loadFactor, MAXIMUM_CAPACITY + 1);
+    table = new Entry[capacity];
+}
+```
+
+`inflateTable()`创建table，table大小永远是2的幂次，是为了计算`indexFor()`方便。
+
+#### 79.3.2. `putForNullKey()`
+
+`putForNullKey()`与正常的`put()`非常相似，只不过将数组索引指定为0。
+
+#### 79.3.3. `addEntry()`
+
+```java
+void addEntry(int hash, K key, V value, int bucketIndex) {
+    if ((size >= threshold) && (null != table[bucketIndex])) {
+        resize(2 * table.length);
+        hash = (null != key) ? hash(key) : 0;
+        bucketIndex = indexFor(hash, table.length);
+    }
+
+    createEntry(hash, key, value, bucketIndex);
+}
+```
+
+```java
+void createEntry(int hash, K key, V value, int bucketIndex) {
+    Entry<K,V> e = table[bucketIndex];
+    table[bucketIndex] = new Entry<>(hash, key, value, e);
+    size++;
+}
+```
+
+```java
+Entry(int h, K k, V v, Entry<K,V> n) {
+    value = v;
+    next = n;
+    key = k;
+    hash = h;
+}
+```
+
+`addEntry()`首先判断是否需要扩容（`size >= threshold`），若需要则首先`resize()`扩容，重新计算数组索引，最后`createEntry()`插入到table中。`createEntry()`即采用头插法将新的`Entry`插入到table中。
+
+### 79.4. 扩容机制
+
+```java
+void resize(int newCapacity) {
+    Entry[] oldTable = table;
+    int oldCapacity = oldTable.length;
+    if (oldCapacity == MAXIMUM_CAPACITY) {
+        threshold = Integer.MAX_VALUE;
+        return;
+    }
+
+    Entry[] newTable = new Entry[newCapacity];
+    transfer(newTable);
+    table = newTable;
+    threshold = (int)Math.min(newCapacity * loadFactor, MAXIMUM_CAPACITY + 1);
+}
+```
+
+```java
+void transfer(Entry[] newTable) {
+    int newCapacity = newTable.length;
+    for (Entry<K,V> e : table) {
+        while(null != e) {
+            Entry<K,V> next = e.next;
+            e.hash = null == e.key ? 0 : hash(e.key);
+            int i = indexFor(e.hash, newCapacity);
+            e.next = newTable[i];
+            newTable[i] = e;
+            e = next;
+        }
+    }
+}
+```
+
+`resize()`创建一个大小为`2*table.length`的`Entry`数组，然后通过`transfer()`将原`Entry`数组中的元素重新hash到新的`Entry`数组中。这里插入到新table仍然采用头插法。
+
+### 79.5. `get()`
+
+```java
+public V get(Object key) {
+    if (key == null)
+        return getForNullKey();
+    Entry<K,V> entry = getEntry(key);
+
+    return null == entry ? null : entry.getValue();
+}
+```
+
+```java
+private V getForNullKey() {
+    if (size == 0) {
+        return null;
+    }
+    for (Entry<K,V> e = table[0]; e != null; e = e.next) {
+        if (e.key == null)
+            return e.value;
+    }
+    return null;
+}
+```
+
+```java
+final Entry<K,V> getEntry(Object key) {
+    if (size == 0) {
+        return null;
+    }
+
+    int hash = (key == null) ? 0 : hash(key);
+    for (Entry<K,V> e = table[indexFor(hash, table.length)]; e != null; e = e.next) {
+        Object k;
+        if (e.hash == hash && ((k = e.key) == key || (key != null && key.equals(k))))
+            return e;
+    }
+    return null;
+}
+```
+
+`get()`时，通过key找到入口`Entry`，再采用单链表遍历的方式找到真正的Entry（`e.hash == hash && (e.key == key || (key != null && key.equals(e.key))`），最后返回value。
+
+## 80. Java 8对HashMap的改进
+
+### 80.1. `hash()`
+
+```java
+static final int hash(Object key) {
+    int h;
+    return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+}
+```
+
+Java 8中`hash()`仅扰动一次，而Java 7中扰动四次。
+
+### 80.2. 红黑树
+
+Java 7中HashMap采用的是位桶+链表的方式。而Java 8中采用的是位桶+链表／红黑树的方式，当某个位桶的链表的长度超过8的时候，这个链表就将转换成红黑树。
+
+### 80.3. `resize()`
+
+Java 7在扩容时会重新计算`Entry`的数组索引，而在Java 8中只需要看看原来的hash值新增的那个bit是1还是0就好了（table数组大小每次扩容乘2），是0的话索引没变，是1的话索引变成“原索引+oldCap”。
 
 [cache_consistency]: cache_consistency.jpeg
 
