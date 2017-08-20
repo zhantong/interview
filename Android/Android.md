@@ -141,6 +141,13 @@
 - [84. Android崩溃捕获](#84-android崩溃捕获)
     - [84.1. Java崩溃捕获](#841-java崩溃捕获)
     - [84.2. Native崩溃捕获](#842-native崩溃捕获)
+- [85. Android APP构建流程](#85-android-app构建流程)
+- [86. class文件与.dex文件的区别](#86-class文件与dex文件的区别)
+- [87. 65535问题](#87-65535问题)
+    - [87.1. 原因](#871-原因)
+    - [87.2. 解决方法](#872-解决方法)
+- [88. Dalvik与JVM的区别](#88-dalvik与jvm的区别)
+- [89. ART相对Dalvik的优化](#89-art相对dalvik的优化)
 
 <!-- /TOC -->
 
@@ -952,7 +959,6 @@ ArrayMap是一个&lt;key,value>映射的数据结构，它设计上更多的是�
 - 每个进程都具有自己的虚拟机 (VM)，因此应用代码是在与其他应用隔离的环境中运行；
 - 默认情况下，每个应用都在其自己的Linux进程内运行。Android会在需要执行任何应用组件时启动该进程，然后在不再需要该进程或系统必须为其他应用恢复内存时关闭该进程。
 
-
 ## 71. `onStartCommand()`有哪些返回值
 
 `onStartCommand()`的返回值用于描述系统应该如何在服务终止的情况下继续运行服务。其值可以为
@@ -1102,6 +1108,50 @@ Uncaught异常发生时会终止线程，此时，系统便会通知UncaughtExce
 
 对Native代码的崩溃，可以通过调用`int sigaction(int signum,const struct sigaction *act,struct sigaction *oldact))`注册信号处理函数来完成。
 
+## 85. Android APP构建流程
+
+![Build Process][build_process]
+
+![Build Process][build_process_2]
+
+典型的Android APP构建流程：
+
+1. Java编译器对工程本身的java代码进行编译，这些java代码有三个来源：app的源代码，由资源文件生成的R文件（aapt工具），以及有aidl文件生成的java接口文件（aidl工具）。产出为.class文件。
+2. class文件和依赖的三方库文件通过dex工具生成Delvik虚拟机可执行的.dex文件，可能有一个或多个，包含了所有的class信息，包括项目自身的class和依赖的class。产出为.dex文件。
+3. apkbuilder工具将.dex文件和编译后的资源文件生成未经签名对齐的apk文件。这里编译后的资源文件包括两部分，一是由aapt编译产生的编译后的资源文件，二是依赖的三方库里的资源文件。产出为未经签名的.apk文件。
+4. 分别由Jarsigner和zipalign对apk文件进行签名和对齐，生成最终的apk文件。
+
+## 86. class文件与.dex文件的区别
+
+![class vs dex][class_vs_dex]
+
+## 87. 65535问题
+
+### 87.1. 原因
+
+单个dex文件中，method个数采用使用原生类型short来索引，即2个字节最多65536个method，field、class的个数也均有此限制。
+
+### 87.2. 解决方法
+
+build.gradle中配置`multiDexEnabled true`，将dex分包。
+
+## 88. Dalvik与JVM的区别
+
+- JVM可以执行的文件是.class结尾的字节码文件，而Dalvik执行的是dex文件（不符合JVM规范）。
+- Dalvik基于寄存器，而JVM基于栈。
+- Dalvik负责进程隔离和线程管理，每一个Android应用在底层都会对应一个独立的Dalvik虚拟机实例，其代码在虚拟机的解释下得以执行。
+
+除此之外：
+
+- 有一个特殊的虚拟机进程Zygote，他是虚拟机实例的孵化器。它在系统启动的时候就会产生，它会完成虚拟机的初始化、库的加载、预制类库和初始化的操作。如果系统需要一个新的虚拟机实例，它会迅速复制自身，以最快的速度提供给系统。
+
+## 89. ART相对Dalvik的优化
+
+- AOT替换JIT：使用AOT直接在安装时用dex2oat将其完全翻译成native代码。
+- GC性能提升：并行GC。
+- 提升内存效率：专门开辟内存存放large object，因为large object移动成本太大；引入moving collector技术，将不连续的物理内存块对齐，解决内存碎片化问题。
+
+参考：[ART and Dalvik | Android Open Source Project][art_vs_dalvik]
 
 [activity_fragment_lifecycle]: images/activity_fragment_lifecycle.png
 
@@ -1138,3 +1188,11 @@ Uncaught异常发生时会终止线程，此时，系统便会通知UncaughtExce
 [activity_task]: images/activity_task.png
 
 [viewgroup]: images/viewgroup.png
+
+[build_process]: build_process.png
+
+[build_process_2]: build_process_2.png
+
+[class_vs_dex]: class_vs_dex.png
+
+[art_vs_dalvik]: https://source.android.com/devices/tech/dalvik/
