@@ -164,6 +164,11 @@
     - [80.1. `hash()`](#801-hash)
     - [80.2. 红黑树](#802-红黑树)
     - [80.3. `resize()`](#803-resize)
+- [81. 如何理解NIO](#81-如何理解nio)
+    - [81.1. 什么是NIO](#811-什么是nio)
+    - [81.2. NIO与IO的区别](#812-nio与io的区别)
+    - [81.3. 为什么要使用NIO](#813-为什么要使用nio)
+- [82. concurrent包](#82-concurrent包)
 
 <!-- /TOC -->
 
@@ -1813,6 +1818,8 @@ final Entry<K,V> getEntry(Object key) {
 
 `get()`时，通过key找到入口`Entry`，再采用单链表遍历的方式找到真正的Entry（`e.hash == hash && (e.key == key || (key != null && key.equals(e.key))`），最后返回value。
 
+参考：[Java 8系列之重新认识HashMap][hashmap_meituan]
+
 ## 80. Java 8对HashMap的改进
 
 ### 80.1. `hash()`
@@ -1833,6 +1840,37 @@ Java 7中HashMap采用的是位桶+链表的方式。而Java 8中采用的是位
 ### 80.3. `resize()`
 
 Java 7在扩容时会重新计算`Entry`的数组索引，而在Java 8中只需要看看原来的hash值新增的那个bit是1还是0就好了（table数组大小每次扩容乘2），是0的话索引没变，是1的话索引变成“原索引+oldCap”。
+
+## 81. 如何理解NIO
+
+### 81.1. 什么是NIO
+
+NIO包（`java.nio.*`）引入了四个关键的抽象数据类型，它们共同解决传统的I/O类中的一些问题：
+
+- `Buffer`：它是包含数据且用于读写的线形表结构。其中还提供了一个特殊类用于内存映射文件的I/O操作。
+- `Charset`：它提供Unicode字符串影射到字节序列以及逆影射的操作。
+- `Channels`：包含socket，file和pipe三种管道，它实际上是双向交流的通道。
+- `Selector`：它将多元异步I/O操作集中到一个或多个线程中（它可以被看成是Unix中`select()`函数或Win32中`WaitForSingleEvent()`函数的面向对象版本）。
+
+### 81.2. NIO与IO的区别
+
+Java NIO和IO之间第一个最大的区别是，IO是面向流的，NIO是面向缓冲区的。Java IO面向流意味着每次从流中读一个或多个字节，直至读取所有字节，它们没有被缓存在任何地方。此外，它不能前后移动流中的数据。如果需要前后移动从流中读取的数据，需要先将它缓存到一个缓冲区。Java NIO的缓冲导向方法略有不同。数据读取到一个它稍后处理的缓冲区，需要时可在缓冲区中前后移动。这就增加了处理过程中的灵活性。但是，还需要检查是否该缓冲区中包含所有您需要处理的数据。而且，需确保当更多的数据读入缓冲区时，不要覆盖缓冲区里尚未处理的数据。
+
+Java IO的各种流是阻塞的。这意味着，当一个线程调用`read()`或`write()`时，该线程被阻塞，直到有一些数据被读取，或数据完全写入。该线程在此期间不能再干任何事情了。Java NIO的非阻塞模式，使一个线程从某通道发送请求读取数据，但是它仅能得到目前可用的数据，如果目前没有数据可用时，就什么都不会获取。
+
+Java NIO的选择器允许一个单独的线程来监视多个输入通道，你可以注册多个通道使用一个选择器，然后使用一个单独的线程来“选择”通道：这些通道里已经有可以处理的输入，或者选择已准备写入的通道。这种选择机制，使得一个单独的线程很容易来管理多个通道。
+
+### 81.3. 为什么要使用NIO
+
+NIO 的创建目的是为了让Java程序员可以实现高速I/O而无需编写自定义的本机代码。NIO将最耗时的I/O操作(即填充和提取缓冲区)转移回操作系统，因而可以极大地提高速度。
+
+## 82. concurrent包
+
+concurrent包主要包含：
+
+- 大部分关于并发的接口和类：BlockingQueue、Callable、ConcurrentMap、Executor、ExecutorService、Future、Semaphore等。
+- 所有原子操作的类：AtomicInteger、AtomicLong等。
+- 锁相关的类：Lock、ReentrantLock、ReadWriteLock等。
 
 [cache_consistency]: cache_consistency.jpeg
 
@@ -1869,3 +1907,5 @@ Java 7在扩容时会重新计算`Entry`的数组索引，而在Java 8中只需�
 [try_catch_finally_return]: http://blog.csdn.net/aaoxue/article/details/8535754
 
 [thread_state_transition_2]: thread_state_transition_2.jpg
+
+[hashmap_meituan]: https://tech.meituan.com/java-hashmap.html
