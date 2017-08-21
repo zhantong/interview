@@ -1198,6 +1198,20 @@ AsyncTask的静态Handler创建和初始化时默认采用的是当前现场的L
 
 不再在ActivityThread的`main()`中调用。AsyncTask通过`getMainLooper()`获得主线程Looper。所以AsyncTask不需要在主线程实例化。
 
+[android layout绘制]: http://vincgao.com/2016/02/android-layout/
+
+[android view事件分发机制源码分析]: https://github.com/Mr-YangCheng/ForAndroidInterview/blob/master/android/Android%20View%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91%E6%9C%BA%E5%88%B6%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md
+
+[android 应用程序启动过程分析]: http://androidzhibinw.github.io/android/app/startup/activity/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/%E5%90%AF%E5%8A%A8/%E5%88%86%E6%9E%90/2015/09/21/android-app-startup-process/
+
+[how do dp, dip, dpi, ppi, pixels and inches relate?]: http://stackoverflow.com/questions/8478882/how-do-dp-dip-dpi-ppi-pixels-and-inches-relate
+
+[viewdrawflow]: https://github.com/android-cn/android-open-project-analysis/tree/master/tech/viewdrawflow
+
+[art_vs_dalvik]: https://source.android.com/devices/tech/dalvik/
+
+[classloader_hotpatch_url]: http://jaeger.itscoder.com/android/2016/09/20/nuva-source-code-analysis.html
+
 [activity_fragment_lifecycle]: images/activity_fragment_lifecycle.png
 
 [activity_lifecycle]: images/activity_lifecycle.png
@@ -1205,12 +1219,6 @@ AsyncTask的静态Handler创建和初始化时默认采用的是当前现场的L
 [android draw view chain]: images/android_draw_view_chain.png
 
 [android draw view flow]: images/android_draw_view_flow.png
-
-[android layout绘制]: http://vincgao.com/2016/02/android-layout/
-
-[android view事件分发机制源码分析]: https://github.com/Mr-YangCheng/ForAndroidInterview/blob/master/android/Android%20View%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91%E6%9C%BA%E5%88%B6%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md
-
-[android 应用程序启动过程分析]: http://androidzhibinw.github.io/android/app/startup/activity/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/%E5%90%AF%E5%8A%A8/%E5%88%86%E6%9E%90/2015/09/21/android-app-startup-process/
 
 [android_boot_process]: images/android_boot_process.png
 
@@ -1220,15 +1228,11 @@ AsyncTask的静态Handler创建和初始化时默认采用的是当前现场的L
 
 [fragment_lifecycle]: images/fragment_lifecycle.png
 
-[how do dp, dip, dpi, ppi, pixels and inches relate?]: http://stackoverflow.com/questions/8478882/how-do-dp-dip-dpi-ppi-pixels-and-inches-relate
-
 [service_binding_tree_lifecycle]: images/service_binding_tree_lifecycle.png
 
 [service_lifecycle]: images/service_lifecycle.png
 
 [touch_eventbus]: images/touch_eventbus.gif
-
-[viewdrawflow]: https://github.com/android-cn/android-open-project-analysis/tree/master/tech/viewdrawflow
 
 [activity_task]: images/activity_task.png
 
@@ -1240,10 +1244,6 @@ AsyncTask的静态Handler创建和初始化时默认采用的是当前现场的L
 
 [class_vs_dex]: images/class_vs_dex.png
 
-[art_vs_dalvik]: https://source.android.com/devices/tech/dalvik/
-
 [classloader]: images/classloader.png
 
 [classloader_hotpatch]: images/classloader_hotpatch.jpg
-
-[classloader_hotpatch_url]: http://jaeger.itscoder.com/android/2016/09/20/nuva-source-code-analysis.html

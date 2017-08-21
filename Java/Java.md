@@ -30,26 +30,26 @@
 - [26. ==与`equals()`的区别？](#26-与equals的区别)
 - [27. `equals()`与`hashCode()`的区别？](#27-equals与hashcode的区别)
 - [28. Java集合框架示意图](#28-java集合框架示意图)
-    - [28.1. 集合框架概览](#281-集合框架概览)
-    - [28.2. List](#282-list)
-    - [28.3. Set](#283-set)
-    - [28.4. Map](#284-map)
-    - [28.5. Queue](#285-queue)
+  - [28.1. 集合框架概览](#281-集合框架概览)
+  - [28.2. List](#282-list)
+  - [28.3. Set](#283-set)
+  - [28.4. Map](#284-map)
+  - [28.5. Queue](#285-queue)
 - [29. Error和Exception的区别](#29-error和exception的区别)
 - [30. 用户线程（User Thread）与守护线程（Daemon Thread）](#30-用户线程user-thread与守护线程daemon-thread)
 - [31. Java内存模型](#31-java内存模型)
-    - [31.1. 主内存与工作内存](#311-主内存与工作内存)
-    - [31.2. 内存间交互操作](#312-内存间交互操作)
-    - [31.3. 对volatile型变量的特殊规则](#313-对volatile型变量的特殊规则)
-    - [31.4. 原子性、可见性与有序性](#314-原子性可见性与有序性)
-        - [31.4.1. 原子性（Atomicity）](#3141-原子性atomicity)
-        - [31.4.2. 可见性（Visibility）](#3142-可见性visibility)
-        - [31.4.3. 有序性（Ordering）](#3143-有序性ordering)
-    - [31.5. 先行发生原则](#315-先行发生原则)
+  - [31.1. 主内存与工作内存](#311-主内存与工作内存)
+  - [31.2. 内存间交互操作](#312-内存间交互操作)
+  - [31.3. 对volatile型变量的特殊规则](#313-对volatile型变量的特殊规则)
+  - [31.4. 原子性、可见性与有序性](#314-原子性可见性与有序性)
+    - [31.4.1. 原子性（Atomicity）](#3141-原子性atomicity)
+    - [31.4.2. 可见性（Visibility）](#3142-可见性visibility)
+    - [31.4.3. 有序性（Ordering）](#3143-有序性ordering)
+  - [31.5. 先行发生原则](#315-先行发生原则)
 - [32. Java中的BIO，NIO，AIO分别是什么?](#32-java中的bionioaio分别是什么)
-    - [32.1. BIO（synchronous Blocking IO，同步阻塞IO）](#321-biosynchronous-blocking-io同步阻塞io)
-    - [32.2. NIO（synchronous Non blocking IO，同步非阻塞IO）](#322-niosynchronous-non-blocking-io同步非阻塞io)
-    - [32.3. AIO（Asynchronous non blocking IO，异步非阻塞IO）](#323-aioasynchronous-non-blocking-io异步非阻塞io)
+  - [32.1. BIO（synchronous Blocking IO，同步阻塞IO）](#321-biosynchronous-blocking-io同步阻塞io)
+  - [32.2. NIO（synchronous Non blocking IO，同步非阻塞IO）](#322-niosynchronous-non-blocking-io同步非阻塞io)
+  - [32.3. AIO（Asynchronous non blocking IO，异步非阻塞IO）](#323-aioasynchronous-non-blocking-io异步非阻塞io)
 - [33. Serializable接口和序列化与反序列化](#33-serializable接口和序列化与反序列化)
 - [34. ArrayList的`subList()`方法注意事项](#34-arraylist的sublist方法注意事项)
 - [35. Arrays的`asList()`方法注意事项](#35-arrays的aslist方法注意事项)
@@ -62,22 +62,22 @@
 - [42. 可以在多线程下使用Random吗？](#42-可以在多线程下使用random吗)
 - [43. `Thread.join()`是如何实现的？](#43-threadjoin是如何实现的)
 - [44. GC中可回收对象的判定方法](#44-gc中可回收对象的判定方法)
-    - [44.1. 引用计数法](#441-引用计数法)
-    - [44.2. 可达性分析算法](#442-可达性分析算法)
+  - [44.1. 引用计数法](#441-引用计数法)
+  - [44.2. 可达性分析算法](#442-可达性分析算法)
 - [45. 垃圾收集算法](#45-垃圾收集算法)
-    - [45.1. 标记——清除算法](#451-标记清除算法)
-    - [45.2. 复制算法](#452-复制算法)
-    - [45.3. 标记——整理算法](#453-标记整理算法)
-    - [45.4. 分代收集算法](#454-分代收集算法)
-        - [45.4.1. 年轻代](#4541-年轻代)
-        - [45.4.2. 年老代](#4542-年老代)
-        - [45.4.3. 永久代](#4543-永久代)
+  - [45.1. 标记——清除算法](#451-标记清除算法)
+  - [45.2. 复制算法](#452-复制算法)
+  - [45.3. 标记——整理算法](#453-标记整理算法)
+  - [45.4. 分代收集算法](#454-分代收集算法)
+    - [45.4.1. 年轻代](#4541-年轻代)
+    - [45.4.2. 年老代](#4542-年老代)
+    - [45.4.3. 永久代](#4543-永久代)
 - [46. Java是值传递还是引用传递？](#46-java是值传递还是引用传递)
 - [47. 线程同步的方法](#47-线程同步的方法)
 - [48. Java创建线程的方式](#48-java创建线程的方式)
-    - [48.1. 继承Thread类创建线程类](#481-继承thread类创建线程类)
-    - [48.2. 通过Runnable接口创建线程类](#482-通过runnable接口创建线程类)
-    - [48.3. 通过Callable和Future创建线程](#483-通过callable和future创建线程)
+  - [48.1. 继承Thread类创建线程类](#481-继承thread类创建线程类)
+  - [48.2. 通过Runnable接口创建线程类](#482-通过runnable接口创建线程类)
+  - [48.3. 通过Callable和Future创建线程](#483-通过callable和future创建线程)
 - [49. 线程池原理](#49-线程池原理)
 - [50. 类与类加载器的关系](#50-类与类加载器的关系)
 - [51. 双亲委派模型](#51-双亲委派模型)
@@ -85,44 +85,44 @@
 - [53. 类的生命周期](#53-类的生命周期)
 - [54. 类初始化的时机](#54-类初始化的时机)
 - [55. 类的加载过程](#55-类的加载过程)
-    - [55.1. 加载](#551-加载)
-    - [55.2. 连接](#552-连接)
-        - [55.2.1. 验证](#5521-验证)
-        - [55.2.2. 准备](#5522-准备)
-        - [55.2.3. 解析](#5523-解析)
-    - [55.3. 初始化](#553-初始化)
+  - [55.1. 加载](#551-加载)
+  - [55.2. 连接](#552-连接)
+    - [55.2.1. 验证](#5521-验证)
+    - [55.2.2. 准备](#5522-准备)
+    - [55.2.3. 解析](#5523-解析)
+  - [55.3. 初始化](#553-初始化)
 - [56. 符号引用和直接引用的区别](#56-符号引用和直接引用的区别)
 - [57. 如何理解平台无关性](#57-如何理解平台无关性)
 - [58. 运行时数据区域](#58-运行时数据区域)
-    - [58.1. 程序计数器（Program Counter Register）](#581-程序计数器program-counter-register)
-    - [58.2. Java虚拟机栈（Java Virtual Machine Stacks）](#582-java虚拟机栈java-virtual-machine-stacks)
-    - [58.3. 本地方法栈（Native Method Stack）](#583-本地方法栈native-method-stack)
-    - [58.4. Java堆（Java Heap）](#584-java堆java-heap)
-    - [58.5. 方法区（Method Area）](#585-方法区method-area)
-    - [58.6. 运行时常量池（Runtime Constant Pool）](#586-运行时常量池runtime-constant-pool)
+  - [58.1. 程序计数器（Program Counter Register）](#581-程序计数器program-counter-register)
+  - [58.2. Java虚拟机栈（Java Virtual Machine Stacks）](#582-java虚拟机栈java-virtual-machine-stacks)
+  - [58.3. 本地方法栈（Native Method Stack）](#583-本地方法栈native-method-stack)
+  - [58.4. Java堆（Java Heap）](#584-java堆java-heap)
+  - [58.5. 方法区（Method Area）](#585-方法区method-area)
+  - [58.6. 运行时常量池（Runtime Constant Pool）](#586-运行时常量池runtime-constant-pool)
 - [59. Class文件结构](#59-class文件结构)
-    - [59.1. 魔数与Class文件的版本](#591-魔数与class文件的版本)
-    - [59.2. 常量池](#592-常量池)
-    - [59.3. 访问标识](#593-访问标识)
-    - [59.4. 类索引、父类索引与接口索引集合](#594-类索引父类索引与接口索引集合)
-    - [59.5. 字段表集合](#595-字段表集合)
-    - [59.6. 方法表集合](#596-方法表集合)
-    - [59.7. 属性表集合](#597-属性表集合)
+  - [59.1. 魔数与Class文件的版本](#591-魔数与class文件的版本)
+  - [59.2. 常量池](#592-常量池)
+  - [59.3. 访问标识](#593-访问标识)
+  - [59.4. 类索引、父类索引与接口索引集合](#594-类索引父类索引与接口索引集合)
+  - [59.5. 字段表集合](#595-字段表集合)
+  - [59.6. 方法表集合](#596-方法表集合)
+  - [59.7. 属性表集合](#597-属性表集合)
 - [60. 运行时栈帧结构](#60-运行时栈帧结构)
-    - [60.1. 局部变量表（Local Variable Table）](#601-局部变量表local-variable-table)
-    - [60.2. 操作数栈（Operand Stack）](#602-操作数栈operand-stack)
-    - [60.3. 动态连接（Dynamic Linking）](#603-动态连接dynamic-linking)
-    - [60.4. 方法返回地址](#604-方法返回地址)
-    - [60.5. 附加信息](#605-附加信息)
+  - [60.1. 局部变量表（Local Variable Table）](#601-局部变量表local-variable-table)
+  - [60.2. 操作数栈（Operand Stack）](#602-操作数栈operand-stack)
+  - [60.3. 动态连接（Dynamic Linking）](#603-动态连接dynamic-linking)
+  - [60.4. 方法返回地址](#604-方法返回地址)
+  - [60.5. 附加信息](#605-附加信息)
 - [61. 基于栈的指令集和基于寄存器的指令集](#61-基于栈的指令集和基于寄存器的指令集)
-    - [61.1. 例子](#611-例子)
-    - [61.2. 区别](#612-区别)
+  - [61.1. 例子](#611-例子)
+  - [61.2. 区别](#612-区别)
 - [62. Javac编译过程](#62-javac编译过程)
-    - [62.1. 解析与填充符号表过程](#621-解析与填充符号表过程)
-        - [62.1.1. 解析（词法、语法分析）](#6211-解析词法语法分析)
-        - [62.1.2. 填充符号表](#6212-填充符号表)
-    - [62.2. 注解处理器](#622-注解处理器)
-    - [62.3. 语义分析与字节码生成](#623-语义分析与字节码生成)
+  - [62.1. 解析与填充符号表过程](#621-解析与填充符号表过程)
+    - [62.1.1. 解析（词法、语法分析）](#6211-解析词法语法分析)
+    - [62.1.2. 填充符号表](#6212-填充符号表)
+  - [62.2. 注解处理器](#622-注解处理器)
+  - [62.3. 语义分析与字节码生成](#623-语义分析与字节码生成)
 - [63. 什么是JIT](#63-什么是jit)
 - [64. 什么是热点代码](#64-什么是热点代码)
 - [65. 如何判断热点代码](#65-如何判断热点代码)
@@ -132,42 +132,42 @@
 - [69. 对象的访问定位](#69-对象的访问定位)
 - [70. Java有哪些语法糖](#70-java有哪些语法糖)
 - [71. Java线程安全的实现](#71-java线程安全的实现)
-    - [71.1. 互斥同步（Mutual Exclusion & Synchronization）](#711-互斥同步mutual-exclusion--synchronization)
-    - [71.2. 非阻塞同步（Non-Blocking Synchronization）](#712-非阻塞同步non-blocking-synchronization)
-    - [71.3. 无同步方案](#713-无同步方案)
+  - [71.1. 互斥同步（Mutual Exclusion & Synchronization）](#711-互斥同步mutual-exclusion--synchronization)
+  - [71.2. 非阻塞同步（Non-Blocking Synchronization）](#712-非阻塞同步non-blocking-synchronization)
+  - [71.3. 无同步方案](#713-无同步方案)
 - [72. 锁优化](#72-锁优化)
-    - [72.1. 自旋锁与自适应自旋](#721-自旋锁与自适应自旋)
-    - [72.2. 锁消除](#722-锁消除)
-    - [72.3. 锁粗化](#723-锁粗化)
-    - [72.4. 轻量级锁](#724-轻量级锁)
-    - [72.5. 偏向锁](#725-偏向锁)
+  - [72.1. 自旋锁与自适应自旋](#721-自旋锁与自适应自旋)
+  - [72.2. 锁消除](#722-锁消除)
+  - [72.3. 锁粗化](#723-锁粗化)
+  - [72.4. 轻量级锁](#724-轻量级锁)
+  - [72.5. 偏向锁](#725-偏向锁)
 - [73. 如何理解java是一门静态多分派且动态单分派的语言？](#73-如何理解java是一门静态多分派且动态单分派的语言)
 - [74. 为什么synchronized修饰的变量推荐定义为final？](#74-为什么synchronized修饰的变量推荐定义为final)
 - [75. Object类有哪些方法](#75-object类有哪些方法)
 - [76. `sleep()`和`wait()`的区别](#76-sleep和wait的区别)
 - [77. Java版本历史与特性](#77-java版本历史与特性)
-    - [77.1. Java 8](#771-java-8)
-    - [77.2. Java 7](#772-java-7)
-    - [77.3. Java 6](#773-java-6)
-    - [77.4. Java 5](#774-java-5)
+  - [77.1. Java 8](#771-java-8)
+  - [77.2. Java 7](#772-java-7)
+  - [77.3. Java 6](#773-java-6)
+  - [77.4. Java 5](#774-java-5)
 - [78. ThreadLocal原理](#78-threadlocal原理)
 - [79. HashMap（Java 7）](#79-hashmapjava-7)
-    - [79.1. 构造函数](#791-构造函数)
-    - [79.2. 确定索引位置](#792-确定索引位置)
-    - [79.3. `put()`](#793-put)
-        - [79.3.1. `inflateTable()`](#7931-inflatetable)
-        - [79.3.2. `putForNullKey()`](#7932-putfornullkey)
-        - [79.3.3. `addEntry()`](#7933-addentry)
-    - [79.4. 扩容机制](#794-扩容机制)
-    - [79.5. `get()`](#795-get)
+  - [79.1. 构造函数](#791-构造函数)
+  - [79.2. 确定索引位置](#792-确定索引位置)
+  - [79.3. `put()`](#793-put)
+    - [79.3.1. `inflateTable()`](#7931-inflatetable)
+    - [79.3.2. `putForNullKey()`](#7932-putfornullkey)
+    - [79.3.3. `addEntry()`](#7933-addentry)
+  - [79.4. 扩容机制](#794-扩容机制)
+  - [79.5. `get()`](#795-get)
 - [80. Java 8对HashMap的改进](#80-java-8对hashmap的改进)
-    - [80.1. `hash()`](#801-hash)
-    - [80.2. 红黑树](#802-红黑树)
-    - [80.3. `resize()`](#803-resize)
+  - [80.1. `hash()`](#801-hash)
+  - [80.2. 红黑树](#802-红黑树)
+  - [80.3. `resize()`](#803-resize)
 - [81. 如何理解NIO](#81-如何理解nio)
-    - [81.1. 什么是NIO](#811-什么是nio)
-    - [81.2. NIO与IO的区别](#812-nio与io的区别)
-    - [81.3. 为什么要使用NIO](#813-为什么要使用nio)
+  - [81.1. 什么是NIO](#811-什么是nio)
+  - [81.2. NIO与IO的区别](#812-nio与io的区别)
+  - [81.3. 为什么要使用NIO](#813-为什么要使用nio)
 - [82. concurrent包](#82-concurrent包)
 
 <!-- /TOC -->
@@ -1872,40 +1872,40 @@ concurrent包主要包含：
 - 所有原子操作的类：AtomicInteger、AtomicLong等。
 - 锁相关的类：Lock、ReentrantLock、ReadWriteLock等。
 
-[cache_consistency]: cache_consistency.jpeg
-
-[collections_framework_overview]: collections_framework_overview.png
-
-[list_api_class_diagram]: List_API_class_diagram.png
-
-[map_api_class_diagram]: Map_API_class_diagram.png
-
-[queue_api_class_diagram]: Queue_API_class_diagram.png
-
-[set_api_class_diagram]: Set_API_class_diagram.png
-
-[thread_life_cycle]: thread_life_cycle.png
-
 [hashmap coolshell]: http://coolshell.cn/articles/9606.html
-
-[parents_delegation_model]: parents_delegation_model.png
-
-[java_runtime_data_areas]: java_runtime_data_areas.png
-
-[stack_frame]: stack_frame.png
-
-[javac_compiler]: javac_compiler.jpg
-
-[thread_state_transition]: thread_state_transition.png
-
-[handler_access]: handler_access.png
-
-[direct_pointer_access]: direct_pointer_access.png
-
-[java_memory_model]: java_memory_model.jpg
 
 [try_catch_finally_return]: http://blog.csdn.net/aaoxue/article/details/8535754
 
-[thread_state_transition_2]: thread_state_transition_2.jpg
-
 [hashmap_meituan]: https://tech.meituan.com/java-hashmap.html
+
+[cache_consistency]: images/cache_consistency.jpeg
+
+[collections_framework_overview]: images/collections_framework_overview.png
+
+[list_api_class_diagram]: images/List_API_class_diagram.png
+
+[map_api_class_diagram]: images/Map_API_class_diagram.png
+
+[queue_api_class_diagram]: images/Queue_API_class_diagram.png
+
+[set_api_class_diagram]: images/Set_API_class_diagram.png
+
+[thread_life_cycle]: images/thread_life_cycle.png
+
+[parents_delegation_model]: images/parents_delegation_model.png
+
+[java_runtime_data_areas]: images/java_runtime_data_areas.png
+
+[stack_frame]: images/stack_frame.png
+
+[javac_compiler]: images/javac_compiler.jpg
+
+[thread_state_transition]: images/thread_state_transition.png
+
+[handler_access]: images/handler_access.png
+
+[direct_pointer_access]: images/direct_pointer_access.png
+
+[java_memory_model]: images/java_memory_model.jpg
+
+[thread_state_transition_2]: images/thread_state_transition_2.jpg
