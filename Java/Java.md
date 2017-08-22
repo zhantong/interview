@@ -234,9 +234,9 @@ new 父类构造器(参数列表)|实现接口() {
 
 ## 5. `char`型变量与汉字。
 
-java中的一个`char`占2个字节。java采用unicode，2个字节来表示一个字符，如`java char x = '编'`。
+Java中的一个`char`占2个字节。Java采用unicode，2个字节来表示一个字符，如`char x = '编'`。
 
-`java String.getBytes(encoding)`方法是获取指定编码的`byte`数组表示，通常gbk/gb2312是2个字节，utf-8是3个字节。如果不指定`encoding`则取系统默认的`encoding`。
+`String.getBytes(encoding)`方法是获取指定编码的`byte`数组表示，通常gbk/gb2312是2个字节，utf-8是3个字节。如果不指定`encoding`则取系统默认的`encoding`。
 
 ## 6. 使用final关键字修饰一个变量时，是引用不能变，还是引用的对象不能变？
 
@@ -256,12 +256,12 @@ Overload是重载的意思，Override是覆盖的意思，也就是重写。
 - 抽象类允许有abstract方法；
 - 抽象类的非抽象子类必须实现abstract方法。
 
-## 10. java接口与抽象类如何合作?
+## 10. Java接口与抽象类如何合作?
 
 - 接口可以继承接口。抽象类可以实现（implements）接口，抽象类是可继承实体类，但前提是实体类必须有明确的构造函数。
-- 一个java抽象类实现一个接口时，可以不实现接口中所有的方法，但抽象类的子类必须实现。
+- 一个Java抽象类实现一个接口时，可以不实现接口中所有的方法，但抽象类的子类必须实现。
 
-## 11. java中实现多态的机制是什么？
+## 11. Java中实现多态的机制是什么？
 
 多态由重载和重写体现。
 
@@ -275,7 +275,7 @@ Java实现了闭包，但仅实现了值捕获，没有实现引用捕获。
 
 ## 13. `String s = new String("xyz")`创建了几个String Object?
 
-两个或一个，`"xyz"`对应一个对象，这个对象放在字符串常量缓冲区，常量`"xyz"`不管出现多少遍，都是缓冲区中的那一个。`New String`每写一遍，就创建一个新的对象，它一句那个常量`"xyz"`对象的内容来创建出一个新String对象。如果以前就用过`"xyz"`，这句代表就不会创建`"xyz"`自己了，直接从缓冲区拿。
+两个或一个，`"xyz"`对应一个对象，这个对象放在字符串常量缓冲区，常量`"xyz"`不管出现多少遍，都是缓冲区中的那一个。每次`new`都会创建一个新的对象，但`"xyz"`仍从缓冲区获取。
 
 ```java
 public class Main {
@@ -306,24 +306,20 @@ public String(String original) {
 
 ## 15. 当一个线程进入一个对象的一个synchronized方法后，其它线程是否可进入此对象的其它方法?
 
-1. 其他方法前是否加了`synchronized`关键字，如果没加，则能。
-2. 如果这个方法内部调用了`wait()`，则可以进入其他`synchronized`方法。
-3. 如果其他个方法都加了`synchronized`关键字，并且内部没有调用`wait()`，则不能。
-4. 如果其他方法是static，它用的同步锁是当前类的字节码，与非静态的方法不能同步，因为非静态的方法用的是`this`。
+若synchronized修饰的是static方法，则获取到的是类锁，否则是对象锁。若其他线程进入的是非synchronized修饰的方法，则可进入；若修饰的方法需要的锁与当前线程相同，则不可进入。
 
 ## 16. ArrayList和Vector的区别
 
-1. 同步性：Vector是线程安全的，也就是说是它的方法之间是线程同步的，而ArrayList是线程序不安全的，它的方法之间是线程不同步的。如果只有一个线程会访问到集合，那最好是使用ArrayList，因为它不考虑线程安全，效率会高些；如果有多个线程会访问到集合，那最好是使用Vector，因为不需要我们自己再去考虑和编写线程安全的代码。
-2. 数据增长：ArrayList与Vector都有一个初始的容量大小，当存储进它们里面的元素的个数超过了容量时，就需要增加ArrayList与Vector的存储空间，每次要增加存储空间时，不是只增加一个存储单元，而是增加多个存储单元，每次增加的存储单元的个数在内存空间利用与程序效率之间要取得一定的平衡。Vector默认增长为原来两倍，而ArrayList的增长策略在文档中没有明确规定（从源代码看到的是增长为原来的1.5倍）。ArrayList与Vector都可以设置初始的空间大小，Vector还可以设置增长的空间大小，而ArrayList没有提供设置增长空间的方法。
+- ArrayList在容量不够时默认是扩展50% + 1个，Vector是默认扩展1倍。
+- Vector提供`indexOf(obj, start)`方法，ArrayList没有。
+- Vector是线程安全的，而ArrayList不是。
 
 ## 17. HashMap和Hashtable的区别
 
-1. HashMap是Hashtable的轻量级实现（非线程安全的实现），他们都完成了Map接口，主要区别在于HashMap允许空（`null`）键值（key），由于非线程安全，在只有一个线程访问的情况下，效率要高于Hashtable。
-2. HashMap允许将null作为一个entry的key或者value，而Hashtable不允许。
-3. HashMap把Hashtable的contains方法去掉了，改成containsvalue和containsKey。因为contains方法容易让人引起误解。
-4. Hashtable继承自Dictionary类，而HashMap是Java1.2引进的Map interface的一个实现。
-5. 最大的不同是，Hashtable的方法是Synchronize的，而HashMap不是，在多个线程访问Hashtable时，不需要自己为它的方法实现同步，而HashMap就必须为之提供外同步。
-6. Hashtable和HashMap采用的hash/rehash算法都大概一样，所以性能不会有很大的差异。
+1. HashTable是线程安全的，而HashMap不是。
+2. HashMap和HashTable都实现了Map接口。
+3. HashMap继承自AbstractMap，HashTable继承自Dictionary。
+4. HashMap允许key和value为null，而HashTable不允许。
 
 ## 18. List，Set，Map是否继承自Collection接口?
 
@@ -331,17 +327,17 @@ List，Set是，Map不是
 
 ## 19. Collection和 Collections的区别。
 
-Collection是集合类的上级接口，继承与他的接口主要有Set和List。
+Collection是集合类的上级接口，继承于它的接口主要有Set和List。
 
 Collections是针对集合类的一个帮助类，他提供一系列静态方法实现对各种集合的搜索、排序、线程安全化等操作。
 
-## 20. java中有几种类型的流？JDK为每种类型的流提供了一些抽象类以供继承，请说出他们分别是哪些类？
+## 20. Java中有几种类型的流？JDK为每种类型的流提供了一些抽象类以供继承，请说出他们分别是哪些类？
 
 字节流，字符流。字节流继承于`InputStream`/`OutputStream`，字符流继承于`InputStreamReader`/`OutputStreamWriter`。在java.io包中还有许多其他的流，主要是为了提高性能和使用方便。
 
 ## 21. 描述一下JVM加载class文件的原理机制?
 
-JVM中类的装载是由ClassLoader和它的子类来实现的，Java ClassLoader是一个重要的Java运行时系统组件。它负责在运行时查找和装入类文件的类。
+JVM中类的装载是由ClassLoader和它的子类来实现的，ClassLoader是一个重要的Java运行时系统组件。它负责在运行时查找和装入类文件的类。
 
 ## 22. 能不能自己写个类，也叫java.lang.String？
 
@@ -349,7 +345,7 @@ JVM中类的装载是由ClassLoader和它的子类来实现的，Java ClassLoade
 
 ## 23. Java中反射的作用是什么?
 
-JAVA反射机制是在运行时，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。Java反射机制主要提供了以下功能：
+Java反射机制是在运行时，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法；这种动态获取的信息以及动态调用对象的方法的功能称为Java语言的反射机制。Java反射机制主要提供了以下功能：
 
 1. 在运行时判断任意一个对象所属的类；
 2. 在运行时构造任意一个类的对象；
@@ -374,9 +370,9 @@ JAVA反射机制是在运行时，对于任意一个类，都能够知道这个�
 - 弱引用（WeakReference）：也是用来描述非必须对象的，但是它的强度比软引用更弱一些，被弱引用关联的对象只能生存到了下一次GC发生之前。当GC工作时，无论当时内存是否足够，都会回收只被弱引用关联的对象。
 - 虚引用（PhantomReference）：虚引用也称幽灵引用或者幻影引用，它是最弱的一种引用关系。一个对象是否有虚引用的存在，完全不会对其生存时间构成影响，也无法通过虚引用来取得一个对象实例。为一个对象设置虚引用的唯一目的就是在这个对象被GC回收是收到一个系统通知。
 
-## 26. ==与`equals()`的区别？
+## 26. `==`与`equals()`的区别？
 
-- ==判断两个对象的地址是否相等（对于基本类型判断值是否相等）。
+- `==`判断两个对象的地址是否相等（对于基本类型判断值是否相等）。
 - `equals()`会寻找自身或最近的父类实现，调用其`equals()`。
 - 若无任何父类实现`equals()`，则会调用Object的`equals()`，其与==相同。
 
@@ -436,7 +432,7 @@ Error类和Exception类的父类都是throwable类，他们的区别是：
 
 ## 31. Java内存模型
 
-Java内存模型（Java Memory Model, JMM）用来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的内存访问效果。Java内存模型的主要目标是定义程序中各个变量的访问规则，即在虚拟机中将变量存储到内存中和从内存中取出变量这样的底层细节（此处的变量与Java编程中所说的变量有所区别，它包括了实例字段、静态字段和构成数组对象的元素，但不包括局部变量与方法参数）。
+Java内存模型（Java Memory Model，JMM）用来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的内存访问效果。Java内存模型的主要目标是定义程序中各个变量的访问规则，即在虚拟机中将变量存储到内存中和从内存中取出变量这样的底层细节（此处的变量与Java编程中所说的变量有所区别，它包括了实例字段、静态字段和构成数组对象的元素，但不包括局部变量与方法参数）。
 
 ### 31.1. 主内存与工作内存
 
@@ -482,7 +478,7 @@ volatile是Java虚拟机提供的最轻量级的同步机制。当一个变量�
 假定T表示一个线程，V和W分别表示两个volatile变量，那么在进行read、load、use、assign、store和write时需要满足以下三条规则：
 
 - 只有当线程T对变量V执行的前一个动作是load时，T才能对V执行use；并且，只有当T对V执行的后一个动作是use时，T才能对V执行load。T对V的use动作可以认为是和线程T对V的load，read动作相关联，必须连续一起出现（这条规则要求在工作内存中，每次使用V前都必须先从主内存刷新最新的值，用于保证能看见其他线程对变量V所做的修改后的值）。
-- 只有当线程T对变量V执行的前一个动作是assign时，T才能对V执行store动作；并且，只有当T对变量V执行的后一个动作是store时，线程T才能对变量V执行assign动作。线程T对变量V的assign动作可认为是和线程T对变量V的store, write动作相关联，必须连续一起出现（这条规则要求在工作内存中，每次修改V后都必须立刻同步回主内存中，用于保证其他线程可以看到自己对变量V所做的修改）。
+- 只有当线程T对变量V执行的前一个动作是assign时，T才能对V执行store动作；并且，只有当T对变量V执行的后一个动作是store时，线程T才能对变量V执行assign动作。线程T对变量V的assign动作可认为是和线程T对变量V的store，write动作相关联，必须连续一起出现（这条规则要求在工作内存中，每次修改V后都必须立刻同步回主内存中，用于保证其他线程可以看到自己对变量V所做的修改）。
 - 假定动作A是线程T对变量V实施的use或assign操作，假定动作F是和动作A相关联的load或store动作，假定动作P是和动作F相应的变量V的read或write动作；类似的，假定动作B是线程T对变量W实施的use或assign动作，假定动作G是和动作B相关联的load或store动作，假定动作Q是和动作G相应的变量W的read或write动作。如果A先于B，那P先于Q（这条规则要求volatile修饰的变量不会被指令重排序优化，保证代码的执行顺序与程序的顺序相同）。
 
 为了实现volatile的内存语义，编译器在生成字节码时，会在指令序列中插入内存屏障来禁止特定类型的处理器重排序。对于编译器来说，发现一个最优布置来最小化插入屏障的总数几乎不可能，为此，JMM采取保守策略。下面是基于保守策略的JMM内存屏障插入策略：
@@ -496,7 +492,7 @@ volatile是Java虚拟机提供的最轻量级的同步机制。当一个变量�
 
 序列：Load1, LoadLoad, Load2
 
-确保Load1所要读入的数据能够在被Load2和后续的load指令访问前读入。通常能执行预加载指令或/和支持乱序处理的处理器中需要显式声明Loadload屏障，因为在这些处理器中正在等待的加载指令能够绕过正在等待存储的指令。 而对于总是能保证处理顺序的处理器上，设置该屏障相当于无操作。
+确保Load1所要读入的数据能够在被Load2和后续的load指令访问前读入。通常能执行预加载指令或/和支持乱序处理的处理器中需要显式声明Loadload屏障，因为在这些处理器中正在等待的加载指令能够绕过正在等待存储的指令。而对于总是能保证处理顺序的处理器上，设置该屏障相当于无操作。
 
 **StoreStore屏障**
 
@@ -506,7 +502,7 @@ volatile是Java虚拟机提供的最轻量级的同步机制。当一个变量�
 
 **LoadStore屏障**
 
-序列： Load1, LoadStore, Store2
+序列：Load1, LoadStore, Store2
 
 确保Load1的数据在Store2和后续Store指令被刷新之前读取。在等待Store指令可以越过loads指令的乱序处理器上需要使用LoadStore屏障。
 
@@ -582,7 +578,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
 - 一个类只要实现了Serializable接口，即可被序列化
 - 实现Serializable接口的类，在序列化时不能有不可被序列化的成员变量
 - 通过ObjectOutputStream和ObjectInputStream对对象进行序列化及反序列化
-- 虚拟机是否允许反序列化，不仅取决于类路径和功能代码是否一致，一个非常重要的一点是两个类的序列化 ID 是否一致（即`private static final long serialVersionUID`）
+- 虚拟机是否允许反序列化，不仅取决于类路径和功能代码是否一致，一个非常重要的一点是两个类的序列化ID是否一致（即`private static final long serialVersionUID`）
 - transient关键字的作用是控制变量的序列化，在变量声明前加上该关键字，可以阻止该变量被序列化到文件中；在被反序列化后，transient变量的值被设为初始值。
 - 在序列化过程中，如果被序列化的类中定义了`writeObject()`和`readObject()`方法，虚拟机就会试图调用对象类里的`writeObject()`和`readObject()`方法，进行用户自定义的序列化和反序列化。如果没有这样的方法，则默认调用是ObjectOutputStream的`defaultWriteObject()`方法以及ObjectInputStream的`defaultReadObject()`方法。
 
@@ -653,9 +649,9 @@ Comparator要满足自反性、传递性和对称性，否则会抛出IllegalArg
 
 ## 38. 什么是ConcurrentHashMap
 
-ConcurrentHashMap 类中包含两个静态内部类 HashEntry 和 Segment。HashEntry 用来封装映射表的键 / 值对；Segment 用来充当锁的角色，每个 Segment 对象守护整个散列映射表的若干个桶。每个桶是由若干个 HashEntry 对象链接起来的链表。一个 ConcurrentHashMap 实例中包含由若干个 Segment 对象组成的数组。
+ConcurrentHashMap类中包含两个静态内部类：HashEntry和Segment。HashEntry用来封装映射表的键/值对；Segment用来充当锁的角色，每个Segment对象守护整个散列映射表的若干个桶。每个桶是由若干个HashEntry对象链接起来的链表。一个ConcurrentHashMap实例中包含由若干个Segment对象组成的数组。
 
-Segment 类继承于 ReentrantLock 类，从而使得 Segment 对象能充当锁的角色。每个 Segment 对象用来守护其（成员对象 table 中）包含的若干个桶。
+Segment类继承于ReentrantLock类，从而使得Segment对象能充当锁的角色。每个Segment对象用来守护其（成员对象table中）包含的若干个桶。
 
 ## 39. Map类集合k／V能否存储null值的情况
 
@@ -730,7 +726,7 @@ ThreadLocalRandom克服了如上Random的缺陷。
 
 #### 45.4.1. 年轻代
 
-年轻代可以分为3个区域：Eden区和两个存活区（Survivor 0 、Survivor 1）。
+年轻代可以分为3个区域：Eden区和两个存活区（Survivor 0、Survivor 1）。
 
 1. 绝大多数刚创建的对象会被分配在Eden区，其中的大多数对象很快就会消亡。Eden区是连续的内存空间，因此在其上分配内存极快；
 2. 最初一次，当Eden区满的时候，执行Minor GC，将消亡的对象清理掉，并将剩余的对象复制到一个存活区Survivor0（此时，Survivor1是空白的，两个Survivor总有一个是空白的）；
@@ -738,11 +734,11 @@ ThreadLocalRandom克服了如上Random的缺陷。
 4. 将Survivor0中消亡的对象清理掉，将其中可以晋级的对象晋级到Old区，将存活的对象也复制到Survivor1区，然后清空Survivor0区；
 5. 当两个存活区切换了几次（HotSpot虚拟机默认15次，用-XX:MaxTenuringThreshold控制，大于该值进入老年代，但这只是个最大值，并不代表一定是这个值）之后，仍然存活的对象（其实只有一小部分，比如，我们自己定义的对象），将被复制到老年代。
 
-这种垃圾回收的方式就是复制算法。由于绝大部分的对象都是短命的，甚至存活不到Survivor中，所以，Eden区与Survivor的比例较大，HotSpot默认是 8:1，即分别占新生代的80%，10%，10%。如果一次回收中，Survivor + Eden中存活下来的内存超过了10%，则需要将一部分对象分配到老年代。
+这种垃圾回收的方式就是复制算法。由于绝大部分的对象都是短命的，甚至存活不到Survivor中，所以，Eden区与Survivor的比例较大，HotSpot默认是8:1，即分别占新生代的80%，10%，10%。如果一次回收中，Survivor + Eden中存活下来的内存超过了10%，则需要将一部分对象分配到老年代。
 
 #### 45.4.2. 年老代
 
-对象如果在年轻代存活了足够长的时间而没有被清理掉（即在几次Young GC后存活了下来），则会被复制到年老代，年老代的空间一般比年轻代大，能存放更多的对象，在年老代上发生的GC次数也比年轻代少。当年老代内存不足时，将执行Major GC，也叫 Full GC。
+对象如果在年轻代存活了足够长的时间而没有被清理掉（即在几次Young GC后存活了下来），则会被复制到年老代，年老代的空间一般比年轻代大，能存放更多的对象，在年老代上发生的GC次数也比年轻代少。当年老代内存不足时，将执行Major GC，也叫Full GC。
 
 年老代的垃圾回收方式是标记——整理算法。
 
@@ -768,7 +764,7 @@ Java中方法参数传递方式是按值传递。
 - 同步方法：synchronized关键字修饰的方法。
 - 同步代码块：synchronized关键字修饰的语句块。
 - volatile关键字。
-- 可重入锁： ReentrantLock类是可重入、互斥、实现了Lock接口的锁。
+- 可重入锁：ReentrantLock类是可重入、互斥、实现了Lock接口的锁。
 - ThreadLocal。
 
 ## 48. Java创建线程的方式
@@ -810,7 +806,7 @@ public ThreadPoolExecutor(int corePoolSize,
 ```
 
 - `corePoolSize`：核心池大小，默认情况下线程不会超过核心大小。
-- `maximumPoolSize`： 最大线程数，当达到一定负载时，线程数会超过核心数，但始终小于最大线程数。当负载较轻会回收线程至核心池数量。
+- `maximumPoolSize`：最大线程数，当达到一定负载时，线程数会超过核心数，但始终小于最大线程数。当负载较轻会回收线程至核心池数量。
 - `keepAliveTime`：表示线程没有任务执行时，的存活时间。默认情况，当线程数大于核心小于最大数量时才会启用；如果调用allowCoreThreadTimeOut(boolean)方法，线程数下界为0。
 - `unit`：`keepAliveTime`的时间单位。
 - `workQueue`：阻塞队列，用来存储等待执行的任务。
@@ -838,9 +834,9 @@ public ThreadPoolExecutor(int corePoolSize,
 
 对于任意一个类，都需要由加载它的类加载器和这个类本身一同确立其在Java虚拟机中的唯一性；每个类加载器，都拥有一个独立的类名称空间。
 
-比较两个类是否“相等”，只有在这两个类是由同一个类加载器加载的前提下才有意义。否则，即使这两个类来源于同一个Class文件，被同一个虚拟机加载，只要加载它们的类加载器不同，那这两个类就必定不相等。
+比较两个类是否“相等”，只有在这两个类是由同一个类加载器加载的前提下才有意义。否则，即使这两个类来源于同一个class文件，被同一个虚拟机加载，只要加载它们的类加载器不同，那这两个类就必定不相等。
 
-这里所指的“相等”，包括代表类的Class对象的`equals()`方法、`isAssignableFrom()`方法、`isInstance()`方法的返回结果，也包括使用`instanceof`关键字做对象所属关系判定等情况。
+这里所指的“相等”，包括代表类的class对象的`equals()`方法、`isAssignableFrom()`方法、`isInstance()`方法的返回结果，也包括使用`instanceof`关键字做对象所属关系判定等情况。
 
 ## 51. 双亲委派模型
 
@@ -852,7 +848,7 @@ public ThreadPoolExecutor(int corePoolSize,
 从Java开发人员角度来看，绝大多数Java程序都会用到以下3种系统提供的类加载器：
 
 - 启动类加载器（Bootstrap ClassLoader）：负责将存放在&lt;JAVA_HOME>/lib目录中的，或者被-Xbootclasspath参数所指定的路径中的，并且是虚拟机识别的（仅按文件名识别，如rt.jar）类库加载到虚拟机内存中。启动类加载器无法被Java程序直接引用。
-- 扩展类加载器（Extension ClassLoader）：由sun.misc.Launcher$ExtClassLoader实现，负责加载&lt;JAVA_HOME>/lib/ext目录中的，或者被java.ext.dirs系统变量所指定的路径中的所有类库。开发者可以直接使用扩展类加载器。
+- 扩展类加载器（Extension ClassLoader）：由sun.misc.Launcher$ExtClassLoader实现，负责加载JAVA_HOME>/lib/ext目录中的，或者被java.ext.dirs系统变量所指定的路径中的所有类库。开发者可以直接使用扩展类加载器。
 - 应用程序类加载器（Application ClassLoader）：由sun.misc.Launcher$AppClassLoader实现，由于这个类加载器是ClassLoader中的`getSystemClassLoader()`方法的返回值，所以一般也称它为系统类加载器。负责加载用户类路径（ClassPath)上所指定的类库。开发者可以直接使用这个类加载器，如果应用程序中没有自定义过自己的类加载器，一般情况下这个就是程序中默认的类加载器。
 
 ![Parents Delegation Model][parents_delegation_model]
@@ -1175,7 +1171,7 @@ Class文件、字段表、方法表都可以携带自己的属性表集合，以
 
 一个线程中方法调用可能很长，很多方法都处于执行状态。对于执行引擎来说，只有处于栈顶的栈帧才是有效的，称为当前栈帧（Current Stack Frame），与之相关联的方法称为当前方法（Current Method）。
 
-在概念模型上，典型的栈帧主要由 局部变量表（Local Stack Frame）、操作数栈（Operand Stack）、动态链接（Dynamic Linking）、返回地址（Return Address）组成，如下图所示：
+在概念模型上，典型的栈帧主要由局部变量表（Local Stack Frame）、操作数栈（Operand Stack）、动态链接（Dynamic Linking）、返回地址（Return Address）组成，如下图所示：
 
 ![Stack Frame][stack_frame]
 
@@ -1464,7 +1460,7 @@ HotSpot虚拟机的对象头（Object Header）分为两部分信息：第一部
 
 当有另外一个线程去尝试获取这个锁时，偏向模式就宣告结束。根据锁对象目前是否处于被锁定的状态，撤销偏向（Revoke Bias）后恢复到未锁定（标志位为“01”）或轻量级锁定（标志位为“00”）的状态，后续的同步操作如轻量级锁那样执行。
 
-## 73. 如何理解java是一门静态多分派且动态单分派的语言？
+## 73. 如何理解Java是一门静态多分派且动态单分派的语言？
 
 代码：
 
