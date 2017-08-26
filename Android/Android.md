@@ -154,6 +154,9 @@
   - [92.1. API 16之前](#921-api-16之前)
   - [92.2. API 16及之后，API 22之前](#922-api-16及之后api-22之前)
   - [92.3. API 22及之后](#923-api-22及之后)
+- [93. Android消息处理机制](#93-android消息处理机制)
+  - [93.1. Looper](#931-looper)
+  - [93.2. Handler](#932-handler)
 
 <!-- /TOC -->
 
@@ -1198,6 +1201,150 @@ AsyncTask的静态Handler创建和初始化时默认采用的是当前现场的L
 
 不再在ActivityThread的`main()`中调用。AsyncTask通过`getMainLooper()`获得主线程Looper。所以AsyncTask不需要在主线程实例化。
 
+## 93. Android消息处理机制
+
+Android消息处理机制主要涉及4个类：Looper、Handler、MessageQueue和Message。
+
+### 93.1. Looper
+
+Looper的使用：
+
+```java
+public class LooperThread extends Thread {
+    public Handler mHandler;
+
+    public void run() {
+        Looper.prepare();
+
+        mHandler = new Handler() {
+            public void handleMessage(Message msg) {
+                // process incoming messages here
+            }
+        };
+
+        Looper.loop();
+    }
+}
+```
+
+Looper概览：
+
+```java
+public class Looper {
+    static final ThreadLocal<Looper> sThreadLocal = new ThreadLocal<>();
+    final MessageQueue mQueue;
+
+    private Looper(boolean quitAllowed) {
+        mQueue = new MessageQueue(quitAllowed);
+    }
+
+    public static void prepare() {
+        prepare(true);
+    }
+
+    private static void prepare(boolean quitAllowed) {
+        if (sThreadLocal.get() != null) {
+            throw new RuntimeException("Only one Looper may be created per thread");
+        }
+        sThreadLocal.set(new Looper(quitAllowed));
+    }
+
+    public static Looper myLooper() {
+        return sThreadLocal.get();
+    }
+
+    public static void loop() {
+        for (; ; ) {
+            Message msg = queue.next(); // might block
+            msg.target.dispatchMessage(msg);
+            msg.recycleUnchecked();
+        }
+    }
+}
+```
+
+`prepare()`会检查此线程是否已经存在Looper，随后便会实例化一个Looper（创建一个MessageQueue），并将此Looper设置为此线程的ThreadLocal变量，这样完成Looper和线程的绑定。
+
+`loop()`即进从MessageQueue取消息并处理的死循环。
+
+### 93.2. Handler
+
+Handler概览：
+
+```java
+public class Handler {
+    final Looper mLooper;
+    final MessageQueue mQueue;
+    final Handler.Callback mCallback;
+
+    public Handler() {
+        mLooper = Looper.myLooper();
+        if (mLooper == null) {
+            throw new RuntimeException(
+                    "Can't create handler inside thread that has not called Looper.prepare()");
+        }
+        mQueue = mLooper.mQueue;
+    }
+
+    public void handleMessage(Message msg) {
+    }
+
+    public void dispatchMessage(Message msg) {
+        if (msg.callback != null) {
+            handleCallback(msg);
+        } else {
+            handleMessage(msg);
+        }
+    }
+
+    public final Message obtainMessage() {
+        return Message.obtain(this);
+    }
+
+    public final Message obtainMessage(int what, Object obj) {
+        return Message.obtain(this, what, obj);
+    }
+
+    private static Message getPostMessage(Runnable r) {
+        Message m = Message.obtain();
+        m.callback = r;
+        return m;
+    }
+
+    public final boolean post(Runnable r) {
+        return sendMessageDelayed(getPostMessage(r), 0);
+    }
+
+    public final boolean sendMessage(Message msg) {
+        return sendMessageDelayed(msg, 0);
+    }
+
+    public final boolean sendMessageDelayed(Message msg, long delayMillis) {
+        return sendMessageAtTime(msg, SystemClock.uptimeMillis() + delayMillis);
+    }
+
+    public boolean sendMessageAtTime(Message msg, long uptimeMillis) {
+        MessageQueue queue = mQueue;
+        return enqueueMessage(queue, msg, uptimeMillis);
+    }
+
+    private boolean enqueueMessage(MessageQueue queue, Message msg, long uptimeMillis) {
+        msg.target = this;
+        return queue.enqueueMessage(msg, uptimeMillis);
+    }
+
+    private static void handleCallback(Message message) {
+        message.callback.run();
+    }
+}
+```
+
+一般的用法是对`mHandler`调用`obtainMessage()`获得Message并设置参数后通过`sendMessage()`发送出去。在`obtainMessage()`和`sendMessage()`都会设置Message的Handler为本Handler（Message的`target`变量），若需向Message传递Runnable对象，则会在Message的`callback`变量中记录。
+
+`sendMessage()`最终会调用MessageQueue的`enqueueMessage()`方法，将此Message绑定到对应Looper对应的MessageQueue上。而Looper中收到Message后，会调用Message的`target`变量（即Handler）的`dispatchMessage()`方法。对于普通Message，`dispatchMessage()`又会去调用`handleMessage()`方法，而这个方法会被用户重载，所以会执行`mHandler`中指定的代码。
+
+参考：[android的消息处理机制（图+源码分析）——Looper,Handler,Message - CodingMyWorld - 博客园][looper_handler_message]
+
 [android layout绘制]: http://vincgao.com/2016/02/android-layout/
 
 [android view事件分发机制源码分析]: https://github.com/Mr-YangCheng/ForAndroidInterview/blob/master/android/Android%20View%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91%E6%9C%BA%E5%88%B6%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md
@@ -1211,6 +1358,8 @@ AsyncTask的静态Handler创建和初始化时默认采用的是当前现场的L
 [art_vs_dalvik]: https://source.android.com/devices/tech/dalvik/
 
 [classloader_hotpatch_url]: http://jaeger.itscoder.com/android/2016/09/20/nuva-source-code-analysis.html
+
+[looper_handler_message]: http://www.cnblogs.com/codingmyworld/archive/2011/09/12/2174255.html
 
 [activity_fragment_lifecycle]: images/activity_fragment_lifecycle.png
 
