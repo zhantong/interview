@@ -11,8 +11,8 @@
 - [7. Overload和Override的区别。](#7-overload和override的区别)
 - [8. 构造器Constructor是否可被override?](#8-构造器constructor是否可被override)
 - [9. Java抽象类（abstract class）和类（class）的区别？](#9-java抽象类abstract-class和类class的区别)
-- [10. java接口与抽象类如何合作?](#10-java接口与抽象类如何合作)
-- [11. java中实现多态的机制是什么？](#11-java中实现多态的机制是什么)
+- [10. Java接口与抽象类如何合作?](#10-java接口与抽象类如何合作)
+- [11. Java中实现多态的机制是什么？](#11-java中实现多态的机制是什么)
 - [12. Java实现了闭包吗？](#12-java实现了闭包吗)
 - [13. `String s = new String("xyz")`创建了几个String Object?](#13-string-s--new-stringxyz创建了几个string-object)
 - [14. try-catch-finally-return的执行顺序](#14-try-catch-finally-return的执行顺序)
@@ -21,13 +21,13 @@
 - [17. HashMap和Hashtable的区别](#17-hashmap和hashtable的区别)
 - [18. List，Set，Map是否继承自Collection接口?](#18-listsetmap是否继承自collection接口)
 - [19. Collection和 Collections的区别。](#19-collection和-collections的区别)
-- [20. java中有几种类型的流？JDK为每种类型的流提供了一些抽象类以供继承，请说出他们分别是哪些类？](#20-java中有几种类型的流jdk为每种类型的流提供了一些抽象类以供继承请说出他们分别是哪些类)
+- [20. Java中有几种类型的流？JDK为每种类型的流提供了一些抽象类以供继承，请说出他们分别是哪些类？](#20-java中有几种类型的流jdk为每种类型的流提供了一些抽象类以供继承请说出他们分别是哪些类)
 - [21. 描述一下JVM加载class文件的原理机制?](#21-描述一下jvm加载class文件的原理机制)
 - [22. 能不能自己写个类，也叫java.lang.String？](#22-能不能自己写个类也叫javalangstring)
 - [23. Java中反射的作用是什么?](#23-java中反射的作用是什么)
 - [24. 成员变量、局部变量、静态变量的区别](#24-成员变量局部变量静态变量的区别)
 - [25. 谈谈你对StrongReference、WeakReference和SoftReference的认识](#25-谈谈你对strongreferenceweakreference和softreference的认识)
-- [26. ==与`equals()`的区别？](#26-与equals的区别)
+- [26. `==`与`equals()`的区别？](#26-与equals的区别)
 - [27. `equals()`与`hashCode()`的区别？](#27-equals与hashcode的区别)
 - [28. Java集合框架示意图](#28-java集合框架示意图)
   - [28.1. 集合框架概览](#281-集合框架概览)
@@ -141,7 +141,7 @@
   - [72.3. 锁粗化](#723-锁粗化)
   - [72.4. 轻量级锁](#724-轻量级锁)
   - [72.5. 偏向锁](#725-偏向锁)
-- [73. 如何理解java是一门静态多分派且动态单分派的语言？](#73-如何理解java是一门静态多分派且动态单分派的语言)
+- [73. 如何理解Java是一门静态多分派且动态单分派的语言？](#73-如何理解java是一门静态多分派且动态单分派的语言)
 - [74. 为什么synchronized修饰的变量推荐定义为final？](#74-为什么synchronized修饰的变量推荐定义为final)
 - [75. Object类有哪些方法](#75-object类有哪些方法)
 - [76. `sleep()`和`wait()`的区别](#76-sleep和wait的区别)
@@ -169,6 +169,12 @@
   - [81.2. NIO与IO的区别](#812-nio与io的区别)
   - [81.3. 为什么要使用NIO](#813-为什么要使用nio)
 - [82. concurrent包](#82-concurrent包)
+- [83. 当前线程`wait()`后会立即阻塞吗？其他线程能够进入同步块吗？](#83-当前线程wait后会立即阻塞吗其他线程能够进入同步块吗)
+- [84. 为何调用`wait()`可能抛出InterruptedException异常？](#84-为何调用wait可能抛出interruptedexception异常)
+- [85. 调用`notify()`后等待的线程会被立刻唤醒吗？](#85-调用notify后等待的线程会被立刻唤醒吗)
+- [86. `notify()`和`notifyAll()`有什么区别？](#86-notify和notifyall有什么区别)
+- [87. `notify()`可能引发死锁。](#87-notify可能引发死锁)
+- [88. 线程的`sleep()`、`yield()`和`join()`有什么区别？](#88-线程的sleepyield和join有什么区别)
 
 <!-- /TOC -->
 
@@ -1867,6 +1873,94 @@ concurrent包主要包含：
 - 大部分关于并发的接口和类：BlockingQueue、Callable、ConcurrentMap、Executor、ExecutorService、Future、Semaphore等。
 - 所有原子操作的类：AtomicInteger、AtomicLong等。
 - 锁相关的类：Lock、ReentrantLock、ReadWriteLock等。
+
+## 83. 当前线程`wait()`后会立即阻塞吗？其他线程能够进入同步块吗？
+
+当调用`wait()`时，当前线程会放弃已经获得的锁，接着会将自己park住，放弃CPU。而在notify()中会选择一个`wait()`的线程进行unpark，被unpark的线程还需要竞争锁。
+
+## 84. 为何调用`wait()`可能抛出InterruptedException异常？
+
+当调用线程的`interrupt()`方法时会抛出InterruptedException，因此即使当前线程因`wait()`一直被阻塞，当被唤醒时也会去检查其状态，如果其被interrupt了，就会抛出InterruptedException。
+
+## 85. 调用`notify()`后等待的线程会被立刻唤醒吗？
+
+有不同的策略。默认策略是调用`notify()`会将一个等待队列中的线程放到锁池中，等到退出同步块时再释放锁，由锁池中的线程竞争。这里“唤醒”的定义不明确，可以说“线程由等待队列移动到锁池”是唤醒，也可以说“线程得到CPU时间”是唤醒。
+
+## 86. `notify()`和`notifyAll()`有什么区别？
+
+注意：`synchronized()`会使线程进入锁池，`wait()`会使线程进入等待队列。只有锁池中的线程会竞争锁，等待队列中的线程不会竞争。
+
+`notify()`会将**一个**等待队列中的线程移动到锁池中，`notifyAll()`则会将**所有**等待队列中的线程移动到锁池中。
+
+## 87. `notify()`可能引发死锁。
+
+```java
+class PubSub {
+    boolean flag;
+    int count;
+
+    synchronized void pub() throws InterruptedException {
+        while (!flag) {
+            wait();
+        }
+        flag = false;
+        count++;
+        notify();
+        System.out.println("pub count " + count);
+    }
+
+    synchronized void sub() throws InterruptedException {
+        while (flag) {
+            wait();
+        }
+        flag = true;
+        count++;
+        notify();
+        System.out.println("sub count " + count);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        final PubSub pb = new PubSub();
+        for (int i = 0; i < 5; i++) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    while (true) {
+                        try {
+                            pb.sub();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }).start();
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    while (true) {
+                        try {
+                            pb.pub();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }).start();
+        }
+    }
+}
+```
+
+如上代码会发生死锁。`synchronized()`会使线程进入锁池，`wait()`会使线程进入等待队列，`notify()`会将一个等待队列中的线程移动到锁池中。如上代码会出现多个多次调用`wait()`导致所有线程全部处于等待队列，而无线程在锁池中的情况，导致死锁。
+
+## 88. 线程的`sleep()`、`yield()`和`join()`有什么区别？
+
+- `sleep()`：线程进入阻塞状态；
+- `yield()`：线程进入就绪状态；
+- `join()`：线程进入阻塞状态。
 
 [hashmap coolshell]: http://coolshell.cn/articles/9606.html
 
