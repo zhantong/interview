@@ -175,6 +175,7 @@
 - [86. `notify()`和`notifyAll()`有什么区别？](#86-notify和notifyall有什么区别)
 - [87. `notify()`可能引发死锁。](#87-notify可能引发死锁)
 - [88. 线程的`sleep()`、`yield()`和`join()`有什么区别？](#88-线程的sleepyield和join有什么区别)
+- [89. `类名.class`与`类名.this`的区别](#89-类名class与类名this的区别)
 
 <!-- /TOC -->
 
@@ -835,6 +836,8 @@ public ThreadPoolExecutor(int corePoolSize,
 4. 判断任务队列是否已满，如果不是，将任务加入队列中；否则转5。
 5. 判断已存在线程数是否等于最大线程数，如果不是，则创建新线程执行任务；否则转6。
 6. 拒绝该任务。
+
+参考：[Java并发编程：线程池的使用 - 海 子 - 博客园][thread_pool_usage]
 
 ## 50. 类与类加载器的关系
 
@@ -1962,11 +1965,19 @@ public class Main {
 - `yield()`：线程进入就绪状态；
 - `join()`：线程进入阻塞状态。
 
+## 89. `类名.class`与`类名.this`的区别
+
+`类名.this`的语法在Java语言中叫做“qualified this”。这个语法的主要用途是：在内部类的方法中，要指定某个嵌套层次的外围类的`this`引用时，使用`外围类名.this`语法。
+
+`类型名.class`的语法在Java语言中叫做“Class Literal”，类字面量。类字面量的类型是`java.lang.Class<类型名>`。例如说`Foo.class`的类型就是`Class<Foo>`，是一个引用，指向Foo类唯一对应的那个Class对象。当需要通过Class对象来做一些反射操作的时候，常常会用到类字面量的语法。
+
 [hashmap coolshell]: http://coolshell.cn/articles/9606.html
 
 [try_catch_finally_return]: http://blog.csdn.net/aaoxue/article/details/8535754
 
 [hashmap_meituan]: https://tech.meituan.com/java-hashmap.html
+
+[thread_pool_usage]: http://www.cnblogs.com/dolphin0520/p/3932921.html
 
 [cache_consistency]: images/cache_consistency.jpeg
 
