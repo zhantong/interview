@@ -61,7 +61,7 @@
 - [35. Fragment生命周期](#35-fragment生命周期)
 - [36. Activity生命周期对片段生命周期的影响](#36-activity生命周期对片段生命周期的影响)
 - [37. Android事件分发](#37-android事件分发)
-  - [37.1. public boolean dispatchTouchEvent(MotionEvent ev)](#371-public-boolean-dispatchtoucheventmotionevent-ev)
+  - [37.1. `public boolean dispatchTouchEvent(MotionEvent ev)`](#371-public-boolean-dispatchtoucheventmotionevent-ev)
   - [37.2. `public boolean onInterceptTouchEvent(MotionEvent ev)`](#372-public-boolean-onintercepttoucheventmotionevent-ev)
   - [37.3. `public boolean onTouchEvent(MotionEvent ev)`](#373-public-boolean-ontoucheventmotionevent-ev)
 - [38. Android系统启动过程](#38-android系统启动过程)
@@ -88,7 +88,7 @@
 - [44. Android Binder机制](#44-android-binder机制)
 - [45. Binder机制优点](#45-binder机制优点)
 - [46. AsyncTask简介](#46-asynctask简介)
-- [47. 为什了Handler需要声明为static？](#47-为什了handler需要声明为static)
+- [47. 为什么Handler需要声明为static？](#47-为什么handler需要声明为static)
 - [48. 广播注册后不解除注册会有什么问题？](#48-广播注册后不解除注册会有什么问题)
 - [49. 自定义View](#49-自定义view)
   - [49.1. 实现步骤](#491-实现步骤)
@@ -257,7 +257,7 @@ Activity表示具有用户界面的单一屏幕。例如，电子邮件应用可
 
 ## 13. Intent的原理，作用，可以传递哪些类型的参数？
 
-- intent是连接Activity，Service，BroadcastReceiver，ContentProvider四大组件的信使，可以传递八种基本数据类型以及`String`，`Bundle`类型，以及实现了`Serializable`或者`Parcelable`的类型。
+- Intent是连接Activity，Service，BroadcastReceiver，ContentProvider四大组件的信使，可以传递八种基本数据类型以及`String`，`Bundle`类型，以及实现了`Serializable`或者`Parcelable`的类型。
 - Intent可以划分成显式意图和隐式意图。
 
   - 显式意图：调用`Intent.setComponent()`或`Intent.setClass()`方法明确指定了组件名的Intent为显式意图，显式意图明确指定了Intent应该传递给哪个组件。
@@ -548,7 +548,7 @@ Android平台的基础是Linux内核。例如，Android Runtime（ART）依靠Li
 | `onInterceptTouchEvent` | 事件拦截 |    No    |    Yes    |  No  |
 |      `onTouchEvent`     | 事件消费 |    Yes   |    Yes    |  Yes |
 
-### 37.1. public boolean dispatchTouchEvent(MotionEvent ev)
+### 37.1. `public boolean dispatchTouchEvent(MotionEvent ev)`
 
 当有监听到事件时，首先由Activity进行捕获，进入事件分发处理流程。（因为activity没有事件拦截，View和ViewGroup有）会将事件传递给最外层View的`dispatchTouchEvent(MotionEvent ev)`方法，该方法对事件进行分发。
 
@@ -582,6 +582,7 @@ Android平台的基础是Linux内核。例如，Android Runtime（ART）依靠Li
 - 点击事件分发过程如下`dispatchTouchEvent()` ---> `OnTouchListener`的`onTouch()`方法 ---> `onTouchEvent()` --> `OnClickListener`的`onClick()`方法。也就是说，我们平时调用的`setOnClickListener()`，优先级是最低的，所以，`onTouchEvent()`或`OnTouchListener()`的`onTouch()`方法如果返回`true`，则不响应`onClick()`方法。
 
 参考：[ForAndroidInterview/Android View事件分发机制源码分析.md at master · Mr-YangCheng/ForAndroidInterview][android view事件分发机制源码分析]
+参考：[Android 编程下 Touch 事件的分发和消费机制 - sunzn - 博客园][android_event]
 
 ## 38. Android系统启动过程
 
@@ -729,7 +730,7 @@ findViewById的实现是遍历，如果你定义的View越复杂代价越大。 
 - `mainLooper()`；
 - 串行。
 
-## 47. 为什了Handler需要声明为static？
+## 47. 为什么Handler需要声明为static？
 
 所有发送到消息队列的消息Message都会拥有一个对Handler的引用，在java里，非静态内部类和匿名类都会潜在的引用它们所属的外部类。但是，静态内部类却不会。当Activity结束（finish）时，里面的延时消息在得到处理前，会一直保存在主线程的消息队列里持续10分钟。这条消息持有对handler的引用，而handler又持有对其外部类（在这里，即SampleActivity）的潜在引用。这条引用关系会一直保持直到消息得到处理，从而，这阻止了SampleActivity被垃圾回收器回收，同时造成应用程序的泄漏。
 
@@ -1360,6 +1361,8 @@ public class Handler {
 [classloader_hotpatch_url]: http://jaeger.itscoder.com/android/2016/09/20/nuva-source-code-analysis.html
 
 [looper_handler_message]: http://www.cnblogs.com/codingmyworld/archive/2011/09/12/2174255.html
+
+[android_event]: https://www.cnblogs.com/sunzn/archive/2013/05/10/3064129.html
 
 [activity_fragment_lifecycle]: images/activity_fragment_lifecycle.png
 

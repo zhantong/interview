@@ -1853,7 +1853,7 @@ Java 7在扩容时会重新计算`Entry`的数组索引，而在Java 8中只需�
 NIO包（`java.nio.*`）引入了四个关键的抽象数据类型，它们共同解决传统的I/O类中的一些问题：
 
 - `Buffer`：它是包含数据且用于读写的线形表结构。其中还提供了一个特殊类用于内存映射文件的I/O操作。
-- `Charset`：它提供Unicode字符串影射到字节序列以及逆影射的操作。
+- `Charset`：它提供Unicode字符串映射到字节序列以及逆映射的操作。
 - `Channels`：包含socket，file和pipe三种管道，它实际上是双向交流的通道。
 - `Selector`：它将多元异步I/O操作集中到一个或多个线程中（它可以被看成是Unix中`select()`函数或Win32中`WaitForSingleEvent()`函数的面向对象版本）。
 
