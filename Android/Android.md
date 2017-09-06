@@ -157,6 +157,7 @@
 - [93. Android消息处理机制](#93-android消息处理机制)
   - [93.1. Looper](#931-looper)
   - [93.2. Handler](#932-handler)
+- [94. `startActivity()`执行流程](#94-startactivity执行流程)
 
 <!-- /TOC -->
 
@@ -1346,6 +1347,15 @@ public class Handler {
 
 参考：[android的消息处理机制（图+源码分析）——Looper,Handler,Message - CodingMyWorld - 博客园][looper_handler_message]
 
+## 94. `startActivity()`执行流程
+
+![Start Activity Process][start_activity_process]
+
+- 当Activity的目标进程不存在时，会首先创建进程。
+- Activity Manager Service（AMS）向目标进程的主线程发送`LAUNCH_ACTIVITY`，目标进程通过反射创建目标Activity，然后进入`onCreate()`生命周期。
+
+参考：[startActivity启动过程分析 - Gityuan博客 | 袁辉辉博客][startactivity_process]
+
 [android layout绘制]: http://vincgao.com/2016/02/android-layout/
 
 [android view事件分发机制源码分析]: https://github.com/Mr-YangCheng/ForAndroidInterview/blob/master/android/Android%20View%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91%E6%9C%BA%E5%88%B6%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md
@@ -1363,6 +1373,8 @@ public class Handler {
 [looper_handler_message]: http://www.cnblogs.com/codingmyworld/archive/2011/09/12/2174255.html
 
 [android_event]: https://www.cnblogs.com/sunzn/archive/2013/05/10/3064129.html
+
+[startactivity_process]: http://gityuan.com/2016/03/12/start-activity/
 
 [activity_fragment_lifecycle]: images/activity_fragment_lifecycle.png
 
@@ -1399,3 +1411,5 @@ public class Handler {
 [classloader]: images/classloader.png
 
 [classloader_hotpatch]: images/classloader_hotpatch.jpg
+
+[start_activity_process]: start_activity_process.jpg
