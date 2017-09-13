@@ -244,7 +244,10 @@ Activity表示具有用户界面的单一屏幕。例如，电子邮件应用可
 - `intent.putExtra()`方法；
 - 使用全局变量Application；
 - 使用静态变量；
-- 剪切板ClipboardManager传递数据。
+- 剪切板ClipboardManager传递数据；
+- 借助Application共享Handler利用消息处理机制；
+- 使用Broadcast广播；
+- 使用EventBus。
 
 ## 12. Fragment的好处：
 
