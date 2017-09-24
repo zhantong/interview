@@ -1,598 +1,1 @@
-﻿题号,标题,链接,难度,付费,已解决,不熟练
-1,Two Sum,two-sum,简单,否,是,熟练
-2,Add Two Numbers,add-two-numbers,中等,否,是,熟练
-3,Longest Substring Without Repeating Characters,longest-substring-without-repeating-characters,中等,否,是,不熟练
-4,Median of Two Sorted Arrays,median-of-two-sorted-arrays,难,否,是,不熟练
-5,Longest Palindromic Substring,longest-palindromic-substring,中等,否,是,熟练
-6,ZigZag Conversion,zigzag-conversion,中等,否,是,熟练
-7,Reverse Integer,reverse-integer,简单,否,是,熟练
-8,String to Integer (atoi),string-to-integer-atoi,中等,否,是,熟练
-9,Palindrome Number,palindrome-number,简单,否,是,熟练
-10,Regular Expression Matching,regular-expression-matching,难,否,是,不熟练
-11,Container With Most Water,container-with-most-water,中等,否,是,熟练
-12,Integer to Roman,integer-to-roman,中等,否,是,不熟练
-13,Roman to Integer,roman-to-integer,简单,否,是,一般
-14,Longest Common Prefix,longest-common-prefix,简单,否,是,熟练
-15,3Sum,3sum,中等,否,是,熟练
-16,3Sum Closest,3sum-closest,中等,否,是,熟练
-17,Letter Combinations of a Phone Number,letter-combinations-of-a-phone-number,中等,否,是,熟练
-18,4Sum,4sum,中等,否,是,熟练
-19,Remove Nth Node From End of List,remove-nth-node-from-end-of-list,中等,否,是,熟练
-20,Valid Parentheses,valid-parentheses,简单,否,是,熟练
-21,Merge Two Sorted Lists,merge-two-sorted-lists,简单,否,是,熟练
-22,Generate Parentheses,generate-parentheses,中等,否,是,熟练
-23,Merge k Sorted Lists,merge-k-sorted-lists,难,否,是,不熟练
-24,Swap Nodes in Pairs,swap-nodes-in-pairs,中等,否,是,熟练
-25,Reverse Nodes in k-Group,reverse-nodes-in-k-group,难,否,是,较熟练
-26,Remove Duplicates from Sorted Array,remove-duplicates-from-sorted-array,简单,否,是,熟练
-27,Remove Element,remove-element,简单,否,是,熟练
-28,Implement strStr(),implement-strstr,简单,否,是,熟练
-29,Divide Two Integers,divide-two-integers,中等,否,是,不熟练
-30,Substring with Concatenation of All Words,substring-with-concatenation-of-all-words,难,否,是,较熟练
-31,Next Permutation,next-permutation,中等,否,是,熟练
-32,Longest Valid Parentheses,longest-valid-parentheses,难,否,是,不熟练
-33,Search in Rotated Sorted Array,search-in-rotated-sorted-array,中等,否,是,熟练
-34,Search for a Range,search-for-a-range,中等,否,是,熟练
-35,Search Insert Position,search-insert-position,简单,否,是,熟练
-36,Valid Sudoku,valid-sudoku,中等,否,是,熟练
-37,Sudoku Solver,sudoku-solver,难,否,是,熟练
-38,Count and Say,count-and-say,简单,否,否,
-39,Combination Sum,combination-sum,中等,否,是,熟练
-40,Combination Sum II,combination-sum-ii,中等,否,是,熟练
-41,First Missing Positive,first-missing-positive,难,否,是,不熟练
-42,Trapping Rain Water,trapping-rain-water,难,否,是,熟练
-43,Multiply Strings,multiply-strings,中等,否,是,熟练
-44,Wildcard Matching,wildcard-matching,难,否,是,不熟练
-45,Jump Game II,jump-game-ii,难,否,是,不熟练
-46,Permutations,permutations,中等,否,是,熟练
-47,Permutations II,permutations-ii,中等,否,是,熟练
-48,Rotate Image,rotate-image,中等,否,是,熟练
-49,Group Anagrams,group-anagrams,中等,否,是,熟练
-50,"Pow(x, n)",powx-n,中等,否,是,较熟练
-51,N-Queens,n-queens,难,否,是,熟练
-52,N-Queens II,n-queens-ii,难,否,是,熟练
-53,Maximum Subarray,maximum-subarray,简单,否,是,熟练
-54,Spiral Matrix,spiral-matrix,中等,否,是,熟练
-55,Jump Game,jump-game,中等,否,是,熟练
-56,Merge Intervals,merge-intervals,中等,否,是,熟练
-57,Insert Interval,insert-interval,难,否,是,熟练
-58,Length of Last Word,length-of-last-word,简单,否,是,熟练
-59,Spiral Matrix II,spiral-matrix-ii,中等,否,是,熟练
-60,Permutation Sequence,permutation-sequence,中等,否,是,不熟练
-61,Rotate List,rotate-list,中等,否,是,熟练
-62,Unique Paths,unique-paths,中等,否,是,熟练
-63,Unique Paths II,unique-paths-ii,中等,否,是,熟练
-64,Minimum Path Sum,minimum-path-sum,中等,否,是,熟练
-65,Valid Number,valid-number,难,否,是,较熟练
-66,Plus One,plus-one,简单,否,是,熟练
-67,Add Binary,add-binary,简单,否,是,熟练
-68,Text Justification,text-justification,难,否,是,熟练
-69,Sqrt(x),sqrtx,简单,否,是,熟练
-70,Climbing Stairs,climbing-stairs,简单,否,是,熟练
-71,Simplify Path,simplify-path,中等,否,是,熟练
-72,Edit Distance,edit-distance,难,否,是,不熟练
-73,Set Matrix Zeroes,set-matrix-zeroes,中等,否,是,熟练
-74,Search a 2D Matrix,search-a-2d-matrix,中等,否,是,熟练
-75,Sort Colors,sort-colors,中等,否,是,熟练
-76,Minimum Window Substring,minimum-window-substring,难,否,是,熟练
-77,Combinations,combinations,中等,否,是,熟练
-78,Subsets,subsets,中等,否,是,熟练
-79,Word Search,word-search,中等,否,是,熟练
-80,Remove Duplicates from Sorted Array II,remove-duplicates-from-sorted-array-ii,中等,否,是,熟练
-81,Search in Rotated Sorted Array II,search-in-rotated-sorted-array-ii,中等,否,是,一般
-82,Remove Duplicates from Sorted List II,remove-duplicates-from-sorted-list-ii,中等,否,是,熟练
-83,Remove Duplicates from Sorted List,remove-duplicates-from-sorted-list,简单,否,是,熟练
-84,Largest Rectangle in Histogram,largest-rectangle-in-histogram,难,否,是,不熟练
-85,Maximal Rectangle,maximal-rectangle,难,否,是,不熟练
-86,Partition List,partition-list,中等,否,是,熟练
-87,Scramble String,scramble-string,难,否,是,不熟练
-88,Merge Sorted Array,merge-sorted-array,简单,否,是,熟练
-89,Gray Code,gray-code,中等,否,是,熟练
-90,Subsets II,subsets-ii,中等,否,是,熟练
-91,Decode Ways,decode-ways,中等,否,是,熟练
-92,Reverse Linked List II,reverse-linked-list-ii,中等,否,是,熟练
-93,Restore IP Addresses,restore-ip-addresses,中等,否,是,熟练
-94,Binary Tree Inorder Traversal,binary-tree-inorder-traversal,中等,否,是,熟练
-95,Unique Binary Search Trees II,unique-binary-search-trees-ii,中等,否,是,熟练
-96,Unique Binary Search Trees,unique-binary-search-trees,中等,否,是,熟练
-97,Interleaving String,interleaving-string,难,否,是,不熟练
-98,Validate Binary Search Tree,validate-binary-search-tree,中等,否,是,熟练
-99,Recover Binary Search Tree,recover-binary-search-tree,难,否,是,不熟练
-100,Same Tree,same-tree,简单,否,是,熟练
-101,Symmetric Tree,symmetric-tree,简单,否,是,熟练
-102,Binary Tree Level Order Traversal,binary-tree-level-order-traversal,中等,否,是,熟练
-103,Binary Tree Zigzag Level Order Traversal,binary-tree-zigzag-level-order-traversal,中等,否,是,熟练
-104,Maximum Depth of Binary Tree,maximum-depth-of-binary-tree,简单,否,是,熟练
-105,Construct Binary Tree from Preorder and Inorder Traversal,construct-binary-tree-from-preorder-and-inorder-traversal,中等,否,是,熟练
-106,Construct Binary Tree from Inorder and Postorder Traversal,construct-binary-tree-from-inorder-and-postorder-traversal,中等,否,是,熟练
-107,Binary Tree Level Order Traversal II,binary-tree-level-order-traversal-ii,简单,否,是,熟练
-108,Convert Sorted Array to Binary Search Tree,convert-sorted-array-to-binary-search-tree,简单,否,是,熟练
-109,Convert Sorted List to Binary Search Tree,convert-sorted-list-to-binary-search-tree,中等,否,是,熟练
-110,Balanced Binary Tree,balanced-binary-tree,简单,否,是,熟练
-111,Minimum Depth of Binary Tree,minimum-depth-of-binary-tree,简单,否,是,熟练
-112,Path Sum,path-sum,简单,否,是,熟练
-113,Path Sum II,path-sum-ii,中等,否,是,熟练
-114,Flatten Binary Tree to Linked List,flatten-binary-tree-to-linked-list,中等,否,是,熟练
-115,Distinct Subsequences,distinct-subsequences,难,否,是,不熟练
-116,Populating Next Right Pointers in Each Node,populating-next-right-pointers-in-each-node,中等,否,是,较熟练
-117,Populating Next Right Pointers in Each Node II,populating-next-right-pointers-in-each-node-ii,中等,否,是,不熟练
-118,Pascal's Triangle,pascals-triangle,简单,否,是,熟练
-119,Pascal's Triangle II,pascals-triangle-ii,简单,否,是,较熟练
-120,Triangle,triangle,中等,否,是,熟练
-121,Best Time to Buy and Sell Stock,best-time-to-buy-and-sell-stock,简单,否,是,熟练
-122,Best Time to Buy and Sell Stock II,best-time-to-buy-and-sell-stock-ii,简单,否,是,熟练
-123,Best Time to Buy and Sell Stock III,best-time-to-buy-and-sell-stock-iii,难,否,是,不熟练
-124,Binary Tree Maximum Path Sum,binary-tree-maximum-path-sum,难,否,是,不熟练
-125,Valid Palindrome,valid-palindrome,简单,否,是,熟练
-126,Word Ladder II,word-ladder-ii,难,否,是,不熟练
-127,Word Ladder,word-ladder,中等,否,是,熟练
-128,Longest Consecutive Sequence,longest-consecutive-sequence,难,否,是,较熟练
-129,Sum Root to Leaf Numbers,sum-root-to-leaf-numbers,中等,否,是,熟练
-130,Surrounded Regions,surrounded-regions,中等,否,是,熟练
-131,Palindrome Partitioning,palindrome-partitioning,中等,否,是,熟练
-132,Palindrome Partitioning II,palindrome-partitioning-ii,难,否,是,不熟练
-133,Clone Graph,clone-graph,中等,否,是,较熟练
-134,Gas Station,gas-station,中等,否,是,熟练
-135,Candy,candy,难,否,是,较熟练
-136,Single Number,single-number,简单,否,是,熟练
-137,Single Number II,single-number-ii,中等,否,是,不熟练
-138,Copy List with Random Pointer,copy-list-with-random-pointer,中等,否,是,熟练
-139,Word Break,word-break,中等,否,是,熟练
-140,Word Break II,word-break-ii,难,否,是,熟练
-141,Linked List Cycle,linked-list-cycle,简单,否,是,熟练
-142,Linked List Cycle II,linked-list-cycle-ii,中等,否,是,熟练
-143,Reorder List,reorder-list,中等,否,是,熟练
-144,Binary Tree Preorder Traversal,binary-tree-preorder-traversal,中等,否,是,熟练
-145,Binary Tree Postorder Traversal,binary-tree-postorder-traversal,难,否,是,熟练
-146,LRU Cache,lru-cache,难,否,是,较熟练
-147,Insertion Sort List,insertion-sort-list,中等,否,是,熟练
-148,Sort List,sort-list,中等,否,是,一般
-149,Max Points on a Line,max-points-on-a-line,难,否,是,不熟练
-150,Evaluate Reverse Polish Notation,evaluate-reverse-polish-notation,中等,否,是,熟练
-151,Reverse Words in a String,reverse-words-in-a-string,中等,否,是,熟练
-152,Maximum Product Subarray,maximum-product-subarray,中等,否,是,不熟练
-153,Find Minimum in Rotated Sorted Array,find-minimum-in-rotated-sorted-array,中等,否,是,熟练
-154,Find Minimum in Rotated Sorted Array II,find-minimum-in-rotated-sorted-array-ii,难,否,是,不熟练
-155,Min Stack,min-stack,简单,否,是,熟练
-156,Binary Tree Upside Down,binary-tree-upside-down,中等,是,否,
-157,Read N Characters Given Read4,read-n-characters-given-read4,简单,是,否,
-158,Read N Characters Given Read4 II - Call multiple times,read-n-characters-given-read4-ii-call-multiple-times,难,是,否,
-159,Longest Substring with At Most Two Distinct Characters,longest-substring-with-at-most-two-distinct-characters,难,是,否,
-160,Intersection of Two Linked Lists,intersection-of-two-linked-lists,简单,否,是,熟练
-161,One Edit Distance,one-edit-distance,中等,是,否,
-162,Find Peak Element,find-peak-element,中等,否,是,较熟练
-163,Missing Ranges,missing-ranges,中等,是,否,
-164,Maximum Gap,maximum-gap,难,否,是,不熟练
-165,Compare Version Numbers,compare-version-numbers,中等,否,是,熟练
-166,Fraction to Recurring Decimal,fraction-to-recurring-decimal,中等,否,是,熟练
-167,Two Sum II - Input array is sorted,two-sum-ii-input-array-is-sorted,简单,否,是,熟练
-168,Excel Sheet Column Title,excel-sheet-column-title,简单,否,是,熟练
-169,Majority Element,majority-element,简单,否,是,熟练
-170,Two Sum III - Data structure design,two-sum-iii-data-structure-design,简单,是,否,
-171,Excel Sheet Column Number,excel-sheet-column-number,简单,否,是,熟练
-172,Factorial Trailing Zeroes,factorial-trailing-zeroes,简单,否,是,熟练
-173,Binary Search Tree Iterator,binary-search-tree-iterator,中等,否,是,熟练
-174,Dungeon Game,dungeon-game,难,否,是,不熟练
-179,Largest Number,largest-number,中等,否,是,熟练
-186,Reverse Words in a String II,reverse-words-in-a-string-ii,中等,是,否,
-187,Repeated DNA Sequences,repeated-dna-sequences,中等,否,是,较熟练
-188,Best Time to Buy and Sell Stock IV,best-time-to-buy-and-sell-stock-iv,难,否,是,不熟练
-189,Rotate Array,rotate-array,简单,否,是,熟练
-190,Reverse Bits,reverse-bits,简单,否,是,熟练
-191,Number of 1 Bits,number-of-1-bits,简单,否,是,熟练
-198,House Robber,house-robber,简单,否,是,熟练
-199,Binary Tree Right Side View,binary-tree-right-side-view,中等,否,是,熟练
-200,Number of Islands,number-of-islands,中等,否,是,熟练
-201,Bitwise AND of Numbers Range,bitwise-and-of-numbers-range,中等,否,是,熟练
-202,Happy Number,happy-number,简单,否,是,熟练
-203,Remove Linked List Elements,remove-linked-list-elements,简单,否,是,熟练
-204,Count Primes,count-primes,简单,否,是,熟练
-205,Isomorphic Strings,isomorphic-strings,简单,否,是,熟练
-206,Reverse Linked List,reverse-linked-list,简单,否,是,熟练
-207,Course Schedule,course-schedule,中等,否,是,熟练
-208,Implement Trie (Prefix Tree),implement-trie-prefix-tree,中等,否,是,熟练
-209,Minimum Size Subarray Sum,minimum-size-subarray-sum,中等,否,是,熟练
-210,Course Schedule II,course-schedule-ii,中等,否,是,熟练
-211,Add and Search Word - Data structure design,add-and-search-word-data-structure-design,中等,否,是,熟练
-212,Word Search II,word-search-ii,难,否,是,较熟练
-213,House Robber II,house-robber-ii,中等,否,是,熟练
-214,Shortest Palindrome,shortest-palindrome,难,否,是,不熟练
-215,Kth Largest Element in an Array,kth-largest-element-in-an-array,中等,否,是,熟练
-216,Combination Sum III,combination-sum-iii,中等,否,是,熟练
-217,Contains Duplicate,contains-duplicate,简单,否,是,熟练
-218,The Skyline Problem,the-skyline-problem,难,否,是,不熟练
-219,Contains Duplicate II,contains-duplicate-ii,简单,否,是,熟练
-220,Contains Duplicate III,contains-duplicate-iii,中等,否,是,一般
-221,Maximal Square,maximal-square,中等,否,是,熟练
-222,Count Complete Tree Nodes,count-complete-tree-nodes,中等,否,是,
-223,Rectangle Area,rectangle-area,中等,否,是,熟练
-224,Basic Calculator,basic-calculator,难,否,是,较熟练
-225,Implement Stack using Queues,implement-stack-using-queues,简单,否,是,熟练
-226,Invert Binary Tree,invert-binary-tree,简单,否,是,熟练
-227,Basic Calculator II,basic-calculator-ii,中等,否,是,一般
-228,Summary Ranges,summary-ranges,中等,否,是,熟练
-229,Majority Element II,majority-element-ii,中等,否,是,一般
-230,Kth Smallest Element in a BST,kth-smallest-element-in-a-bst,中等,否,是,熟练
-231,Power of Two,power-of-two,简单,否,是,熟练
-232,Implement Queue using Stacks,implement-queue-using-stacks,简单,否,是,熟练
-233,Number of Digit One,number-of-digit-one,难,否,是,不熟练
-234,Palindrome Linked List,palindrome-linked-list,简单,否,是,熟练
-235,Lowest Common Ancestor of a Binary Search Tree,lowest-common-ancestor-of-a-binary-search-tree,简单,否,是,熟练
-236,Lowest Common Ancestor of a Binary Tree,lowest-common-ancestor-of-a-binary-tree,中等,否,是,熟练
-237,Delete Node in a Linked List,delete-node-in-a-linked-list,简单,否,是,熟练
-238,Product of Array Except Self,product-of-array-except-self,中等,否,是,熟练
-239,Sliding Window Maximum,sliding-window-maximum,难,否,是,不熟练
-240,Search a 2D Matrix II,search-a-2d-matrix-ii,中等,否,是,不熟练
-241,Different Ways to Add Parentheses,different-ways-to-add-parentheses,中等,否,是,熟练
-242,Valid Anagram,valid-anagram,简单,否,是,熟练
-243,Shortest Word Distance,shortest-word-distance,简单,是,否,
-244,Shortest Word Distance II,shortest-word-distance-ii,中等,是,否,
-245,Shortest Word Distance III,shortest-word-distance-iii,中等,是,否,
-246,Strobogrammatic Number,strobogrammatic-number,简单,是,否,
-247,Strobogrammatic Number II,strobogrammatic-number-ii,中等,是,否,
-248,Strobogrammatic Number III,strobogrammatic-number-iii,难,是,否,
-249,Group Shifted Strings,group-shifted-strings,中等,是,否,
-250,Count Univalue Subtrees,count-univalue-subtrees,中等,是,否,
-251,Flatten 2D Vector,flatten-2d-vector,中等,是,否,
-252,Meeting Rooms,meeting-rooms,简单,是,否,
-253,Meeting Rooms II,meeting-rooms-ii,中等,是,否,
-254,Factor Combinations,factor-combinations,中等,是,否,
-255,Verify Preorder Sequence in Binary Search Tree,verify-preorder-sequence-in-binary-search-tree,中等,是,否,
-256,Paint House,paint-house,简单,是,否,
-257,Binary Tree Paths,binary-tree-paths,简单,否,是,熟练
-258,Add Digits,add-digits,简单,否,是,不熟练
-259,3Sum Smaller,3sum-smaller,中等,是,否,
-260,Single Number III,single-number-iii,中等,否,是,熟练
-261,Graph Valid Tree,graph-valid-tree,中等,是,否,
-263,Ugly Number,ugly-number,简单,否,是,熟练
-264,Ugly Number II,ugly-number-ii,中等,否,是,熟练
-265,Paint House II,paint-house-ii,难,是,否,
-266,Palindrome Permutation,palindrome-permutation,简单,是,否,
-267,Palindrome Permutation II,palindrome-permutation-ii,中等,是,否,
-268,Missing Number,missing-number,简单,否,是,熟练
-269,Alien Dictionary,alien-dictionary,难,是,否,
-270,Closest Binary Search Tree Value,closest-binary-search-tree-value,简单,是,否,
-271,Encode and Decode Strings,encode-and-decode-strings,中等,是,否,
-272,Closest Binary Search Tree Value II,closest-binary-search-tree-value-ii,难,是,否,
-273,Integer to English Words,integer-to-english-words,难,否,是,不熟练
-274,H-Index,h-index,中等,否,是,较熟练
-275,H-Index II,h-index-ii,中等,否,是,熟练
-276,Paint Fence,paint-fence,简单,是,否,
-277,Find the Celebrity,find-the-celebrity,中等,是,否,
-278,First Bad Version,first-bad-version,简单,否,是,熟练
-279,Perfect Squares,perfect-squares,中等,否,是,熟练
-280,Wiggle Sort,wiggle-sort,中等,是,否,
-281,Zigzag Iterator,zigzag-iterator,中等,是,否,
-282,Expression Add Operators,expression-add-operators,难,否,是,熟练
-283,Move Zeroes,move-zeroes,简单,否,是,熟练
-284,Peeking Iterator,peeking-iterator,中等,否,是,熟练
-285,Inorder Successor in BST,inorder-successor-in-bst,中等,是,否,
-286,Walls and Gates,walls-and-gates,中等,是,否,
-287,Find the Duplicate Number,find-the-duplicate-number,中等,否,是,熟练
-288,Unique Word Abbreviation,unique-word-abbreviation,中等,是,否,
-289,Game of Life,game-of-life,中等,否,是,熟练
-290,Word Pattern,word-pattern,简单,否,是,熟练
-291,Word Pattern II,word-pattern-ii,难,是,否,
-292,Nim Game,nim-game,简单,否,是,熟练
-293,Flip Game,flip-game,简单,是,否,
-294,Flip Game II,flip-game-ii,中等,是,否,
-295,Find Median from Data Stream,find-median-from-data-stream,难,否,是,不熟练
-296,Best Meeting Point,best-meeting-point,难,是,否,
-297,Serialize and Deserialize Binary Tree,serialize-and-deserialize-binary-tree,难,否,是,较熟练
-298,Binary Tree Longest Consecutive Sequence,binary-tree-longest-consecutive-sequence,中等,是,否,
-299,Bulls and Cows,bulls-and-cows,中等,否,是,较熟练
-300,Longest Increasing Subsequence,longest-increasing-subsequence,中等,否,是,熟练
-301,Remove Invalid Parentheses,remove-invalid-parentheses,难,否,否,
-302,Smallest Rectangle Enclosing Black Pixels,smallest-rectangle-enclosing-black-pixels,难,是,否,
-303,Range Sum Query - Immutable,range-sum-query-immutable,简单,否,是,熟练
-304,Range Sum Query 2D - Immutable,range-sum-query-2d-immutable,中等,否,是,熟练
-305,Number of Islands II,number-of-islands-ii,难,是,否,
-306,Additive Number,additive-number,中等,否,是,不熟练
-307,Range Sum Query - Mutable,range-sum-query-mutable,中等,否,是,较熟练
-308,Range Sum Query 2D - Mutable,range-sum-query-2d-mutable,难,是,否,
-309,Best Time to Buy and Sell Stock with Cooldown,best-time-to-buy-and-sell-stock-with-cooldown,中等,否,是,不熟练
-310,Minimum Height Trees,minimum-height-trees,中等,否,是,熟练
-311,Sparse Matrix Multiplication,sparse-matrix-multiplication,中等,是,否,
-312,Burst Balloons,burst-balloons,难,否,是,不熟练
-313,Super Ugly Number,super-ugly-number,中等,否,是,熟练
-314,Binary Tree Vertical Order Traversal,binary-tree-vertical-order-traversal,中等,是,否,
-315,Count of Smaller Numbers After Self,count-of-smaller-numbers-after-self,难,否,是,不熟练
-316,Remove Duplicate Letters,remove-duplicate-letters,难,否,是,不熟练
-317,Shortest Distance from All Buildings,shortest-distance-from-all-buildings,难,是,否,
-318,Maximum Product of Word Lengths,maximum-product-of-word-lengths,中等,否,是,熟练
-319,Bulb Switcher,bulb-switcher,中等,否,是,不熟练
-320,Generalized Abbreviation,generalized-abbreviation,中等,是,否,
-321,Create Maximum Number,create-maximum-number,难,否,是,不熟练
-322,Coin Change,coin-change,中等,否,是,熟练
-323,Number of Connected Components in an Undirected Graph,number-of-connected-components-in-an-undirected-graph,中等,是,否,
-324,Wiggle Sort II,wiggle-sort-ii,中等,否,是,较熟练
-325,Maximum Size Subarray Sum Equals k,maximum-size-subarray-sum-equals-k,中等,是,否,
-326,Power of Three,power-of-three,简单,否,是,熟练
-327,Count of Range Sum,count-of-range-sum,难,否,否,
-328,Odd Even Linked List,odd-even-linked-list,中等,否,是,熟练
-329,Longest Increasing Path in a Matrix,longest-increasing-path-in-a-matrix,难,否,是,较熟练
-330,Patching Array,patching-array,难,否,是,不熟练
-331,Verify Preorder Serialization of a Binary Tree,verify-preorder-serialization-of-a-binary-tree,中等,否,是,熟练
-332,Reconstruct Itinerary,reconstruct-itinerary,中等,否,是,熟练
-333,Largest BST Subtree,largest-bst-subtree,中等,是,否,
-334,Increasing Triplet Subsequence,increasing-triplet-subsequence,中等,否,是,熟练
-335,Self Crossing,self-crossing,难,否,是,不熟练
-336,Palindrome Pairs,palindrome-pairs,难,否,是,不熟练
-337,House Robber III,house-robber-iii,中等,否,是,熟练
-338,Counting Bits,counting-bits,中等,否,是,熟练
-339,Nested List Weight Sum,nested-list-weight-sum,简单,是,否,
-340,Longest Substring with At Most K Distinct Characters,longest-substring-with-at-most-k-distinct-characters,难,是,否,
-341,Flatten Nested List Iterator,flatten-nested-list-iterator,中等,否,是,熟练
-342,Power of Four,power-of-four,简单,否,是,熟练
-343,Integer Break,integer-break,中等,否,是,较熟练
-344,Reverse String,reverse-string,简单,否,是,熟练
-345,Reverse Vowels of a String,reverse-vowels-of-a-string,简单,否,是,熟练
-346,Moving Average from Data Stream,moving-average-from-data-stream,简单,是,否,
-347,Top K Frequent Elements,top-k-frequent-elements,中等,否,是,熟练
-348,Design Tic-Tac-Toe,design-tic-tac-toe,中等,是,否,
-349,Intersection of Two Arrays,intersection-of-two-arrays,简单,否,是,熟练
-350,Intersection of Two Arrays II,intersection-of-two-arrays-ii,简单,否,是,熟练
-351,Android Unlock Patterns,android-unlock-patterns,中等,是,否,
-352,Data Stream as Disjoint Intervals,data-stream-as-disjoint-intervals,难,否,是,不熟练
-353,Design Snake Game,design-snake-game,中等,是,否,
-354,Russian Doll Envelopes,russian-doll-envelopes,难,否,是,不熟练
-355,Design Twitter,design-twitter,中等,否,是,熟练
-356,Line Reflection,line-reflection,中等,是,否,
-357,Count Numbers with Unique Digits,count-numbers-with-unique-digits,中等,否,是,熟练
-358,Rearrange String k Distance Apart,rearrange-string-k-distance-apart,难,是,否,
-359,Logger Rate Limiter,logger-rate-limiter,简单,是,否,
-360,Sort Transformed Array,sort-transformed-array,中等,是,否,
-361,Bomb Enemy,bomb-enemy,中等,是,否,
-362,Design Hit Counter,design-hit-counter,中等,是,否,
-363,Max Sum of Rectangle No Larger Than K,max-sum-of-rectangle-no-larger-than-k,难,否,是,不熟练
-364,Nested List Weight Sum II,nested-list-weight-sum-ii,中等,是,否,
-365,Water and Jug Problem,water-and-jug-problem,中等,否,是,熟练
-366,Find Leaves of Binary Tree,find-leaves-of-binary-tree,中等,是,否,
-367,Valid Perfect Square,valid-perfect-square,简单,否,是,熟练
-368,Largest Divisible Subset,largest-divisible-subset,中等,否,是,熟练
-369,Plus One Linked List,plus-one-linked-list,中等,是,否,
-370,Range Addition,range-addition,中等,是,否,
-371,Sum of Two Integers,sum-of-two-integers,简单,否,是,熟练
-372,Super Pow,super-pow,中等,否,是,一般
-373,Find K Pairs with Smallest Sums,find-k-pairs-with-smallest-sums,中等,否,是,一般
-374,Guess Number Higher or Lower,guess-number-higher-or-lower,简单,否,是,熟练
-375,Guess Number Higher or Lower II,guess-number-higher-or-lower-ii,中等,否,是,不熟练
-376,Wiggle Subsequence,wiggle-subsequence,中等,否,是,较熟练
-377,Combination Sum IV,combination-sum-iv,中等,否,是,熟练
-378,Kth Smallest Element in a Sorted Matrix,kth-smallest-element-in-a-sorted-matrix,中等,否,是,一般
-379,Design Phone Directory,design-phone-directory,中等,是,否,
-380,Insert Delete GetRandom O(1),insert-delete-getrandom-o1,中等,否,是,熟练
-381,Insert Delete GetRandom O(1) - Duplicates allowed,insert-delete-getrandom-o1-duplicates-allowed,难,否,是,不熟练
-382,Linked List Random Node,linked-list-random-node,中等,否,是,熟练
-383,Ransom Note,ransom-note,简单,否,是,熟练
-384,Shuffle an Array,shuffle-an-array,中等,否,是,熟练
-385,Mini Parser,mini-parser,中等,否,是,熟练
-386,Lexicographical Numbers,lexicographical-numbers,中等,否,是,熟练
-387,First Unique Character in a String,first-unique-character-in-a-string,简单,否,是,熟练
-388,Longest Absolute File Path,longest-absolute-file-path,中等,否,是,一般
-389,Find the Difference,find-the-difference,简单,否,是,熟练
-390,Elimination Game,elimination-game,中等,否,是,不熟练
-391,Perfect Rectangle,perfect-rectangle,难,否,是,不熟练
-392,Is Subsequence,is-subsequence,中等,否,是,熟练
-393,UTF-8 Validation,utf-8-validation,中等,否,是,熟练
-394,Decode String,decode-string,中等,否,是,熟练
-395,Longest Substring with At Least K Repeating Characters,longest-substring-with-at-least-k-repeating-characters,中等,否,是,不熟练
-396,Rotate Function,rotate-function,中等,否,是,熟练
-397,Integer Replacement,integer-replacement,中等,否,是,不熟练
-398,Random Pick Index,random-pick-index,中等,否,是,熟练
-399,Evaluate Division,evaluate-division,中等,否,是,较熟练
-400,Nth Digit,nth-digit,简单,否,是,熟练
-401,Binary Watch,binary-watch,简单,否,是,熟练
-402,Remove K Digits,remove-k-digits,中等,否,是,熟练
-403,Frog Jump,frog-jump,难,否,是,不熟练
-404,Sum of Left Leaves,sum-of-left-leaves,简单,否,是,较熟练
-405,Convert a Number to Hexadecimal,convert-a-number-to-hexadecimal,简单,否,是,熟练
-406,Queue Reconstruction by Height,queue-reconstruction-by-height,中等,否,是,熟练
-407,Trapping Rain Water II,trapping-rain-water-ii,难,否,是,不熟练
-408,Valid Word Abbreviation,valid-word-abbreviation,简单,是,否,
-409,Longest Palindrome,longest-palindrome,简单,否,是,熟练
-410,Split Array Largest Sum,split-array-largest-sum,难,否,是,不熟练
-411,Minimum Unique Word Abbreviation,minimum-unique-word-abbreviation,难,是,否,
-412,Fizz Buzz,fizz-buzz,简单,否,是,熟练
-413,Arithmetic Slices,arithmetic-slices,中等,否,是,一般
-414,Third Maximum Number,third-maximum-number,简单,否,是,熟练
-415,Add Strings,add-strings,简单,否,是,熟练
-416,Partition Equal Subset Sum,partition-equal-subset-sum,中等,否,是,熟练
-417,Pacific Atlantic Water Flow,pacific-atlantic-water-flow,中等,否,是,熟练
-418,Sentence Screen Fitting,sentence-screen-fitting,中等,是,否,
-419,Battleships in a Board,battleships-in-a-board,中等,否,是,熟练
-420,Strong Password Checker,strong-password-checker,难,否,否,
-421,Maximum XOR of Two Numbers in an Array,maximum-xor-of-two-numbers-in-an-array,中等,否,是,不熟练
-422,Valid Word Square,valid-word-square,简单,是,否,
-423,Reconstruct Original Digits from English,reconstruct-original-digits-from-english,中等,否,是,熟练
-424,Longest Repeating Character Replacement,longest-repeating-character-replacement,中等,否,是,一般
-425,Word Squares,word-squares,难,是,否,
-432,All O`one Data Structure,all-oone-data-structure,难,否,是,不熟练
-434,Number of Segments in a String,number-of-segments-in-a-string,简单,否,是,熟练
-435,Non-overlapping Intervals,non-overlapping-intervals,中等,否,是,熟练
-436,Find Right Interval,find-right-interval,中等,否,是,较熟练
-437,Path Sum III,path-sum-iii,简单,否,是,熟练
-438,Find All Anagrams in a String,find-all-anagrams-in-a-string,简单,否,是,较熟练
-439,Ternary Expression Parser,ternary-expression-parser,中等,是,否,
-440,K-th Smallest in Lexicographical Order,k-th-smallest-in-lexicographical-order,难,否,是,不熟练
-441,Arranging Coins,arranging-coins,简单,否,是,熟练
-442,Find All Duplicates in an Array,find-all-duplicates-in-an-array,中等,否,是,熟练
-444,Sequence Reconstruction,sequence-reconstruction,中等,是,否,
-445,Add Two Numbers II,add-two-numbers-ii,中等,否,是,熟练
-446,Arithmetic Slices II - Subsequence,arithmetic-slices-ii-subsequence,难,否,是,不熟练
-447,Number of Boomerangs,number-of-boomerangs,简单,否,是,熟练
-448,Find All Numbers Disappeared in an Array,find-all-numbers-disappeared-in-an-array,简单,否,是,熟练
-449,Serialize and Deserialize BST,serialize-and-deserialize-bst,中等,否,是,熟练
-450,Delete Node in a BST,delete-node-in-a-bst,中等,否,是,较熟练
-451,Sort Characters By Frequency,sort-characters-by-frequency,中等,否,是,熟练
-452,Minimum Number of Arrows to Burst Balloons,minimum-number-of-arrows-to-burst-balloons,中等,否,是,较熟练
-453,Minimum Moves to Equal Array Elements,minimum-moves-to-equal-array-elements,简单,否,是,熟练
-454,4Sum II,4sum-ii,中等,否,是,熟练
-455,Assign Cookies,assign-cookies,简单,否,是,熟练
-456,132 Pattern,132-pattern,中等,否,是,不熟练
-459,Repeated Substring Pattern,repeated-substring-pattern,简单,否,是,熟练
-460,LFU Cache,lfu-cache,难,否,是,一般
-461,Hamming Distance,hamming-distance,简单,否,是,熟练
-462,Minimum Moves to Equal Array Elements II,minimum-moves-to-equal-array-elements-ii,中等,否,是,熟练
-463,Island Perimeter,island-perimeter,简单,否,是,熟练
-464,Can I Win,can-i-win,中等,否,是,不熟练
-465,Optimal Account Balancing,optimal-account-balancing,难,是,否,
-466,Count The Repetitions,count-the-repetitions,难,否,否,
-467,Unique Substrings in Wraparound String,unique-substrings-in-wraparound-string,中等,否,是,不熟练
-468,Validate IP Address,validate-ip-address,中等,否,是,熟练
-469,Convex Polygon,convex-polygon,中等,是,否,
-471,Encode String with Shortest Length,encode-string-with-shortest-length,难,是,否,
-472,Concatenated Words,concatenated-words,难,否,是,不熟练
-473,Matchsticks to Square,matchsticks-to-square,中等,否,是,较熟练
-474,Ones and Zeroes,ones-and-zeroes,中等,否,是,一般
-475,Heaters,heaters,简单,否,是,一般
-476,Number Complement,number-complement,简单,否,是,熟练
-477,Total Hamming Distance,total-hamming-distance,中等,否,是,熟练
-479,Largest Palindrome Product,largest-palindrome-product,简单,否,是,
-480,Sliding Window Median,sliding-window-median,难,否,是,不熟练
-481,Magical String,magical-string,中等,否,否,
-482,License Key Formatting,license-key-formatting,中等,否,是,熟练
-483,Smallest Good Base,smallest-good-base,难,否,否,
-484,Find Permutation,find-permutation,中等,是,否,
-485,Max Consecutive Ones,max-consecutive-ones,简单,否,是,熟练
-486,Predict the Winner,predict-the-winner,中等,否,是,不熟练
-487,Max Consecutive Ones II,max-consecutive-ones-ii,中等,是,否,
-488,Zuma Game,zuma-game,难,否,否,
-490,The Maze,the-maze,中等,是,否,
-491,Increasing Subsequences,increasing-subsequences,中等,否,是,熟练
-492,Construct the Rectangle,construct-the-rectangle,简单,否,是,熟练
-493,Reverse Pairs,reverse-pairs,难,否,是,不熟练
-494,Target Sum,target-sum,中等,否,是,熟练
-495,Teemo Attacking,teemo-attacking,中等,否,是,熟练
-496,Next Greater Element I,next-greater-element-i,简单,否,是,熟练
-498,Diagonal Traverse,diagonal-traverse,中等,否,是,熟练
-499,The Maze III,the-maze-iii,难,是,否,
-500,Keyboard Row,keyboard-row,简单,否,是,熟练
-501,Find Mode in Binary Search Tree,find-mode-in-binary-search-tree,简单,否,是,不熟练
-502,IPO,ipo,难,否,是,不熟练
-503,Next Greater Element II,next-greater-element-ii,中等,否,是,一般
-504,Base 7,base-7,简单,否,是,熟练
-505,The Maze II,the-maze-ii,中等,是,否,
-506,Relative Ranks,relative-ranks,简单,否,是,熟练
-507,Perfect Number,perfect-number,简单,否,是,熟练
-508,Most Frequent Subtree Sum,most-frequent-subtree-sum,中等,否,是,一般
-513,Find Bottom Left Tree Value,find-bottom-left-tree-value,中等,否,是,熟练
-514,Freedom Trail,freedom-trail,难,否,是,不熟练
-515,Find Largest Value in Each Tree Row,find-largest-value-in-each-tree-row,中等,否,是,熟练
-516,Longest Palindromic Subsequence,longest-palindromic-subsequence,中等,否,是,熟练
-517,Super Washing Machines,super-washing-machines,难,否,是,不熟练
-520,Detect Capital,detect-capital,简单,否,是,熟练
-521,Longest Uncommon Subsequence I ,longest-uncommon-subsequence-i,简单,否,是,熟练
-522,Longest Uncommon Subsequence II,longest-uncommon-subsequence-ii,中等,否,是,较熟练
-523,Continuous Subarray Sum,continuous-subarray-sum,中等,否,是,熟练
-524,Longest Word in Dictionary through Deleting,longest-word-in-dictionary-through-deleting,中等,否,是,熟练
-525,Contiguous Array,contiguous-array,中等,否,是,熟练
-526,Beautiful Arrangement,beautiful-arrangement,中等,否,是,不熟练
-527,Word Abbreviation,word-abbreviation,难,是,否,
-529,Minesweeper,minesweeper,中等,否,是,一般
-530,Minimum Absolute Difference in BST,minimum-absolute-difference-in-bst,简单,否,是,熟练
-531,Lonely Pixel I,lonely-pixel-i,中等,是,否,
-532,K-diff Pairs in an Array,k-diff-pairs-in-an-array,简单,否,是,熟练
-533,Lonely Pixel II,lonely-pixel-ii,中等,是,否,
-535,Encode and Decode TinyURL,encode-and-decode-tinyurl,中等,否,是,熟练
-536,Construct Binary Tree from String,construct-binary-tree-from-string,中等,是,否,
-537,Complex Number Multiplication,complex-number-multiplication,中等,否,是,熟练
-538,Convert BST to Greater Tree,convert-bst-to-greater-tree,简单,否,是,熟练
-539,Minimum Time Difference,minimum-time-difference,中等,否,是,熟练
-540,Single Element in a Sorted Array,single-element-in-a-sorted-array,中等,否,是,
-541,Reverse String II,reverse-string-ii,简单,否,是,熟练
-542,01 Matrix,01-matrix,中等,否,是,一般
-543,Diameter of Binary Tree,diameter-of-binary-tree,简单,否,是,熟练
-544,Output Contest Matches,output-contest-matches,中等,是,否,
-545,Boundary of Binary Tree,boundary-of-binary-tree,中等,是,否,
-546,Remove Boxes,remove-boxes,难,否,否,
-547,Friend Circles,friend-circles,中等,否,是,较熟练
-548,Split Array with Equal Sum,split-array-with-equal-sum,中等,是,否,
-549,Binary Tree Longest Consecutive Sequence II,binary-tree-longest-consecutive-sequence-ii,中等,是,否,
-551,Student Attendance Record I,student-attendance-record-i,简单,否,是,熟练
-552,Student Attendance Record II,student-attendance-record-ii,难,否,是,不熟练
-553,Optimal Division,optimal-division,中等,否,是,熟练
-554,Brick Wall,brick-wall,中等,否,是,熟练
-555,Split Concatenated Strings,split-concatenated-strings,中等,是,否,
-556,Next Greater Element III,next-greater-element-iii,中等,否,是,较熟练
-557,Reverse Words in a String III,reverse-words-in-a-string-iii,简单,否,是,熟练
-560,Subarray Sum Equals K,subarray-sum-equals-k,中等,否,是,
-561,Array Partition I,array-partition-i,简单,否,是,熟练
-562,Longest Line of Consecutive One in Matrix,longest-line-of-consecutive-one-in-matrix,中等,是,否,
-563,Binary Tree Tilt,binary-tree-tilt,简单,否,是,
-564,Find the Closest Palindrome,find-the-closest-palindrome,难,否,否,
-565,Array Nesting,array-nesting,中等,否,是,
-566,Reshape the Matrix,reshape-the-matrix,简单,否,是,熟练
-567,Permutation in String,permutation-in-string,中等,否,是,
-568,Maximum Vacation Days,maximum-vacation-days,难,是,否,
-572,Subtree of Another Tree,subtree-of-another-tree,简单,否,是,熟练
-573,Squirrel Simulation,squirrel-simulation,中等,是,否,
-575,Distribute Candies,distribute-candies,简单,否,是,熟练
-576,Out of Boundary Paths,out-of-boundary-paths,中等,否,否,
-581,Shortest Unsorted Continuous Subarray,shortest-unsorted-continuous-subarray,简单,否,是,
-582,Kill Process,kill-process,中等,是,否,
-583,Delete Operation for Two Strings,delete-operation-for-two-strings,中等,否,是,
-587,Erect the Fence,erect-the-fence,难,否,否,
-588,Design In-Memory File System,design-in-memory-file-system,难,是,否,
-591,Tag Validator,tag-validator,难,否,否,
-592,Fraction Addition and Subtraction,fraction-addition-and-subtraction,中等,否,是,
-593,Valid Square,valid-square,中等,否,是,
-594,Longest Harmonious Subsequence,longest-harmonious-subsequence,简单,否,是,熟练
-598,Range Addition II,range-addition-ii,简单,否,是,熟练
-599,Minimum Index Sum of Two Lists,minimum-index-sum-of-two-lists,简单,否,是,熟练
-600,Non-negative Integers without Consecutive Ones,non-negative-integers-without-consecutive-ones,难,否,否,
-604,Design Compressed String Iterator,design-compressed-string-iterator,简单,是,否,
-605,Can Place Flowers,can-place-flowers,简单,否,是,熟练
-606,Construct String from Binary Tree,construct-string-from-binary-tree,简单,否,是,熟练
-609,Find Duplicate File in System,find-duplicate-file-in-system,中等,否,是,
-611,Valid Triangle Number,valid-triangle-number,中等,否,是,
-616,Add Bold Tag in String,add-bold-tag-in-string,中等,是,否,
-617,Merge Two Binary Trees,merge-two-binary-trees,简单,否,是,熟练
-621,Task Scheduler,task-scheduler,中等,否,是,
-623,Add One Row to Tree,add-one-row-to-tree,中等,否,是,
-624,Maximum Distance in Arrays,maximum-distance-in-arrays,简单,是,否,
-625,Minimum Factorization,minimum-factorization,中等,是,否,
-628,Maximum Product of Three Numbers,maximum-product-of-three-numbers,简单,否,是,熟练
-629,K Inverse Pairs Array,k-inverse-pairs-array,难,否,否,
-630,Course Schedule III,course-schedule-iii,难,否,否,
-631,Design Excel Sum Formula,design-excel-sum-formula,难,是,否,
-632,Smallest Range,smallest-range,难,否,否,
-633,Sum of Square Numbers,sum-of-square-numbers,简单,否,是,较熟练
-634,Find the Derangement of An Array,find-the-derangement-of-an-array,中等,是,否,
-635,Design Log Storage System,design-log-storage-system,中等,是,否,
-636,Exclusive Time of Functions,exclusive-time-of-functions,中等,否,是,
-637,Average of Levels in Binary Tree,average-of-levels-in-binary-tree,简单,否,是,熟练
-638,Shopping Offers,shopping-offers,中等,否,是,
-639,Decode Ways II,decode-ways-ii,难,否,否,
-640,Solve the Equation,solve-the-equation,中等,否,是,
-642,Design Search Autocomplete System,design-search-autocomplete-system,难,是,否,
-643,Maximum Average Subarray I,maximum-average-subarray-i,简单,否,是,熟练
-644,Maximum Average Subarray II,maximum-average-subarray-ii,难,是,否,
-645,Set Mismatch,set-mismatch,简单,否,是,熟练
-646,Maximum Length of Pair Chain,maximum-length-of-pair-chain,中等,否,是,
-647,Palindromic Substrings,palindromic-substrings,中等,否,是,
-648,Replace Words,replace-words,中等,否,是,
-649,Dota2 Senate,dota2-senate,中等,否,是,
-650,2 Keys Keyboard,2-keys-keyboard,中等,否,是,
-651,4 Keys Keyboard,4-keys-keyboard,中等,是,否,
-652,Find Duplicate Subtrees,find-duplicate-subtrees,中等,否,是,
-653,Two Sum IV - Input is a BST,two-sum-iv-input-is-a-bst,简单,否,是,熟练
-654,Maximum Binary Tree,maximum-binary-tree,中等,否,是,
-655,Print Binary Tree,print-binary-tree,中等,否,是,
-656,Coin Path,coin-path,难,是,否,
-657,Judge Route Circle,judge-route-circle,简单,否,是,
-658,Find K Closest Elements,find-k-closest-elements,中等,否,是,
-659,Split Array into Consecutive Subsequences,split-array-into-consecutive-subsequences,中等,否,否,
-660,Remove 9,remove-9,难,是,否,
-661,Image Smoother,image-smoother,简单,否,是,
-662,Maximum Width of Binary Tree,maximum-width-of-binary-tree,中等,否,是,
-663,Equal Tree Partition,equal-tree-partition,中等,是,否,
-664,Strange Printer,strange-printer,难,否,否,
-665,Non-decreasing Array,non-decreasing-array,简单,否,是,
-666,Path Sum IV,path-sum-iv,中等,是,否,
-667,Beautiful Arrangement II,beautiful-arrangement-ii,中等,否,是,
-668,Kth Smallest Number in Multiplication Table,kth-smallest-number-in-multiplication-table,难,否,否,
-669,Trim a Binary Search Tree,trim-a-binary-search-tree,简单,否,是,
-670,Maximum Swap,maximum-swap,中等,否,是,
-671,Second Minimum Node In a Binary Tree,second-minimum-node-in-a-binary-tree,简单,否,是,
-672,Bulb Switcher II,bulb-switcher-ii,中等,否,否,
+﻿题号,标题,链接,难度,付费,已解决,不熟练1,Two Sum,two-sum,简单,否,是,熟练2,Add Two Numbers,add-two-numbers,中等,否,是,熟练3,Longest Substring Without Repeating Characters,longest-substring-without-repeating-characters,中等,否,是,一般4,Median of Two Sorted Arrays,median-of-two-sorted-arrays,难,否,是,不熟练5,Longest Palindromic Substring,longest-palindromic-substring,中等,否,是,熟练6,ZigZag Conversion,zigzag-conversion,中等,否,是,熟练7,Reverse Integer,reverse-integer,简单,否,是,熟练8,String to Integer (atoi),string-to-integer-atoi,中等,否,是,熟练9,Palindrome Number,palindrome-number,简单,否,是,熟练10,Regular Expression Matching,regular-expression-matching,难,否,是,不熟练11,Container With Most Water,container-with-most-water,中等,否,是,熟练12,Integer to Roman,integer-to-roman,中等,否,是,不熟练13,Roman to Integer,roman-to-integer,简单,否,是,不熟练14,Longest Common Prefix,longest-common-prefix,简单,否,是,熟练15,3Sum,3sum,中等,否,是,熟练16,3Sum Closest,3sum-closest,中等,否,是,熟练17,Letter Combinations of a Phone Number,letter-combinations-of-a-phone-number,中等,否,是,熟练18,4Sum,4sum,中等,否,是,熟练19,Remove Nth Node From End of List,remove-nth-node-from-end-of-list,中等,否,是,熟练20,Valid Parentheses,valid-parentheses,简单,否,是,熟练21,Merge Two Sorted Lists,merge-two-sorted-lists,简单,否,是,熟练22,Generate Parentheses,generate-parentheses,中等,否,是,熟练23,Merge k Sorted Lists,merge-k-sorted-lists,难,否,是,不熟练24,Swap Nodes in Pairs,swap-nodes-in-pairs,中等,否,是,熟练25,Reverse Nodes in k-Group,reverse-nodes-in-k-group,难,否,是,较熟练26,Remove Duplicates from Sorted Array,remove-duplicates-from-sorted-array,简单,否,是,熟练27,Remove Element,remove-element,简单,否,是,熟练28,Implement strStr(),implement-strstr,简单,否,是,熟练29,Divide Two Integers,divide-two-integers,中等,否,是,不熟练30,Substring with Concatenation of All Words,substring-with-concatenation-of-all-words,难,否,是,较熟练31,Next Permutation,next-permutation,中等,否,是,不熟练32,Longest Valid Parentheses,longest-valid-parentheses,难,否,是,不熟练33,Search in Rotated Sorted Array,search-in-rotated-sorted-array,中等,否,是,较熟练34,Search for a Range,search-for-a-range,中等,否,是,较熟练35,Search Insert Position,search-insert-position,简单,否,是,较熟练36,Valid Sudoku,valid-sudoku,中等,否,是,熟练37,Sudoku Solver,sudoku-solver,难,否,是,熟练38,Count and Say,count-and-say,简单,否,否,39,Combination Sum,combination-sum,中等,否,是,熟练40,Combination Sum II,combination-sum-ii,中等,否,是,熟练41,First Missing Positive,first-missing-positive,难,否,是,不熟练42,Trapping Rain Water,trapping-rain-water,难,否,是,熟练43,Multiply Strings,multiply-strings,中等,否,是,熟练44,Wildcard Matching,wildcard-matching,难,否,是,不熟练45,Jump Game II,jump-game-ii,难,否,是,不熟练46,Permutations,permutations,中等,否,是,熟练47,Permutations II,permutations-ii,中等,否,是,一般48,Rotate Image,rotate-image,中等,否,是,熟练49,Group Anagrams,group-anagrams,中等,否,是,熟练50,"Pow(x, n)",powx-n,中等,否,是,较熟练51,N-Queens,n-queens,难,否,是,熟练52,N-Queens II,n-queens-ii,难,否,是,熟练53,Maximum Subarray,maximum-subarray,简单,否,是,熟练54,Spiral Matrix,spiral-matrix,中等,否,是,熟练55,Jump Game,jump-game,中等,否,是,熟练56,Merge Intervals,merge-intervals,中等,否,是,熟练57,Insert Interval,insert-interval,难,否,是,熟练58,Length of Last Word,length-of-last-word,简单,否,是,熟练59,Spiral Matrix II,spiral-matrix-ii,中等,否,是,熟练60,Permutation Sequence,permutation-sequence,中等,否,是,不熟练61,Rotate List,rotate-list,中等,否,是,较熟练62,Unique Paths,unique-paths,中等,否,是,熟练63,Unique Paths II,unique-paths-ii,中等,否,是,熟练64,Minimum Path Sum,minimum-path-sum,中等,否,是,熟练65,Valid Number,valid-number,难,否,是,较熟练66,Plus One,plus-one,简单,否,是,熟练67,Add Binary,add-binary,简单,否,是,熟练68,Text Justification,text-justification,难,否,是,熟练69,Sqrt(x),sqrtx,简单,否,是,熟练70,Climbing Stairs,climbing-stairs,简单,否,是,熟练71,Simplify Path,simplify-path,中等,否,是,熟练72,Edit Distance,edit-distance,难,否,是,不熟练73,Set Matrix Zeroes,set-matrix-zeroes,中等,否,是,较熟练74,Search a 2D Matrix,search-a-2d-matrix,中等,否,是,熟练75,Sort Colors,sort-colors,中等,否,是,熟练76,Minimum Window Substring,minimum-window-substring,难,否,是,熟练77,Combinations,combinations,中等,否,是,熟练78,Subsets,subsets,中等,否,是,熟练79,Word Search,word-search,中等,否,是,熟练80,Remove Duplicates from Sorted Array II,remove-duplicates-from-sorted-array-ii,中等,否,是,熟练81,Search in Rotated Sorted Array II,search-in-rotated-sorted-array-ii,中等,否,是,一般82,Remove Duplicates from Sorted List II,remove-duplicates-from-sorted-list-ii,中等,否,是,熟练83,Remove Duplicates from Sorted List,remove-duplicates-from-sorted-list,简单,否,是,熟练84,Largest Rectangle in Histogram,largest-rectangle-in-histogram,难,否,是,不熟练85,Maximal Rectangle,maximal-rectangle,难,否,是,不熟练86,Partition List,partition-list,中等,否,是,较熟练87,Scramble String,scramble-string,难,否,是,不熟练88,Merge Sorted Array,merge-sorted-array,简单,否,是,熟练89,Gray Code,gray-code,中等,否,是,熟练90,Subsets II,subsets-ii,中等,否,是,较熟练91,Decode Ways,decode-ways,中等,否,是,较熟练92,Reverse Linked List II,reverse-linked-list-ii,中等,否,是,熟练93,Restore IP Addresses,restore-ip-addresses,中等,否,是,熟练94,Binary Tree Inorder Traversal,binary-tree-inorder-traversal,中等,否,是,熟练95,Unique Binary Search Trees II,unique-binary-search-trees-ii,中等,否,是,较熟练96,Unique Binary Search Trees,unique-binary-search-trees,中等,否,是,熟练97,Interleaving String,interleaving-string,难,否,是,不熟练98,Validate Binary Search Tree,validate-binary-search-tree,中等,否,是,熟练99,Recover Binary Search Tree,recover-binary-search-tree,难,否,是,不熟练100,Same Tree,same-tree,简单,否,是,熟练101,Symmetric Tree,symmetric-tree,简单,否,是,熟练102,Binary Tree Level Order Traversal,binary-tree-level-order-traversal,中等,否,是,熟练103,Binary Tree Zigzag Level Order Traversal,binary-tree-zigzag-level-order-traversal,中等,否,是,熟练104,Maximum Depth of Binary Tree,maximum-depth-of-binary-tree,简单,否,是,熟练105,Construct Binary Tree from Preorder and Inorder Traversal,construct-binary-tree-from-preorder-and-inorder-traversal,中等,否,是,较熟练106,Construct Binary Tree from Inorder and Postorder Traversal,construct-binary-tree-from-inorder-and-postorder-traversal,中等,否,是,较熟练107,Binary Tree Level Order Traversal II,binary-tree-level-order-traversal-ii,简单,否,是,熟练108,Convert Sorted Array to Binary Search Tree,convert-sorted-array-to-binary-search-tree,简单,否,是,熟练109,Convert Sorted List to Binary Search Tree,convert-sorted-list-to-binary-search-tree,中等,否,是,熟练110,Balanced Binary Tree,balanced-binary-tree,简单,否,是,较熟练111,Minimum Depth of Binary Tree,minimum-depth-of-binary-tree,简单,否,是,熟练112,Path Sum,path-sum,简单,否,是,熟练113,Path Sum II,path-sum-ii,中等,否,是,较熟练114,Flatten Binary Tree to Linked List,flatten-binary-tree-to-linked-list,中等,否,是,熟练115,Distinct Subsequences,distinct-subsequences,难,否,是,不熟练116,Populating Next Right Pointers in Each Node,populating-next-right-pointers-in-each-node,中等,否,是,较熟练117,Populating Next Right Pointers in Each Node II,populating-next-right-pointers-in-each-node-ii,中等,否,是,不熟练118,Pascal's Triangle,pascals-triangle,简单,否,是,熟练119,Pascal's Triangle II,pascals-triangle-ii,简单,否,是,较熟练120,Triangle,triangle,中等,否,是,熟练121,Best Time to Buy and Sell Stock,best-time-to-buy-and-sell-stock,简单,否,是,熟练122,Best Time to Buy and Sell Stock II,best-time-to-buy-and-sell-stock-ii,简单,否,是,熟练123,Best Time to Buy and Sell Stock III,best-time-to-buy-and-sell-stock-iii,难,否,是,不熟练124,Binary Tree Maximum Path Sum,binary-tree-maximum-path-sum,难,否,是,不熟练125,Valid Palindrome,valid-palindrome,简单,否,是,熟练126,Word Ladder II,word-ladder-ii,难,否,是,不熟练127,Word Ladder,word-ladder,中等,否,是,熟练128,Longest Consecutive Sequence,longest-consecutive-sequence,难,否,是,较熟练129,Sum Root to Leaf Numbers,sum-root-to-leaf-numbers,中等,否,是,熟练130,Surrounded Regions,surrounded-regions,中等,否,是,熟练131,Palindrome Partitioning,palindrome-partitioning,中等,否,是,熟练132,Palindrome Partitioning II,palindrome-partitioning-ii,难,否,是,不熟练133,Clone Graph,clone-graph,中等,否,是,较熟练134,Gas Station,gas-station,中等,否,是,熟练135,Candy,candy,难,否,是,较熟练136,Single Number,single-number,简单,否,是,熟练137,Single Number II,single-number-ii,中等,否,是,不熟练138,Copy List with Random Pointer,copy-list-with-random-pointer,中等,否,是,熟练139,Word Break,word-break,中等,否,是,熟练140,Word Break II,word-break-ii,难,否,是,熟练141,Linked List Cycle,linked-list-cycle,简单,否,是,熟练142,Linked List Cycle II,linked-list-cycle-ii,中等,否,是,较熟练143,Reorder List,reorder-list,中等,否,是,熟练144,Binary Tree Preorder Traversal,binary-tree-preorder-traversal,中等,否,是,熟练145,Binary Tree Postorder Traversal,binary-tree-postorder-traversal,难,否,是,熟练146,LRU Cache,lru-cache,难,否,是,较熟练147,Insertion Sort List,insertion-sort-list,中等,否,是,熟练148,Sort List,sort-list,中等,否,是,一般149,Max Points on a Line,max-points-on-a-line,难,否,是,不熟练150,Evaluate Reverse Polish Notation,evaluate-reverse-polish-notation,中等,否,是,熟练151,Reverse Words in a String,reverse-words-in-a-string,中等,否,是,熟练152,Maximum Product Subarray,maximum-product-subarray,中等,否,是,不熟练153,Find Minimum in Rotated Sorted Array,find-minimum-in-rotated-sorted-array,中等,否,是,较熟练154,Find Minimum in Rotated Sorted Array II,find-minimum-in-rotated-sorted-array-ii,难,否,是,不熟练155,Min Stack,min-stack,简单,否,是,熟练156,Binary Tree Upside Down,binary-tree-upside-down,中等,是,否,157,Read N Characters Given Read4,read-n-characters-given-read4,简单,是,否,158,Read N Characters Given Read4 II - Call multiple times,read-n-characters-given-read4-ii-call-multiple-times,难,是,否,159,Longest Substring with At Most Two Distinct Characters,longest-substring-with-at-most-two-distinct-characters,难,是,否,160,Intersection of Two Linked Lists,intersection-of-two-linked-lists,简单,否,是,熟练161,One Edit Distance,one-edit-distance,中等,是,否,162,Find Peak Element,find-peak-element,中等,否,是,较熟练163,Missing Ranges,missing-ranges,中等,是,否,164,Maximum Gap,maximum-gap,难,否,是,不熟练165,Compare Version Numbers,compare-version-numbers,中等,否,是,熟练166,Fraction to Recurring Decimal,fraction-to-recurring-decimal,中等,否,是,熟练167,Two Sum II - Input array is sorted,two-sum-ii-input-array-is-sorted,简单,否,是,熟练168,Excel Sheet Column Title,excel-sheet-column-title,简单,否,是,熟练169,Majority Element,majority-element,简单,否,是,熟练170,Two Sum III - Data structure design,two-sum-iii-data-structure-design,简单,是,否,171,Excel Sheet Column Number,excel-sheet-column-number,简单,否,是,熟练172,Factorial Trailing Zeroes,factorial-trailing-zeroes,简单,否,是,熟练173,Binary Search Tree Iterator,binary-search-tree-iterator,中等,否,是,熟练174,Dungeon Game,dungeon-game,难,否,是,不熟练179,Largest Number,largest-number,中等,否,是,不熟练186,Reverse Words in a String II,reverse-words-in-a-string-ii,中等,是,否,187,Repeated DNA Sequences,repeated-dna-sequences,中等,否,是,较熟练188,Best Time to Buy and Sell Stock IV,best-time-to-buy-and-sell-stock-iv,难,否,是,不熟练189,Rotate Array,rotate-array,简单,否,是,熟练190,Reverse Bits,reverse-bits,简单,否,是,熟练191,Number of 1 Bits,number-of-1-bits,简单,否,是,熟练198,House Robber,house-robber,简单,否,是,熟练199,Binary Tree Right Side View,binary-tree-right-side-view,中等,否,是,熟练200,Number of Islands,number-of-islands,中等,否,是,熟练201,Bitwise AND of Numbers Range,bitwise-and-of-numbers-range,中等,否,是,熟练202,Happy Number,happy-number,简单,否,是,熟练203,Remove Linked List Elements,remove-linked-list-elements,简单,否,是,熟练204,Count Primes,count-primes,简单,否,是,熟练205,Isomorphic Strings,isomorphic-strings,简单,否,是,熟练206,Reverse Linked List,reverse-linked-list,简单,否,是,熟练207,Course Schedule,course-schedule,中等,否,是,熟练208,Implement Trie (Prefix Tree),implement-trie-prefix-tree,中等,否,是,熟练209,Minimum Size Subarray Sum,minimum-size-subarray-sum,中等,否,是,熟练210,Course Schedule II,course-schedule-ii,中等,否,是,熟练211,Add and Search Word - Data structure design,add-and-search-word-data-structure-design,中等,否,是,熟练212,Word Search II,word-search-ii,难,否,是,较熟练213,House Robber II,house-robber-ii,中等,否,是,熟练214,Shortest Palindrome,shortest-palindrome,难,否,是,不熟练215,Kth Largest Element in an Array,kth-largest-element-in-an-array,中等,否,是,较熟练216,Combination Sum III,combination-sum-iii,中等,否,是,熟练217,Contains Duplicate,contains-duplicate,简单,否,是,熟练218,The Skyline Problem,the-skyline-problem,难,否,是,不熟练219,Contains Duplicate II,contains-duplicate-ii,简单,否,是,熟练220,Contains Duplicate III,contains-duplicate-iii,中等,否,是,一般221,Maximal Square,maximal-square,中等,否,是,熟练222,Count Complete Tree Nodes,count-complete-tree-nodes,中等,否,是,较熟练223,Rectangle Area,rectangle-area,中等,否,是,熟练224,Basic Calculator,basic-calculator,难,否,是,较熟练225,Implement Stack using Queues,implement-stack-using-queues,简单,否,是,熟练226,Invert Binary Tree,invert-binary-tree,简单,否,是,熟练227,Basic Calculator II,basic-calculator-ii,中等,否,是,一般228,Summary Ranges,summary-ranges,中等,否,是,较熟练229,Majority Element II,majority-element-ii,中等,否,是,熟练230,Kth Smallest Element in a BST,kth-smallest-element-in-a-bst,中等,否,是,较熟练231,Power of Two,power-of-two,简单,否,是,熟练232,Implement Queue using Stacks,implement-queue-using-stacks,简单,否,是,熟练233,Number of Digit One,number-of-digit-one,难,否,是,不熟练234,Palindrome Linked List,palindrome-linked-list,简单,否,是,熟练235,Lowest Common Ancestor of a Binary Search Tree,lowest-common-ancestor-of-a-binary-search-tree,简单,否,是,熟练236,Lowest Common Ancestor of a Binary Tree,lowest-common-ancestor-of-a-binary-tree,中等,否,是,熟练237,Delete Node in a Linked List,delete-node-in-a-linked-list,简单,否,是,熟练238,Product of Array Except Self,product-of-array-except-self,中等,否,是,熟练239,Sliding Window Maximum,sliding-window-maximum,难,否,是,不熟练240,Search a 2D Matrix II,search-a-2d-matrix-ii,中等,否,是,不熟练241,Different Ways to Add Parentheses,different-ways-to-add-parentheses,中等,否,是,较熟练242,Valid Anagram,valid-anagram,简单,否,是,熟练243,Shortest Word Distance,shortest-word-distance,简单,是,否,244,Shortest Word Distance II,shortest-word-distance-ii,中等,是,否,245,Shortest Word Distance III,shortest-word-distance-iii,中等,是,否,246,Strobogrammatic Number,strobogrammatic-number,简单,是,否,247,Strobogrammatic Number II,strobogrammatic-number-ii,中等,是,否,248,Strobogrammatic Number III,strobogrammatic-number-iii,难,是,否,249,Group Shifted Strings,group-shifted-strings,中等,是,否,250,Count Univalue Subtrees,count-univalue-subtrees,中等,是,否,251,Flatten 2D Vector,flatten-2d-vector,中等,是,否,252,Meeting Rooms,meeting-rooms,简单,是,否,253,Meeting Rooms II,meeting-rooms-ii,中等,是,否,254,Factor Combinations,factor-combinations,中等,是,否,255,Verify Preorder Sequence in Binary Search Tree,verify-preorder-sequence-in-binary-search-tree,中等,是,否,256,Paint House,paint-house,简单,是,否,257,Binary Tree Paths,binary-tree-paths,简单,否,是,熟练258,Add Digits,add-digits,简单,否,是,不熟练259,3Sum Smaller,3sum-smaller,中等,是,否,260,Single Number III,single-number-iii,中等,否,是,熟练261,Graph Valid Tree,graph-valid-tree,中等,是,否,263,Ugly Number,ugly-number,简单,否,是,熟练264,Ugly Number II,ugly-number-ii,中等,否,是,熟练265,Paint House II,paint-house-ii,难,是,否,266,Palindrome Permutation,palindrome-permutation,简单,是,否,267,Palindrome Permutation II,palindrome-permutation-ii,中等,是,否,268,Missing Number,missing-number,简单,否,是,熟练269,Alien Dictionary,alien-dictionary,难,是,否,270,Closest Binary Search Tree Value,closest-binary-search-tree-value,简单,是,否,271,Encode and Decode Strings,encode-and-decode-strings,中等,是,否,272,Closest Binary Search Tree Value II,closest-binary-search-tree-value-ii,难,是,否,273,Integer to English Words,integer-to-english-words,难,否,是,不熟练274,H-Index,h-index,中等,否,是,较熟练275,H-Index II,h-index-ii,中等,否,是,较熟练276,Paint Fence,paint-fence,简单,是,否,277,Find the Celebrity,find-the-celebrity,中等,是,否,278,First Bad Version,first-bad-version,简单,否,是,熟练279,Perfect Squares,perfect-squares,中等,否,是,熟练280,Wiggle Sort,wiggle-sort,中等,是,否,281,Zigzag Iterator,zigzag-iterator,中等,是,否,282,Expression Add Operators,expression-add-operators,难,否,是,熟练283,Move Zeroes,move-zeroes,简单,否,是,熟练284,Peeking Iterator,peeking-iterator,中等,否,是,熟练285,Inorder Successor in BST,inorder-successor-in-bst,中等,是,否,286,Walls and Gates,walls-and-gates,中等,是,否,287,Find the Duplicate Number,find-the-duplicate-number,中等,否,是,熟练288,Unique Word Abbreviation,unique-word-abbreviation,中等,是,否,289,Game of Life,game-of-life,中等,否,是,熟练290,Word Pattern,word-pattern,简单,否,是,熟练291,Word Pattern II,word-pattern-ii,难,是,否,292,Nim Game,nim-game,简单,否,是,熟练293,Flip Game,flip-game,简单,是,否,294,Flip Game II,flip-game-ii,中等,是,否,295,Find Median from Data Stream,find-median-from-data-stream,难,否,是,不熟练296,Best Meeting Point,best-meeting-point,难,是,否,297,Serialize and Deserialize Binary Tree,serialize-and-deserialize-binary-tree,难,否,是,较熟练298,Binary Tree Longest Consecutive Sequence,binary-tree-longest-consecutive-sequence,中等,是,否,299,Bulls and Cows,bulls-and-cows,中等,否,是,较熟练300,Longest Increasing Subsequence,longest-increasing-subsequence,中等,否,是,熟练301,Remove Invalid Parentheses,remove-invalid-parentheses,难,否,否,302,Smallest Rectangle Enclosing Black Pixels,smallest-rectangle-enclosing-black-pixels,难,是,否,303,Range Sum Query - Immutable,range-sum-query-immutable,简单,否,是,熟练304,Range Sum Query 2D - Immutable,range-sum-query-2d-immutable,中等,否,是,熟练305,Number of Islands II,number-of-islands-ii,难,是,否,306,Additive Number,additive-number,中等,否,是,不熟练307,Range Sum Query - Mutable,range-sum-query-mutable,中等,否,是,较熟练308,Range Sum Query 2D - Mutable,range-sum-query-2d-mutable,难,是,否,309,Best Time to Buy and Sell Stock with Cooldown,best-time-to-buy-and-sell-stock-with-cooldown,中等,否,是,不熟练310,Minimum Height Trees,minimum-height-trees,中等,否,是,熟练311,Sparse Matrix Multiplication,sparse-matrix-multiplication,中等,是,否,312,Burst Balloons,burst-balloons,难,否,是,不熟练313,Super Ugly Number,super-ugly-number,中等,否,是,熟练314,Binary Tree Vertical Order Traversal,binary-tree-vertical-order-traversal,中等,是,否,315,Count of Smaller Numbers After Self,count-of-smaller-numbers-after-self,难,否,是,不熟练316,Remove Duplicate Letters,remove-duplicate-letters,难,否,是,不熟练317,Shortest Distance from All Buildings,shortest-distance-from-all-buildings,难,是,否,318,Maximum Product of Word Lengths,maximum-product-of-word-lengths,中等,否,是,熟练319,Bulb Switcher,bulb-switcher,中等,否,是,不熟练320,Generalized Abbreviation,generalized-abbreviation,中等,是,否,321,Create Maximum Number,create-maximum-number,难,否,是,不熟练322,Coin Change,coin-change,中等,否,是,熟练323,Number of Connected Components in an Undirected Graph,number-of-connected-components-in-an-undirected-graph,中等,是,否,324,Wiggle Sort II,wiggle-sort-ii,中等,否,是,熟练325,Maximum Size Subarray Sum Equals k,maximum-size-subarray-sum-equals-k,中等,是,否,326,Power of Three,power-of-three,简单,否,是,熟练327,Count of Range Sum,count-of-range-sum,难,否,否,328,Odd Even Linked List,odd-even-linked-list,中等,否,是,熟练329,Longest Increasing Path in a Matrix,longest-increasing-path-in-a-matrix,难,否,是,较熟练330,Patching Array,patching-array,难,否,是,不熟练331,Verify Preorder Serialization of a Binary Tree,verify-preorder-serialization-of-a-binary-tree,中等,否,是,熟练332,Reconstruct Itinerary,reconstruct-itinerary,中等,否,是,较熟练333,Largest BST Subtree,largest-bst-subtree,中等,是,否,334,Increasing Triplet Subsequence,increasing-triplet-subsequence,中等,否,是,熟练335,Self Crossing,self-crossing,难,否,是,不熟练336,Palindrome Pairs,palindrome-pairs,难,否,是,不熟练337,House Robber III,house-robber-iii,中等,否,是,熟练338,Counting Bits,counting-bits,中等,否,是,熟练339,Nested List Weight Sum,nested-list-weight-sum,简单,是,否,340,Longest Substring with At Most K Distinct Characters,longest-substring-with-at-most-k-distinct-characters,难,是,否,341,Flatten Nested List Iterator,flatten-nested-list-iterator,中等,否,是,较熟练342,Power of Four,power-of-four,简单,否,是,熟练343,Integer Break,integer-break,中等,否,是,较熟练344,Reverse String,reverse-string,简单,否,是,熟练345,Reverse Vowels of a String,reverse-vowels-of-a-string,简单,否,是,熟练346,Moving Average from Data Stream,moving-average-from-data-stream,简单,是,否,347,Top K Frequent Elements,top-k-frequent-elements,中等,否,是,熟练348,Design Tic-Tac-Toe,design-tic-tac-toe,中等,是,否,349,Intersection of Two Arrays,intersection-of-two-arrays,简单,否,是,熟练350,Intersection of Two Arrays II,intersection-of-two-arrays-ii,简单,否,是,熟练351,Android Unlock Patterns,android-unlock-patterns,中等,是,否,352,Data Stream as Disjoint Intervals,data-stream-as-disjoint-intervals,难,否,是,不熟练353,Design Snake Game,design-snake-game,中等,是,否,354,Russian Doll Envelopes,russian-doll-envelopes,难,否,是,不熟练355,Design Twitter,design-twitter,中等,否,是,熟练356,Line Reflection,line-reflection,中等,是,否,357,Count Numbers with Unique Digits,count-numbers-with-unique-digits,中等,否,是,熟练358,Rearrange String k Distance Apart,rearrange-string-k-distance-apart,难,是,否,359,Logger Rate Limiter,logger-rate-limiter,简单,是,否,360,Sort Transformed Array,sort-transformed-array,中等,是,否,361,Bomb Enemy,bomb-enemy,中等,是,否,362,Design Hit Counter,design-hit-counter,中等,是,否,363,Max Sum of Rectangle No Larger Than K,max-sum-of-rectangle-no-larger-than-k,难,否,是,不熟练364,Nested List Weight Sum II,nested-list-weight-sum-ii,中等,是,否,365,Water and Jug Problem,water-and-jug-problem,中等,否,是,熟练366,Find Leaves of Binary Tree,find-leaves-of-binary-tree,中等,是,否,367,Valid Perfect Square,valid-perfect-square,简单,否,是,熟练368,Largest Divisible Subset,largest-divisible-subset,中等,否,是,熟练369,Plus One Linked List,plus-one-linked-list,中等,是,否,370,Range Addition,range-addition,中等,是,否,371,Sum of Two Integers,sum-of-two-integers,简单,否,是,熟练372,Super Pow,super-pow,中等,否,是,一般373,Find K Pairs with Smallest Sums,find-k-pairs-with-smallest-sums,中等,否,是,一般374,Guess Number Higher or Lower,guess-number-higher-or-lower,简单,否,是,熟练375,Guess Number Higher or Lower II,guess-number-higher-or-lower-ii,中等,否,是,不熟练376,Wiggle Subsequence,wiggle-subsequence,中等,否,是,较熟练377,Combination Sum IV,combination-sum-iv,中等,否,是,熟练378,Kth Smallest Element in a Sorted Matrix,kth-smallest-element-in-a-sorted-matrix,中等,否,是,一般379,Design Phone Directory,design-phone-directory,中等,是,否,380,Insert Delete GetRandom O(1),insert-delete-getrandom-o1,中等,否,是,熟练381,Insert Delete GetRandom O(1) - Duplicates allowed,insert-delete-getrandom-o1-duplicates-allowed,难,否,是,不熟练382,Linked List Random Node,linked-list-random-node,中等,否,是,熟练383,Ransom Note,ransom-note,简单,否,是,熟练384,Shuffle an Array,shuffle-an-array,中等,否,是,熟练385,Mini Parser,mini-parser,中等,否,是,较熟练386,Lexicographical Numbers,lexicographical-numbers,中等,否,是,熟练387,First Unique Character in a String,first-unique-character-in-a-string,简单,否,是,熟练388,Longest Absolute File Path,longest-absolute-file-path,中等,否,是,一般389,Find the Difference,find-the-difference,简单,否,是,熟练390,Elimination Game,elimination-game,中等,否,是,不熟练391,Perfect Rectangle,perfect-rectangle,难,否,是,不熟练392,Is Subsequence,is-subsequence,中等,否,是,熟练393,UTF-8 Validation,utf-8-validation,中等,否,是,熟练394,Decode String,decode-string,中等,否,是,熟练395,Longest Substring with At Least K Repeating Characters,longest-substring-with-at-least-k-repeating-characters,中等,否,是,不熟练396,Rotate Function,rotate-function,中等,否,是,熟练397,Integer Replacement,integer-replacement,中等,否,是,不熟练398,Random Pick Index,random-pick-index,中等,否,是,熟练399,Evaluate Division,evaluate-division,中等,否,是,较熟练400,Nth Digit,nth-digit,简单,否,是,熟练401,Binary Watch,binary-watch,简单,否,是,熟练402,Remove K Digits,remove-k-digits,中等,否,是,熟练403,Frog Jump,frog-jump,难,否,是,不熟练404,Sum of Left Leaves,sum-of-left-leaves,简单,否,是,熟练405,Convert a Number to Hexadecimal,convert-a-number-to-hexadecimal,简单,否,是,熟练406,Queue Reconstruction by Height,queue-reconstruction-by-height,中等,否,是,熟练407,Trapping Rain Water II,trapping-rain-water-ii,难,否,是,不熟练408,Valid Word Abbreviation,valid-word-abbreviation,简单,是,否,409,Longest Palindrome,longest-palindrome,简单,否,是,熟练410,Split Array Largest Sum,split-array-largest-sum,难,否,是,不熟练411,Minimum Unique Word Abbreviation,minimum-unique-word-abbreviation,难,是,否,412,Fizz Buzz,fizz-buzz,简单,否,是,熟练413,Arithmetic Slices,arithmetic-slices,中等,否,是,一般414,Third Maximum Number,third-maximum-number,简单,否,是,熟练415,Add Strings,add-strings,简单,否,是,熟练416,Partition Equal Subset Sum,partition-equal-subset-sum,中等,否,是,熟练417,Pacific Atlantic Water Flow,pacific-atlantic-water-flow,中等,否,是,熟练418,Sentence Screen Fitting,sentence-screen-fitting,中等,是,否,419,Battleships in a Board,battleships-in-a-board,中等,否,是,熟练420,Strong Password Checker,strong-password-checker,难,否,否,421,Maximum XOR of Two Numbers in an Array,maximum-xor-of-two-numbers-in-an-array,中等,否,是,不熟练422,Valid Word Square,valid-word-square,简单,是,否,423,Reconstruct Original Digits from English,reconstruct-original-digits-from-english,中等,否,是,熟练424,Longest Repeating Character Replacement,longest-repeating-character-replacement,中等,否,是,熟练425,Word Squares,word-squares,难,是,否,432,All O`one Data Structure,all-oone-data-structure,难,否,是,不熟练434,Number of Segments in a String,number-of-segments-in-a-string,简单,否,是,熟练435,Non-overlapping Intervals,non-overlapping-intervals,中等,否,是,较熟练436,Find Right Interval,find-right-interval,中等,否,是,熟练437,Path Sum III,path-sum-iii,简单,否,是,熟练438,Find All Anagrams in a String,find-all-anagrams-in-a-string,简单,否,是,熟练439,Ternary Expression Parser,ternary-expression-parser,中等,是,否,440,K-th Smallest in Lexicographical Order,k-th-smallest-in-lexicographical-order,难,否,是,不熟练441,Arranging Coins,arranging-coins,简单,否,是,熟练442,Find All Duplicates in an Array,find-all-duplicates-in-an-array,中等,否,是,熟练444,Sequence Reconstruction,sequence-reconstruction,中等,是,否,445,Add Two Numbers II,add-two-numbers-ii,中等,否,是,熟练446,Arithmetic Slices II - Subsequence,arithmetic-slices-ii-subsequence,难,否,是,不熟练447,Number of Boomerangs,number-of-boomerangs,简单,否,是,熟练448,Find All Numbers Disappeared in an Array,find-all-numbers-disappeared-in-an-array,简单,否,是,熟练449,Serialize and Deserialize BST,serialize-and-deserialize-bst,中等,否,是,较熟练450,Delete Node in a BST,delete-node-in-a-bst,中等,否,是,熟练451,Sort Characters By Frequency,sort-characters-by-frequency,中等,否,是,熟练452,Minimum Number of Arrows to Burst Balloons,minimum-number-of-arrows-to-burst-balloons,中等,否,是,较熟练453,Minimum Moves to Equal Array Elements,minimum-moves-to-equal-array-elements,简单,否,是,熟练454,4Sum II,4sum-ii,中等,否,是,熟练455,Assign Cookies,assign-cookies,简单,否,是,熟练456,132 Pattern,132-pattern,中等,否,是,不熟练459,Repeated Substring Pattern,repeated-substring-pattern,简单,否,是,较熟练460,LFU Cache,lfu-cache,难,否,是,一般461,Hamming Distance,hamming-distance,简单,否,是,熟练462,Minimum Moves to Equal Array Elements II,minimum-moves-to-equal-array-elements-ii,中等,否,是,熟练463,Island Perimeter,island-perimeter,简单,否,是,熟练464,Can I Win,can-i-win,中等,否,是,不熟练465,Optimal Account Balancing,optimal-account-balancing,难,是,否,466,Count The Repetitions,count-the-repetitions,难,否,否,467,Unique Substrings in Wraparound String,unique-substrings-in-wraparound-string,中等,否,是,不熟练468,Validate IP Address,validate-ip-address,中等,否,是,熟练469,Convex Polygon,convex-polygon,中等,是,否,471,Encode String with Shortest Length,encode-string-with-shortest-length,难,是,否,472,Concatenated Words,concatenated-words,难,否,是,不熟练473,Matchsticks to Square,matchsticks-to-square,中等,否,是,较熟练474,Ones and Zeroes,ones-and-zeroes,中等,否,是,一般475,Heaters,heaters,简单,否,是,熟练476,Number Complement,number-complement,简单,否,是,熟练477,Total Hamming Distance,total-hamming-distance,中等,否,是,较熟练479,Largest Palindrome Product,largest-palindrome-product,简单,否,是,较熟练480,Sliding Window Median,sliding-window-median,难,否,是,不熟练481,Magical String,magical-string,中等,否,否,482,License Key Formatting,license-key-formatting,中等,否,是,熟练483,Smallest Good Base,smallest-good-base,难,否,否,484,Find Permutation,find-permutation,中等,是,否,485,Max Consecutive Ones,max-consecutive-ones,简单,否,是,熟练486,Predict the Winner,predict-the-winner,中等,否,是,不熟练487,Max Consecutive Ones II,max-consecutive-ones-ii,中等,是,否,488,Zuma Game,zuma-game,难,否,否,490,The Maze,the-maze,中等,是,否,491,Increasing Subsequences,increasing-subsequences,中等,否,是,较熟练492,Construct the Rectangle,construct-the-rectangle,简单,否,是,熟练493,Reverse Pairs,reverse-pairs,难,否,是,不熟练494,Target Sum,target-sum,中等,否,是,较熟练495,Teemo Attacking,teemo-attacking,中等,否,是,熟练496,Next Greater Element I,next-greater-element-i,简单,否,是,熟练498,Diagonal Traverse,diagonal-traverse,中等,否,是,熟练499,The Maze III,the-maze-iii,难,是,否,500,Keyboard Row,keyboard-row,简单,否,是,熟练501,Find Mode in Binary Search Tree,find-mode-in-binary-search-tree,简单,否,是,不熟练502,IPO,ipo,难,否,是,不熟练503,Next Greater Element II,next-greater-element-ii,中等,否,是,一般504,Base 7,base-7,简单,否,是,熟练505,The Maze II,the-maze-ii,中等,是,否,506,Relative Ranks,relative-ranks,简单,否,是,熟练507,Perfect Number,perfect-number,简单,否,是,熟练508,Most Frequent Subtree Sum,most-frequent-subtree-sum,中等,否,是,一般513,Find Bottom Left Tree Value,find-bottom-left-tree-value,中等,否,是,熟练514,Freedom Trail,freedom-trail,难,否,是,不熟练515,Find Largest Value in Each Tree Row,find-largest-value-in-each-tree-row,中等,否,是,熟练516,Longest Palindromic Subsequence,longest-palindromic-subsequence,中等,否,是,熟练517,Super Washing Machines,super-washing-machines,难,否,是,不熟练520,Detect Capital,detect-capital,简单,否,是,熟练521,Longest Uncommon Subsequence I ,longest-uncommon-subsequence-i,简单,否,是,熟练522,Longest Uncommon Subsequence II,longest-uncommon-subsequence-ii,中等,否,是,较熟练523,Continuous Subarray Sum,continuous-subarray-sum,中等,否,是,熟练524,Longest Word in Dictionary through Deleting,longest-word-in-dictionary-through-deleting,中等,否,是,熟练525,Contiguous Array,contiguous-array,中等,否,是,熟练526,Beautiful Arrangement,beautiful-arrangement,中等,否,是,不熟练527,Word Abbreviation,word-abbreviation,难,是,否,529,Minesweeper,minesweeper,中等,否,是,一般530,Minimum Absolute Difference in BST,minimum-absolute-difference-in-bst,简单,否,是,熟练531,Lonely Pixel I,lonely-pixel-i,中等,是,否,532,K-diff Pairs in an Array,k-diff-pairs-in-an-array,简单,否,是,较熟练533,Lonely Pixel II,lonely-pixel-ii,中等,是,否,535,Encode and Decode TinyURL,encode-and-decode-tinyurl,中等,否,是,熟练536,Construct Binary Tree from String,construct-binary-tree-from-string,中等,是,否,537,Complex Number Multiplication,complex-number-multiplication,中等,否,是,熟练538,Convert BST to Greater Tree,convert-bst-to-greater-tree,简单,否,是,熟练539,Minimum Time Difference,minimum-time-difference,中等,否,是,熟练540,Single Element in a Sorted Array,single-element-in-a-sorted-array,中等,否,是,较熟练541,Reverse String II,reverse-string-ii,简单,否,是,熟练542,01 Matrix,01-matrix,中等,否,是,一般543,Diameter of Binary Tree,diameter-of-binary-tree,简单,否,是,熟练544,Output Contest Matches,output-contest-matches,中等,是,否,545,Boundary of Binary Tree,boundary-of-binary-tree,中等,是,否,546,Remove Boxes,remove-boxes,难,否,否,547,Friend Circles,friend-circles,中等,否,是,较熟练548,Split Array with Equal Sum,split-array-with-equal-sum,中等,是,否,549,Binary Tree Longest Consecutive Sequence II,binary-tree-longest-consecutive-sequence-ii,中等,是,否,551,Student Attendance Record I,student-attendance-record-i,简单,否,是,熟练552,Student Attendance Record II,student-attendance-record-ii,难,否,是,不熟练553,Optimal Division,optimal-division,中等,否,是,熟练554,Brick Wall,brick-wall,中等,否,是,熟练555,Split Concatenated Strings,split-concatenated-strings,中等,是,否,556,Next Greater Element III,next-greater-element-iii,中等,否,是,较熟练557,Reverse Words in a String III,reverse-words-in-a-string-iii,简单,否,是,熟练560,Subarray Sum Equals K,subarray-sum-equals-k,中等,否,是,561,Array Partition I,array-partition-i,简单,否,是,熟练562,Longest Line of Consecutive One in Matrix,longest-line-of-consecutive-one-in-matrix,中等,是,否,563,Binary Tree Tilt,binary-tree-tilt,简单,否,是,熟练564,Find the Closest Palindrome,find-the-closest-palindrome,难,否,否,565,Array Nesting,array-nesting,中等,否,是,566,Reshape the Matrix,reshape-the-matrix,简单,否,是,熟练567,Permutation in String,permutation-in-string,中等,否,是,568,Maximum Vacation Days,maximum-vacation-days,难,是,否,572,Subtree of Another Tree,subtree-of-another-tree,简单,否,是,熟练573,Squirrel Simulation,squirrel-simulation,中等,是,否,575,Distribute Candies,distribute-candies,简单,否,是,熟练576,Out of Boundary Paths,out-of-boundary-paths,中等,否,否,581,Shortest Unsorted Continuous Subarray,shortest-unsorted-continuous-subarray,简单,否,是,熟练582,Kill Process,kill-process,中等,是,否,583,Delete Operation for Two Strings,delete-operation-for-two-strings,中等,否,是,587,Erect the Fence,erect-the-fence,难,否,否,588,Design In-Memory File System,design-in-memory-file-system,难,是,否,591,Tag Validator,tag-validator,难,否,否,592,Fraction Addition and Subtraction,fraction-addition-and-subtraction,中等,否,是,593,Valid Square,valid-square,中等,否,是,594,Longest Harmonious Subsequence,longest-harmonious-subsequence,简单,否,是,较熟练598,Range Addition II,range-addition-ii,简单,否,是,熟练599,Minimum Index Sum of Two Lists,minimum-index-sum-of-two-lists,简单,否,是,熟练600,Non-negative Integers without Consecutive Ones,non-negative-integers-without-consecutive-ones,难,否,否,604,Design Compressed String Iterator,design-compressed-string-iterator,简单,是,否,605,Can Place Flowers,can-place-flowers,简单,否,是,熟练606,Construct String from Binary Tree,construct-string-from-binary-tree,简单,否,是,熟练609,Find Duplicate File in System,find-duplicate-file-in-system,中等,否,是,611,Valid Triangle Number,valid-triangle-number,中等,否,是,616,Add Bold Tag in String,add-bold-tag-in-string,中等,是,否,617,Merge Two Binary Trees,merge-two-binary-trees,简单,否,是,熟练621,Task Scheduler,task-scheduler,中等,否,是,623,Add One Row to Tree,add-one-row-to-tree,中等,否,是,624,Maximum Distance in Arrays,maximum-distance-in-arrays,简单,是,否,625,Minimum Factorization,minimum-factorization,中等,是,否,628,Maximum Product of Three Numbers,maximum-product-of-three-numbers,简单,否,是,较熟练629,K Inverse Pairs Array,k-inverse-pairs-array,难,否,否,630,Course Schedule III,course-schedule-iii,难,否,否,631,Design Excel Sum Formula,design-excel-sum-formula,难,是,否,632,Smallest Range,smallest-range,难,否,否,633,Sum of Square Numbers,sum-of-square-numbers,简单,否,是,较熟练634,Find the Derangement of An Array,find-the-derangement-of-an-array,中等,是,否,635,Design Log Storage System,design-log-storage-system,中等,是,否,636,Exclusive Time of Functions,exclusive-time-of-functions,中等,否,是,637,Average of Levels in Binary Tree,average-of-levels-in-binary-tree,简单,否,是,熟练638,Shopping Offers,shopping-offers,中等,否,是,639,Decode Ways II,decode-ways-ii,难,否,否,640,Solve the Equation,solve-the-equation,中等,否,是,642,Design Search Autocomplete System,design-search-autocomplete-system,难,是,否,643,Maximum Average Subarray I,maximum-average-subarray-i,简单,否,是,熟练644,Maximum Average Subarray II,maximum-average-subarray-ii,难,是,否,645,Set Mismatch,set-mismatch,简单,否,是,熟练646,Maximum Length of Pair Chain,maximum-length-of-pair-chain,中等,否,是,647,Palindromic Substrings,palindromic-substrings,中等,否,是,648,Replace Words,replace-words,中等,否,是,649,Dota2 Senate,dota2-senate,中等,否,是,650,2 Keys Keyboard,2-keys-keyboard,中等,否,是,651,4 Keys Keyboard,4-keys-keyboard,中等,是,否,652,Find Duplicate Subtrees,find-duplicate-subtrees,中等,否,是,653,Two Sum IV - Input is a BST,two-sum-iv-input-is-a-bst,简单,否,是,熟练654,Maximum Binary Tree,maximum-binary-tree,中等,否,是,熟练655,Print Binary Tree,print-binary-tree,中等,否,是,656,Coin Path,coin-path,难,是,否,657,Judge Route Circle,judge-route-circle,简单,否,是,熟练658,Find K Closest Elements,find-k-closest-elements,中等,否,是,熟练659,Split Array into Consecutive Subsequences,split-array-into-consecutive-subsequences,中等,否,否,660,Remove 9,remove-9,难,是,否,661,Image Smoother,image-smoother,简单,否,是,662,Maximum Width of Binary Tree,maximum-width-of-binary-tree,中等,否,是,663,Equal Tree Partition,equal-tree-partition,中等,是,否,664,Strange Printer,strange-printer,难,否,否,665,Non-decreasing Array,non-decreasing-array,简单,否,是,较熟练666,Path Sum IV,path-sum-iv,中等,是,否,667,Beautiful Arrangement II,beautiful-arrangement-ii,中等,否,是,668,Kth Smallest Number in Multiplication Table,kth-smallest-number-in-multiplication-table,难,否,否,669,Trim a Binary Search Tree,trim-a-binary-search-tree,简单,否,是,熟练670,Maximum Swap,maximum-swap,中等,否,是,671,Second Minimum Node In a Binary Tree,second-minimum-node-in-a-binary-tree,简单,否,是,较熟练672,Bulb Switcher II,bulb-switcher-ii,中等,否,否,
