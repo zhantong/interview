@@ -700,6 +700,8 @@ findViewById的实现是遍历，如果你定义的View越复杂代价越大。 
 
 ![binder architecture][binder_architecture]
 
+![binder architecture 2][binder_architecture_2]
+
 1. Server进程启动之后，会进入中断等待状态，等待Client的请求。
 2. 当Client需要和Server通信时，会将请求发送给Binder驱动。
 3. Binder驱动收到请求之后，会唤醒Server进程。
@@ -1416,3 +1418,5 @@ public class Handler {
 [classloader_hotpatch]: images/classloader_hotpatch.jpg
 
 [start_activity_process]: start_activity_process.jpg
+
+[binder_architecture_2]: images/binder_architecture_2.jpg
